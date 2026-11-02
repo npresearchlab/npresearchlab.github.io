@@ -34,6 +34,9 @@ The current, approved design. Changes to anything here go through a test page fi
 - Rounded corners 14px on photos and cards; pill-shaped buttons.
 - Inner pages open with a navy title band (`_includes/title-band.html`): h1 and lede on the left, the whole logo on the right edge of the content. The logo drifts slowly and its colored dots form and release links (`assets/js/title-drift.js`); still for reduced motion, paused off screen. On phones the logo sits small above the title.
 
+## Saved for later
+- **Dot line** (`_includes/dot-line.svg`): a text-width row of logo dots, gray to color with a few links. Tried above "What we study" on the home page and set aside for another page. Use with `{% include dot-line.svg %}` inside a wrapper sized to the text column, about 24px tall.
+
 ## Components
 - Buttons: primary (ink fill) and secondary (ink outline).
 - Status badges: Recruiting (red), Recruiting soon (violet).
