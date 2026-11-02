@@ -3,7 +3,7 @@ layout: default
 title: "Test: expandable PI profile"
 permalink: /test/pi-profile/
 test: true
-test_note: "Dr. Borich's profile: links under the photo; Education, Memberships, and Honors open one at a time into a shared space below."
+test_note: "Dr. Borich's profile: slightly smaller photo; the three section buttons and their shared panel sit under his bio."
 extra_css: /assets/css/test/pi-profile.css
 ---
 {% assign pi = site.data.pi %}
@@ -20,17 +20,17 @@ extra_css: /assets/css/test/pi-profile.css
         <h2>{{ pi.name }}</h2>
         <p class="pi-role">{{ pi.role }}</p>
         <p>{{ pi.summary }}</p>
+        <div class="pi-tabs" data-pi-tabs>
+          <div class="pi-tab-row">
+            <button type="button" class="pi-tab edu" aria-expanded="false" aria-controls="pi-edu">{{ mark }}Education<span class="count">{{ pi.education.size }}</span>{{ chev }}</button>
+            <button type="button" class="pi-tab mem" aria-expanded="false" aria-controls="pi-mem">{{ mark }}Memberships<span class="count">{{ pi.memberships.size }}</span>{{ chev }}</button>
+            <button type="button" class="pi-tab hon" aria-expanded="false" aria-controls="pi-hon">{{ mark }}Honors<span class="count">{{ pi.honors.size }}</span>{{ chev }}</button>
+          </div>
+          <div class="pi-panel edu" id="pi-edu"><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul></div>
+          <div class="pi-panel mem" id="pi-mem"><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></div>
+          <div class="pi-panel hon" id="pi-hon"><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></div>
+        </div>
       </div>
-    </div>
-    <div class="pi-tabs" data-pi-tabs>
-      <div class="pi-tab-row">
-        <button type="button" class="pi-tab edu" aria-expanded="false" aria-controls="pi-edu">{{ mark }}Education<span class="count">{{ pi.education.size }}</span>{{ chev }}</button>
-        <button type="button" class="pi-tab mem" aria-expanded="false" aria-controls="pi-mem">{{ mark }}Memberships<span class="count">{{ pi.memberships.size }}</span>{{ chev }}</button>
-        <button type="button" class="pi-tab hon" aria-expanded="false" aria-controls="pi-hon">{{ mark }}Honors<span class="count">{{ pi.honors.size }}</span>{{ chev }}</button>
-      </div>
-      <div class="pi-panel edu" id="pi-edu"><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul></div>
-      <div class="pi-panel mem" id="pi-mem"><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></div>
-      <div class="pi-panel hon" id="pi-hon"><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></div>
     </div>
   </div>
 </section>
