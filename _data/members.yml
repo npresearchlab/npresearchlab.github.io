@@ -1,6 +1,7 @@
 # Current lab members, shown on the People page in this order.
 # To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
 # Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
+# joint (optional): one line for people shared with another lab, e.g. "Joint with Dr. Lena Ting's Neuromechanics Lab".
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
@@ -87,6 +88,13 @@
     changes may contribute to high fall risk. Catie's work is funded by the F31 Ruth L. Kirschstein National
     Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show
     tunes, and explore the city!
+- name: Joon Han Kim
+  role: Research Specialist
+  group: Research staff, postdocs, and graduate students
+  affiliation: Emory University
+  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
+  photo: /assets/img/people/placeholder.jpg
+  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Janki Shah
   role: Undergraduate Student
   group: Undergraduate students
