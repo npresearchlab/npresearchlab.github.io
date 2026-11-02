@@ -4,25 +4,6 @@
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
-- name: Yasmine Bassil, PhD
-  role: Assistant Research Scientist
-  group: Research staff, postdocs, and graduate students
-  affiliation: Neuroscience Graduate Program, Emory University
-  honors: NSF GRFP Awardee
-  photo: /assets/img/people/yasmine-bassil.jpg
-  bio: >-
-    Yasmine received her Bachelor's degree in Neuroscience at the Georgia Institute of Technology, where
-    she completed the Research Option certificate and conducted undergraduate research with Dr. Shella
-    Keilholz as a part of the Keilholz MIND Lab. Her primary undergraduate research focused on studying
-    resting-state functional connectivity and whole-brain dynamics in ADHD using fMRI. Currently, Yasmine
-    is pursuing her PhD in Neuroscience at Emory University and is interested in aging-related changes
-    in the connectivity and plasticity of the human spatial navigation network, using concurrent TMS-fMRI.
-    She also serves as the Co-Chair of the Emory Neuroscience Graduate Program's Diversity, Equity, &
-    Inclusion (DEI) Committee, as well as the Secretary for the Graduates in Neuroscience organization.
-    Additionally, she is a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training
-    Program. Outside of Emory, she enjoys roller-skating, taking care of her indoor plants, cooking food
-    from various cultural cuisines, visiting museums, thrifting, playing the piano, singing karaoke, and
-    learning how to play the bass guitar.
 - name: Nathan Baune
   role: Postdoctoral Research Fellow
   group: Research staff, postdocs, and graduate students
@@ -52,6 +33,31 @@
   affiliation: Emory University
   photo: /assets/img/people/placeholder.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+- name: Oindrila Sinha
+  role: Postdoctoral Fellow
+  group: Research staff, postdocs, and graduate students
+  affiliation: Emory University and Georgia Institute of Technology
+  photo: /assets/img/people/placeholder.jpg
+  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+- name: Yasmine Bassil, PhD
+  role: Assistant Research Scientist
+  group: Research staff, postdocs, and graduate students
+  affiliation: Neuroscience Graduate Program, Emory University
+  honors: NSF GRFP Awardee
+  photo: /assets/img/people/yasmine-bassil.jpg
+  bio: >-
+    Yasmine received her Bachelor's degree in Neuroscience at the Georgia Institute of Technology, where
+    she completed the Research Option certificate and conducted undergraduate research with Dr. Shella
+    Keilholz as a part of the Keilholz MIND Lab. Her primary undergraduate research focused on studying
+    resting-state functional connectivity and whole-brain dynamics in ADHD using fMRI. Currently, Yasmine
+    is pursuing her PhD in Neuroscience at Emory University and is interested in aging-related changes
+    in the connectivity and plasticity of the human spatial navigation network, using concurrent TMS-fMRI.
+    She also serves as the Co-Chair of the Emory Neuroscience Graduate Program's Diversity, Equity, &
+    Inclusion (DEI) Committee, as well as the Secretary for the Graduates in Neuroscience organization.
+    Additionally, she is a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training
+    Program. Outside of Emory, she enjoys roller-skating, taking care of her indoor plants, cooking food
+    from various cultural cuisines, visiting museums, thrifting, playing the piano, singing karaoke, and
+    learning how to play the bass guitar.
 - name: Iran Gutierrez
   role: PhD Student
   group: Research staff, postdocs, and graduate students
@@ -65,8 +71,8 @@
     aging and clinical populations as well as the development of personalized rehabilitative interventions.
     Outside of lab, Iran loves to go on walks with her miniature dachshund Butters, workout, hang out
     at coffee shops, and work on her car.
-- name: Catie Mason
-  role: Affiliated PhD Candidate
+- name: Catie Mason, PhD
+  role: Affiliated Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
   affiliation: Neuroscience Graduate Program, Emory University
   honors: NIH F31 Awardee
