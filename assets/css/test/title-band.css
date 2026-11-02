@@ -1,0 +1,9 @@
+/* TEST: page title band (navy field, lab logo enlarged and cropped at the right edge).
+   Only loaded by /test/title-band/. */
+.v2-title { background: var(--ink); color: #fff; position: relative; overflow: hidden; padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+.v2-title .wrap { position: relative; z-index: 1; }
+.v2-title h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); max-width: 14ch; margin-bottom: .35em; }
+.v2-title .lede { color: #dfe6f0; max-width: 46ch; }
+.v2-title-mark { position: absolute; right: -6%; top: 50%; transform: translateY(-50%); height: 150%; width: auto; pointer-events: none; }
+@media (max-width: 760px) { .v2-title-mark { right: -12%; height: 115%; opacity: .5; } }
+.band-label { padding: 2.5rem 0 1rem; color: var(--ink-2); font-weight: 700; }
