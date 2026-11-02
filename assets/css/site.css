@@ -144,7 +144,13 @@ li { margin-bottom: 0.35em; }
 @media (max-width: 860px) { .themes { grid-template-columns: 1fr; } .theme img { aspect-ratio: 16 / 9; } }
 
 .team-figure { margin: 0; }
-.team-figure img { width: 100%; border-radius: var(--radius); aspect-ratio: 4 / 3.4; object-fit: cover; object-position: 50% 60%; }
+.team-figure img { width: 100%; border-radius: var(--radius); aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%; }
+.about-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 2rem clamp(2rem, 4vw, 3.5rem); align-items: center; }
+.about-intro p:last-child { margin-bottom: 0; }
+.about-more { grid-column: 1 / -1; }
+.about-more p { max-width: 75ch; }
+.about-more .actions { margin-top: 1.25rem; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
 
