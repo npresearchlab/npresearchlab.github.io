@@ -1,0 +1,12 @@
+<footer class="v2-footer">
+  <div class="wrap">
+    <p class="v2-footer-name"><img src="{{ '/assets/img/test/nprl-dots.svg' | relative_url }}" alt="">Neural Plasticity Research Lab</p>
+    <div class="v2-footer-grid">
+      <p>Division of Physical Therapy, Department of Rehabilitation Medicine, Emory University School of Medicine</p>
+      <address>{% for l in site.contact.address_lines %}{{ l }}<br>{% endfor %}</address>
+      <p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a><br><a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a></p>
+      <p>{% for s in site.social %}<a href="{{ s.url }}">{{ s.label }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+    </div>
+    <p class="v2-footer-base">© {{ site.time | date: '%Y' }} Neural Plasticity Research Lab, Emory University</p>
+  </div>
+</footer>

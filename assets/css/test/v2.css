@@ -1,0 +1,109 @@
+/* TEST v2 — layered on top of site.css. Only loaded by pages under /test/v2/.
+   Idea: the lab's dot-brain stops being a corner sticker and becomes the structure:
+   enlarged and cropped in each page title, dots instead of divider lines, linked dots as status. */
+
+:root {
+  --step-3: clamp(2.4rem, 4.4vw, 3.5rem);
+  --radius: 0px;
+}
+
+/* Running text in full ink; secondary grey only for small meta */
+.lede, .section-head p, .theme p, .project p, .recruit .who, .pi-role { color: var(--ink); }
+
+/* No hairlines: space and tone instead */
+.site-header { border-bottom: 0; box-shadow: 0 1px 0 rgba(20,32,58,.06); }
+.site-header nav a[aria-current="page"] { box-shadow: none; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: .45em; text-decoration-color: var(--blue); }
+.page-title { border-bottom: 0; }
+
+/* Photos: square corners everywhere (dots are the only round thing) */
+img { border-radius: 0 !important; }
+.collab img { border-radius: 50% !important; }
+
+/* Bigger gaps between sections than inside them */
+.section { padding: clamp(4.5rem, 10vw, 8rem) 0; }
+
+/* Dot rule: a single row of logo dots replaces divider lines */
+.dot-rule { display: block; width: min(100%, 860px); height: auto; margin: 0 0 2.5rem; }
+
+/* Linked-dots status marker (two dots joined = recruiting, unjoined = soon) */
+.v2-status { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1rem; }
+.v2-status .linked { width: 34px; height: 14px; }
+.v2-status.recruiting { color: var(--red-text); }
+.v2-status.soon { color: var(--violet); }
+
+/* Page titles: navy field, the logo enlarged and cropped at the right edge */
+.v2-title { background: var(--ink); color: #fff; position: relative; overflow: hidden; padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+.v2-title .wrap { position: relative; z-index: 1; }
+.v2-title h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); max-width: 14ch; margin-bottom: .35em; }
+.v2-title .lede { color: #dfe6f0; max-width: 46ch; }
+.v2-title .crumb a { color: #fff; }
+.v2-title-mark { position: absolute; right: -6%; top: 50%; transform: translateY(-50%); height: 150%; width: auto; pointer-events: none; }
+@media (max-width: 760px) { .v2-title-mark { right: -12%; height: 115%; opacity: .5; } }
+
+/* HOME: volunteers become a full navy field with large, plain-language rows */
+.v2-recruit { background: var(--ink); color: #fff; }
+.v2-recruit h2 { color: #fff; }
+.v2-recruit .section-head p { color: #dfe6f0; }
+.v2-recruit a { color: #fff; }
+.v2-recruit-rows { list-style: none; padding: 0; margin: 0; }
+.v2-recruit-rows li { display: grid; grid-template-columns: 1fr auto; gap: .5rem 2rem; align-items: end; padding: 1.75rem 0; margin: 0; }
+.v2-recruit-rows li + li { box-shadow: 0 -2px 0 rgba(255,255,255,.12); }
+.v2-recruit-rows .who { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 750; line-height: 1.15; letter-spacing: -0.02em; margin: .5rem 0 .35rem; color: #fff; }
+.v2-recruit-rows .t { color: #c9d3e2; font-size: 1.05rem; margin: 0; }
+.v2-recruit-rows .v2-status.recruiting { color: #ff7d92; }
+.v2-recruit-rows .go { white-space: nowrap; }
+.v2-recruit .btn { border-color: #fff; color: #fff; }
+.v2-recruit .btn:hover { background: rgba(255,255,255,.1); }
+.v2-recruit .btn-primary { background: #fff; color: var(--ink); }
+.v2-recruit .btn-primary:hover { background: #e9eef5; }
+@media (max-width: 760px) { .v2-recruit-rows li { grid-template-columns: 1fr; } }
+
+/* HOME: research themes as one wide picture + two stacked, not three equal cards */
+.v2-themes { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: auto auto; gap: 2.5rem 3rem; }
+.v2-themes .theme:first-child { grid-row: span 2; }
+.v2-themes .theme:first-child img { aspect-ratio: 4 / 3.6; }
+.v2-themes .theme img { aspect-ratio: 16 / 9; }
+.v2-themes .theme:first-child h3 { font-size: 1.75rem; }
+@media (max-width: 860px) { .v2-themes { grid-template-columns: 1fr; } .v2-themes .theme:first-child { grid-row: auto; } }
+
+/* RESEARCH: readable measure, larger text, space instead of rules */
+.project { border-top: 0; padding: 2.5rem 0; grid-template-columns: 16rem 1fr; }
+.project p { font-size: 1.1875rem; max-width: 64ch; }
+.project h3 { font-size: 1.6rem; }
+.project .plain { font-size: 1.25rem; font-weight: 600; margin: 0 0 .75rem; max-width: 50ch; }
+
+/* RESEARCH: equipment as an edge-to-edge photo strip */
+.v2-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.v2-strip figure { margin: 0; position: relative; }
+.v2-strip img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.v2-strip figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.1rem 1rem; color: #fff; font-weight: 700; font-size: 1.1rem; line-height: 1.25; background: linear-gradient(transparent, rgba(10,16,30,.78)); }
+@media (max-width: 760px) { .v2-strip { grid-template-columns: 1fr 1fr; } }
+
+.pubs li { border-top: 0; padding: .9rem 0; }
+.pubs li:nth-child(odd) { background: transparent; }
+
+/* PEOPLE: lab photo full width under the title; denser headshot grid */
+.v2-teamphoto img { width: 100%; aspect-ratio: 21 / 8; object-fit: cover; object-position: 50% 58%; display: block; }
+.members { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 2.5rem 1.5rem; }
+.member-group > h2 { border-bottom: 0; padding-bottom: 0; }
+.member .aff, .member .honors { color: var(--ink-2); }
+.alumni li { border-bottom: 0; padding: .45rem 0; }
+
+/* GET INVOLVED: plain-language question first, technical title second */
+.study { border-top: 0; padding: 1.75rem 0; }
+.study h3.q { font-size: 1.5rem; font-weight: 750; line-height: 1.2; letter-spacing: -0.015em; margin: .5rem 0 .3rem; }
+.study .t { color: var(--ink-2); font-size: 1rem; margin: 0 0 .75rem; }
+.contact-card { background: var(--ink); color: #fff; }
+.contact-card h2, .contact-card .big { color: #fff; }
+.contact-card a { color: #fff; }
+.contact-card .btn-primary { background: #fff; color: var(--ink); border-color: #fff; }
+
+/* Footer: the name returns at full width */
+.v2-footer { background: var(--mist); color: var(--ink); padding: clamp(3.5rem, 8vw, 6rem) 0 1.5rem; font-size: 1rem; }
+.v2-footer a { color: var(--ink); }
+.v2-footer-name { display: flex; align-items: center; gap: clamp(.75rem, 2vw, 1.5rem); font-size: clamp(1.9rem, 4.4vw, 3.9rem); font-weight: 780; letter-spacing: -0.035em; line-height: 1; margin: 0 0 3rem; max-width: none; }
+.v2-footer-name img { height: 1.15em; width: auto; flex: none; }
+.v2-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr .8fr; gap: 2rem; }
+.v2-footer-grid address { font-style: normal; }
+.v2-footer-base { margin-top: 3rem; font-size: .9rem; color: var(--ink-2); }
+@media (max-width: 860px) { .v2-footer-grid { grid-template-columns: 1fr 1fr; } }

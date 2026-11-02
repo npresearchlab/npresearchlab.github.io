@@ -1,0 +1,57 @@
+---
+layout: default
+slug: involved
+title: "Test v2: Get involved"
+permalink: /test/v2/get-involved/
+test: true
+test_note: "design v2 of the Get involved page. The live page has not changed."
+extra_css: /assets/css/test/v2.css
+footer: test/footer-v2.html
+v2_links: [/people/, /research/, /get-involved/]
+---
+{% include test/title-v2.html title="Get involved" lede="Volunteer for a study, or join the lab as a student or postdoc." %}
+
+<section class="section" id="participate">
+  <div class="wrap paths">
+    <div>
+      <h2>Take part in a study</h2>
+      <p>Our lab is currently recruiting participants for different studies. Read about each study below. If one sounds like a fit, or you're not sure, call or email us and a member of the team will talk it through with you.</p>
+      {% for p in site.data.projects %}{% if p.eligibility %}
+      <div class="study" id="{{ p.title | slugify }}">
+        {% if p.status == "recruiting" %}<span class="v2-status recruiting">{% include test/linked.svg %}Recruiting</span>{% else %}<span class="v2-status soon">{% include test/unlinked.svg %}Recruiting soon</span>{% endif %}
+        <h3 class="q">{{ p.who }}</h3>
+        <p class="t">{{ p.title }}</p>
+        <p style="margin-bottom:.4rem"><strong>Who can take part:</strong></p>
+        <ul>{% for e in p.eligibility %}<li>{{ e }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}{% endfor %}
+    </div>
+    <aside>
+      <div class="contact-card" style="position:sticky;top:6rem">
+        <h2>Contact the lab</h2>
+        <p>Call us</p>
+        <a class="big" href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a>
+        <p style="margin-top:1.25rem">Or email</p>
+        <a class="big" style="font-size:1.25rem;word-break:break-all" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:{{ site.contact.email }}?subject={{ 'I am interested in a research study' | uri_escape }}&body={{ 'Name:%0APhone number:%0AWhich study (if you know):%0ABest time to reach me:%0A' }}">Email about a study</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-mist" id="join">
+  <div class="wrap split">
+    <img src="{{ '/assets/img/tools/tms-eeg.jpg' | relative_url }}" alt="Researchers running a TMS and EEG session with a participant" loading="lazy" style="border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%">
+    <div>
+      <h2>Prospective students and fellows</h2>
+      <p>Are you interested in contributing to faculty research or developing a research project that supports your career goals? Students and postdoctoral fellows in the NPRL are provided with opportunities to engage with scholarly research or develop autonomous projects.</p>
+      <p>Email us with a short note about your background, your interests, and whether you're an undergraduate, graduate student, or postdoc.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:{{ site.contact.email }}?subject={{ 'Joining the NPRL' | uri_escape }}">Email about joining the lab</a>
+        <a class="btn" href="{{ '/equity-inclusion-mentorship/#mentorship' | relative_url }}">How we mentor</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,13 +1,14 @@
 {% capture navlinks %}
 <ul>
   {% for item in site.nav %}
-  <li><a href="{{ item.url | relative_url }}"{% if page.url contains item.url or item.url == "/about/" and page.slug == "equity" %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+  {% assign u = item.url %}{% if page.v2_links contains item.url %}{% assign u = '/test/v2' | append: item.url %}{% endif %}
+  <li><a href="{{ u | relative_url }}"{% if page.url contains item.url or item.url == "/about/" and page.slug == "equity" %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
   {% endfor %}
 </ul>
 {% endcapture %}
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
+    <a class="brand" href="{% if page.v2_links %}{{ '/test/v2/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
       <img src="{{ '/assets/img/nprl-mark.png' | relative_url }}" alt="" width="28" height="35">
       <span>Neural Plasticity Research Lab</span>
     </a>
