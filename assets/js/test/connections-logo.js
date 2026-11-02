@@ -24,7 +24,7 @@
   DOTS.forEach(function (d) { circle(d[0], d[1], d[2], d[3]); });
   var lines = [];
   LINKS.forEach(function (L, i) {
-    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 1.2;
+    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 1.0;
     L.segs.forEach(function (s) {
       var line = document.createElementNS(NS, 'line');
       line.setAttribute('x1', s[0]); line.setAttribute('y1', s[1]); line.setAttribute('x2', s[2]); line.setAttribute('y2', s[3]);
