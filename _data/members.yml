@@ -1,0 +1,213 @@
+# Current lab members, shown on the People page in this order.
+# To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
+# Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
+# group must be one of: Research staff, Graduate students, Undergraduate students
+# To move someone to alumni: delete their block here and add a line to alumni.yml.
+
+- name: Jasmine Mirdamadi
+  role: Research Scientist
+  group: Research staff
+  affiliation: Department of Rehabilitation Medicine, Emory University
+  honors: NIH F32 Awardee
+  photo: /assets/img/people/jasmine-mirdamadi.jpg
+  links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=mcp_4HQAAAAJ&hl=en&inst=15365353816232672843
+  bio: >-
+    Dr. Mirdamadi received her PhD in Human Performance and Neuroscience from Indiana University in April
+    2020. Her research focuses on how the brain integrates sensory information to control movement and
+    learn new skills. She is interested in advancing our understanding on the neural mechanisms of sensory
+    and motor plasticity associated with learning in healthy individuals, and then how these mechanisms
+    are affected by neurological injuries, such as stroke. She is also interested in identifying factors
+    contributing to individual differences in plasticity, through both experience (i.e. practice, rehabilitation)
+    and neuromodulation, to optimize neuroplastic potential and functional behaviors. In collaboration
+    with Lena Ting and the Neuromechanics Lab, Jasmine is investigating neural correlates of whole-body
+    motion perception and their association to balance ability in neurotypical younger and older adults,
+    and people who have had a stroke. In her spare time, Jasmine enjoys rock climbing, hiking, baking,
+    and playing with her dogs.
+- name: Nathan Baune
+  role: Postdoctoral Research Fellow
+  group: Research staff
+  affiliation: Department of Rehabilitation Medicine, Emory University
+  honors: AHA Postdoctoral Fellowship Awardee
+  photo: /assets/img/people/nathan-baune.jpg
+  links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=BpYiSmQAAAAJ&hl=en
+  bio: >-
+    Nathan is a rehabilitation neuroscientist interested in sensory and multisensory contributions to
+    upper limb goal-directed action. He has utilized virtual reality, fMRI, and behavioral measures to
+    study neural and behavioral changes post-stroke and in peripheral nerve injury, including amputees
+    and former amputees that have received a donor hand transplant. He is most interested in the interplay
+    between vision and proprioception, including how their interaction changes following neurological
+    injury or as we age. He is currently working on a project funded by the American Heart Association
+    to identify neurophysiologic assessments of proprioceptive deficit and altered visuo-proprioceptive
+    processing post-stroke. This research relies on measures of brain activity (EEG) along with precision
+    robotics to record markers of sensory change during upper limb behaviors. He has also worked in industry
+    as a co-inventor and Director of Operations in developing a motion AI system which utilizes wearable
+    sensors to track activities of daily living in the homes of stroke survivors. Nathan enjoys the latest
+    technology, especially considering how it can be used to answer difficult research questions. Nathan
+    is also fond of cycling, gardening, snowboarding (which is difficult in Georgia), and hunting mushrooms.
+- name: Yasmine Bassil
+  role: PhD Candidate
+  group: Graduate students
+  affiliation: Neuroscience Graduate Program, Emory University
+  honors: NSF GRFP Awardee
+  photo: /assets/img/people/yasmine-bassil.jpg
+  bio: >-
+    Yasmine received her Bachelor's degree in Neuroscience at the Georgia Institute of Technology, where
+    she completed the Research Option certificate and conducted undergraduate research with Dr. Shella
+    Keilholz as a part of the Keilholz MIND Lab. Her primary undergraduate research focused on studying
+    resting-state functional connectivity and whole-brain dynamics in ADHD using fMRI. Currently, Yasmine
+    is pursuing her PhD in Neuroscience at Emory University and is interested in aging-related changes
+    in the connectivity and plasticity of the human spatial navigation network, using concurrent TMS-fMRI.
+    She also serves as the Co-Chair of the Emory Neuroscience Graduate Program's Diversity, Equity, &
+    Inclusion (DEI) Committee, as well as the Secretary for the Graduates in Neuroscience organization.
+    Additionally, she is a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training
+    Program. Outside of Emory, she enjoys roller-skating, taking care of her indoor plants, cooking food
+    from various cultural cuisines, visiting museums, thrifting, playing the piano, singing karaoke, and
+    learning how to play the bass guitar.
+- name: Camille Guzman
+  role: PhD Student
+  group: Graduate students
+  affiliation: Department of Biomedical Engineering, Emory University, Georgia Institute of Technology
+  photo: /assets/img/people/camille-guzman.jpg
+  bio: >-
+    Camille received her B.S. in Biomedical Engineering (BME) from Northwestern University (go cats!)
+    in 2021. She is currently a PhD student in the Emory and Georgia Tech BME program and a fellow in
+    the GT/Emory NIH T32 Computational Neural Engineering Training Program. She is co-advised by Dr. Michael
+    Borich and Dr. Trisha Kesar. Camille is using peripheral nerve stimulation to understand how spinal
+    excitability is modulated during cognitive-motor dual-task conditions as a function of age. In her
+    free time, Camille loves to play board games, watch TV (and force her labmates to watch her favorite
+    shows), and taking naps with her dog, Ralphie.
+- name: Iran Gutierrez
+  role: PhD Student
+  group: Graduate students
+  affiliation: Neuroscience Graduate Program, Emory University
+  photo: /assets/img/people/iran-gutierrez.jpg
+  bio: >-
+    Iran received her bachelor’s degree in Psychology at Emory University in 2022. After graduating, she
+    worked as a research specialist in the Neural Plasticity Research Lab. She is currently pursuing her
+    PhD in Neuroscience at Emory University. She is co-advised by Dr. Michael Borich and Dr. Lena Ting.
+    Iran is interested in understanding the neural mechanisms underlying cognitive-motor impairments in
+    aging and clinical populations as well as the development of personalized rehabilitative interventions.
+    Outside of lab, Iran loves to go on walks with her miniature dachshund Butters, workout, hang out
+    at coffee shops, and work on her car.
+- name: Emily Cui
+  role: Research Specialist
+  group: Research staff
+  affiliation: Department of Rehabilitation Medicine, Emory University
+  honors: Emory NBB Highest Honors; Emory 100 Senior Honorary 2023 Awardee
+  photo: /assets/img/people/emily-cui.jpg
+  links:
+  - label: Honors Thesis
+    url: https://etd.library.emory.edu/concern/etds/kw52j947p?locale=en
+  bio: >-
+    Emily graduated summa cum laude from Emory University in May 2023 with a B.S. in Neuroscience & Behavioral
+    Biology (NBB). During her undergraduate senior year, she was mentored by Yasmine Bassil, pursuing
+    a thesis project investigating spatial navigation ability (specifically reference frame utilization)
+    in the context of human aging. After graduating, she has assumed a new role as research specialist.
+    In her spare time, Emily loves to play flute, read, complete frustrating puzzles, go on nature walks,
+    explore the city of Atlanta, and travel. She is also an avid Boston Celtics fan (go Cs!) and loves
+    animals (she has two pet cats, Sammy & Pipper, at home).
+- name: Catie Mason
+  role: Affiliated PhD Candidate
+  group: Graduate students
+  affiliation: Neuroscience Graduate Program, Emory University
+  honors: NIH F31 Awardee
+  photo: /assets/img/people/catie-mason.jpg
+  bio: >-
+    Catie received her Bachelors of Science in Biology with a concentration in Physiology & Neuroscience
+    from NC State University. She is currently pursuing a PhD in Neuroscience at Emory University, and
+    she's also a member of Dr. Trisha Kesar's MOTIONs Lab and Dr. Lena Ting's Neuromechanics Lab. Catie
+    uses Transcranial Magnetic Stimulation (TMS) during cognitive-motor dual-tasks to study cognitive-motor
+    circuit interactions in the cortex that contribute to standing balance control. She is interested
+    in elucidating how cognitive-motor circuits change across age and cognitive ability and how these
+    changes may contribute to high fall risk. Catie's work is funded by the F31 Ruth L. Kirschstein National
+    Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show
+    tunes, and explore the city!
+- name: Fisayo Aloba
+  role: Affiliated PhD Candidate
+  group: Graduate students
+  affiliation: Neuroscience Graduate Program, Emory University
+  honors: NIH T32 Awardee 2021-2022; NIH F31 Awardee
+  photo: /assets/img/people/fisayo-aloba.jpg
+  bio: >-
+    Fisayo received her BS in Medical Rehabilitation (Physiotherapy) from Obafemi Awolowo University,
+    Nigeria, then received her Master's in Physical Therapy from MGH Institute of Health Professions in
+    Boston and her Doctor of Physical Therapy from Texas Tech University HSC School of Health Professions.
+    She is in the Ph.D. Neuroscience program at Emory investigating different combinations of interventions
+    in people who have spatial neglect and gait deficits post-stroke. She uses both clinical and neurophysiological
+    outcome measures to compare their effectiveness/efficacy. Outside of the lab, she loves to explore
+    and travel.
+- name: Janki Shah
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Neuroscience Major, Physiology Minor, Georgia Institute of Technology
+  photo: /assets/img/people/janki-shah.jpg
+  bio: >-
+    Janki is a third-year undergraduate student at Georgia Tech majoring in Neuroscience with a minor
+    in Physiology. She is currently working with Catie Mason to study how cognitive resource allocation
+    modulates motor cortical contributions to standing balance. In her free time she loves painting, graphic
+    design, going to the gym, and reading!
+- name: Emma Funderburg
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Neuroscience & Behavioral Biology (NBB) Major, Emory University
+  photo: /assets/img/people/emma-funderburg.jpg
+  bio: >-
+    Emma is a fourth-year undergraduate student at Emory studying Neuroscience & Behavioral Biology. She
+    is currently working with Yasmine Bassil to study the neural correlates of reference frame utilization
+    in human spatial navigation across the lifespan. In her free time, Emma loves to go to spin classes,
+    cook, & go to concerts.
+- name: Ashley Pelton
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Neuroscience Major, Computer Science Minor, Georgia Institute of Technology
+  photo: /assets/img/people/ashley-pelton.jpg
+  bio: >-
+    Ashley is a fourth-year undergraduate student at Georgia Tech studying neuroscience and computer science.
+    She is currently working on the Navigation team with Yasmine Bassil to study age-related differences
+    in functional connectivity within the spatial navigation network. Outside of the lab, Ashley loves
+    trying new workouts, reading, and exploring Atlanta!
+- name: Akarshana Arunkumar
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: >-
+    Neuroscience Major, Health & Medical Sciences (HMED) Minor, Georgia Institute of Technology
+  photo: /assets/img/people/akarshana-arunkumar.jpg
+  bio: >-
+    Akarshana is a second-year undergraduate student at Georgia Tech with a major in Neuroscience and
+    minor in Health and Medical Sciences (HMED). She is currently working with Yasmine Bassil to study
+    the biological and behavioral correlates of aging effects on human spatial navigation. Outside of
+    the lab, Akarshana loves to be outside, read, or hang with friends/family.
+- name: Alan Shnir
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Statistics in Biology Major, Business Minor, Emory University
+  photo: /assets/img/people/alan-shnir.jpg
+  bio: >-
+    Alan is a third-year undergraduate student at Emory University with a major in Statistics and minor
+    in Business. Alan is currently working with Dr. Nathan Baune to create machine learning models that
+    can detect EEG components correlated with upper-limb movement quality on a Kinarm machine. Outside
+    of the lab, Alan loves to play guitar, listen to audiobooks, work on startups, and travel.
+- name: Kanishka Sindhwani
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Neuroscience Major, Georgia Institute of Technology
+  photo: /assets/img/people/kanishka-sindhwani.jpg
+  bio: >-
+    Kanishka is a second-year undergraduate student at Georgia Tech. She is currently working with Dr.
+    Jasmine Mirdamadi, Dr. Nathan Baune and Iran Gutierrez to determine the functional contributions of
+    motor cortical regions to motor skill learning. In her free time, Kanishka loves to run, travel, and
+    play the piano.
+- name: Ana Pichanick
+  role: Undergraduate Student
+  group: Undergraduate students
+  affiliation: Neuroscience Major, French Minor, Georgia Institute of Technology
+  photo: /assets/img/people/ana-pichanick.jpg
+  bio: >-
+    Ana is a third-year undergraduate student at Georgia Tech majoring in Neuroscience and minoring in
+    French. She is working with Dr. Nathan Baune to uncover the neural mechanisms underlying proprioceptive
+    performance in older and younger adults as well as in individuals post-stroke using a Kinarm machine.
+    Apart from research, Ana figure skates competitively and loves to bake.

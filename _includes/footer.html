@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img class="footer-logo" src="{{ '/assets/img/nprl-mark.png' | relative_url }}" alt="" width="40" height="50">
+      <p class="footer-name">Neural Plasticity Research Lab</p>
+      <p>Division of Physical Therapy, Department of Rehabilitation Medicine, Emory University School of Medicine</p>
+    </div>
+    <div>
+      <h2>Visit</h2>
+      <address>{% for l in site.contact.address_lines %}{{ l }}<br>{% endfor %}</address>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a><br>
+      <a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a></p>
+      <p class="social">{% for s in site.social %}<a href="{{ s.url }}">{{ s.label }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>© {{ site.time | date: '%Y' }} Neural Plasticity Research Lab, Emory University</p>
+  </div>
+</footer>

@@ -1,0 +1,84 @@
+---
+layout: default
+slug: home
+title: Neural Plasticity Research Lab
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>How the brain adapts, and how rehabilitation can help it</h1>
+      <p class="lede">The Neural Plasticity Research Lab at Emory University studies the adaptive capacity of the human brain, to design new rehabilitation strategies for people living with stroke and other neurologic injury and disease.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ '/get-involved/' | relative_url }}">Take part in a study</a>
+        <a class="btn" href="{{ '/research/' | relative_url }}">See our research</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg id="connections" role="presentation"></svg>
+    </div>
+  </div>
+</section>
+
+{% assign recruiting = site.data.projects | where: "status", "recruiting" %}
+{% if recruiting.size > 0 %}
+<section class="section section-mist" aria-labelledby="recruiting-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="recruiting-heading">Studies looking for volunteers</h2>
+      <p>You don't need a science background to take part. Call us at <a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a> or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> and we'll walk you through it.</p>
+    </div>
+    <div class="recruit-list">
+      {% for p in recruiting %}
+      <article class="recruit">
+        <span class="status status-recruiting">Recruiting</span>
+        <h3>{{ p.title }}</h3>
+        <p class="who">{{ p.who }}</p>
+        <a class="more" href="{{ '/get-involved/' | relative_url }}#{{ p.title | slugify }}">Check if you're eligible</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section" aria-labelledby="study-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="study-heading">What we study</h2>
+      <p>We use neuroimaging, brain stimulation, robotics and virtual reality to see how the nervous system changes with learning, aging and injury.</p>
+    </div>
+    <div class="themes">
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/research/perturbation.jpg' | relative_url }}" alt="A participant in a safety harness during a balance experiment, wearing an EEG cap" loading="lazy">
+        <h3>Balance and falls</h3>
+        <p>How the brain senses body motion and keeps us upright, and why that changes with age and after a stroke.</p>
+      </a>
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/tools/kinarm.jpg' | relative_url }}" alt="A researcher using the Kinarm robotic arm-movement system" loading="lazy">
+        <h3>Sensation and movement after stroke</h3>
+        <p>Measuring how the brain uses touch, body position and vision to guide the arm, and predicting who will recover.</p>
+      </a>
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/research/er.jpg' | relative_url }}" alt="A participant navigating a virtual environment wearing a VR headset" loading="lazy">
+        <h3>Aging and navigation</h3>
+        <p>How the brain's navigation network changes as we get older, studied with virtual reality and combined TMS and fMRI.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-mist" aria-labelledby="lab-heading">
+  <div class="wrap split">
+    <figure class="team-figure">
+      <img src="{{ '/assets/img/team-2022.jpg' | relative_url }}" alt="Members of the Neural Plasticity Research Lab standing together outdoors" loading="lazy">
+    </figure>
+    <div>
+      <h2 id="lab-heading">An interdisciplinary, mentored lab</h2>
+      <p>Our team brings together physical therapists, neuroscientists, biomedical engineers and students from Emory and Georgia Tech. Every member of the lab has mentors, and we work to make the lab welcoming to everyone, from trainees to the community members who volunteer for our studies.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ '/people/' | relative_url }}">Meet the lab</a>
+        <a class="btn" href="{{ '/about/#dei' | relative_url }}">Our values and mentoring</a>
+      </div>
+    </div>
+  </div>
+</section>

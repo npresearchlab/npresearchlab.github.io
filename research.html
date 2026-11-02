@@ -1,0 +1,63 @@
+---
+layout: default
+slug: research
+title: Research
+permalink: /research/
+---
+<section class="page-title">
+  <div class="wrap">
+    <h1>Research</h1>
+    <p class="lede">We combine neuroimaging, brain stimulation, robotics and virtual reality to understand how the nervous system adapts, and to find better ways to support recovery after neurologic injury.</p>
+  </div>
+  <img class="dots-strip" src="{{ '/assets/img/nprl-mark.png' | relative_url }}" alt="">
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Current projects</h2></div>
+    <div class="projects">
+      {% for p in site.data.projects %}
+      <article class="project" id="{{ p.title | slugify }}">
+        <img src="{{ p.photo | relative_url }}" alt="" loading="lazy">
+        <div>
+          {% if p.status == "recruiting" %}<span class="status status-recruiting">Recruiting</span>{% elsif p.status == "coming-soon" %}<span class="status status-coming-soon">Recruiting soon</span>{% endif %}
+          <h3>{{ p.title }}</h3>
+          {% if p.summary != "" %}<p>{{ p.summary }}</p>{% endif %}
+          {% if p.eligibility %}
+          <details>
+            <summary>Who can take part</summary>
+            <ul>{% for e in p.eligibility %}<li>{{ e }}</li>{% endfor %}</ul>
+            <p><a href="{{ '/get-involved/' | relative_url }}">How to sign up</a></p>
+          </details>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-mist" id="tools">
+  <div class="wrap">
+    <div class="section-head"><h2>Tools and methods</h2></div>
+    <div class="tools">
+      {% for t in site.data.tools %}
+      <div class="tool"><figure><img src="{{ t.photo | relative_url }}" alt="{{ t.name }}" loading="lazy"><figcaption>{{ t.name }}</figcaption></figure></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected publications</h2>
+      <p>For the full list, see <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Borich+MR+OR+Borich+M">PubMed</a> or <a href="https://scholar.google.com/citations?user=6sEAJ1MAAAAJ&hl=en&oi=sra">Google Scholar</a>.</p>
+    </div>
+    <ul class="pubs">
+      {% for p in site.data.publications %}
+      <li><a class="t" href="{{ p.url }}">{{ p.title }}</a><span class="m">{{ p.authors }}. <em>{{ p.venue }}</em>{% if p.year %}, {{ p.year }}{% endif %}.</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

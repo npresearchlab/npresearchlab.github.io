@@ -1,0 +1,81 @@
+---
+layout: default
+slug: people
+title: People
+permalink: /people/
+---
+{% assign pi = site.data.pi %}
+<section class="page-title">
+  <div class="wrap">
+    <h1>People</h1>
+    <p class="lede">Physical therapists, neuroscientists, engineers and students working together at Emory and Georgia Tech.</p>
+  </div>
+  <img class="dots-strip" src="{{ '/assets/img/nprl-mark.png' | relative_url }}" alt="">
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="pi">
+      <img class="pi-photo" src="{{ pi.photo | relative_url }}" alt="Portrait of {{ pi.name }}">
+      <div>
+        <h2>{{ pi.name }}</h2>
+        <p class="pi-role">{{ pi.role }}</p>
+        <p>{{ pi.summary }}</p>
+        <p>{% for l in pi.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} &nbsp;|&nbsp; {% endunless %}{% endfor %}</p>
+        <div class="pi-cols">
+          <div><h3>Education</h3><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul>
+               <h3>Memberships</h3><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></div>
+          <div><h3>Honors</h3><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></div>
+        </div>
+      </div>
+    </div>
+
+    {% assign groups = "Research staff,Graduate students,Undergraduate students" | split: "," %}
+    {% for g in groups %}
+    {% assign ms = site.data.members | where: "group", g %}
+    {% if ms.size > 0 %}
+    <div class="member-group">
+      <h2>{{ g }}</h2>
+      <div class="members">
+        {% for m in ms %}
+        <article class="member">
+          <img src="{{ m.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt="Portrait of {{ m.name }}" loading="lazy">
+          <h3>{{ m.name }}</h3>
+          <p class="role">{{ m.role }}</p>
+          {% if m.affiliation %}<p class="aff">{{ m.affiliation }}</p>{% endif %}
+          {% if m.honors %}<p class="honors">{{ m.honors }}</p>{% endif %}
+          {% if m.links %}<p class="links">{% for l in m.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>{% endif %}
+          {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio }}</p></details>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-mist" id="collaborators">
+  <div class="wrap">
+    <h2>Collaborators</h2>
+    <div class="collabs">
+      {% for c in site.data.collaborators %}
+      <div class="collab">
+        <img src="{{ c.photo | relative_url }}" alt="" loading="lazy">
+        <div>{% if c.url and c.url != "" %}<a href="{{ c.url }}"><strong>{{ c.name }}</strong></a>{% else %}<strong>{{ c.name }}</strong>{% endif %}<span>{{ c.institution }}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="alumni">
+  <div class="wrap">
+    <h2>Alumni</h2>
+    <ul class="alumni">
+      {% for a in site.data.alumni %}
+      <li>{{ a.name }}{% if a.role != "" or a.now %}<span class="r">{% if a.role != "" %}{{ a.role }}{% endif %}{% if a.role != "" and a.now %}. {% endif %}{% if a.now %}Now: {{ a.now }}{% endif %}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

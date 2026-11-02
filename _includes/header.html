@@ -1,0 +1,20 @@
+{% capture navlinks %}
+<ul>
+  {% for item in site.nav %}
+  <li><a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endcapture %}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/nprl-mark.png' | relative_url }}" alt="" width="28" height="35">
+      <span>Neural Plasticity Research Lab</span>
+    </a>
+    <nav class="nav-wide" aria-label="Main">{{ navlinks }}</nav>
+    <details class="nav-narrow">
+      <summary>Menu</summary>
+      <nav aria-label="Main">{{ navlinks }}</nav>
+    </details>
+  </div>
+</header>
