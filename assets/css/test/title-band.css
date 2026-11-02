@@ -4,6 +4,12 @@
 .v2-title .wrap { position: relative; z-index: 1; }
 .v2-title h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); max-width: 14ch; margin-bottom: .35em; }
 .v2-title .lede { color: #dfe6f0; max-width: 46ch; }
-.v2-title-mark { position: absolute; right: -6%; top: 50%; transform: translateY(-50%); height: 150%; width: auto; pointer-events: none; }
-@media (max-width: 760px) { .v2-title-mark { right: -12%; height: 115%; opacity: .5; } }
-.band-label { padding: 2.5rem 0 1rem; color: var(--ink-2); font-weight: 700; }
+/* Fixed window onto the logo: same size, zoom, and crop on every page, whatever the title length */
+.v2-title { min-height: 20rem; display: flex; align-items: center; }
+.v2-title > .wrap { width: 100%; }
+.v2-title-art { position: absolute; right: 0; top: 0; bottom: 0; width: 28rem; overflow: hidden; pointer-events: none; }
+.v2-title-art img, .v2-title-svg { position: absolute; left: 5rem; top: 50%; transform: translateY(-58%); width: 26rem; height: auto; max-width: none; border-radius: 0; }
+@media (max-width: 760px) { .v2-title { min-height: 15rem; } .v2-title-art { width: 12rem; opacity: .3; } .v2-title-art img, .v2-title-svg { left: 2rem; width: 17rem; } }
+.band-label { padding-top: 2.5rem; padding-bottom: 1rem; color: var(--ink-2); font-weight: 700; }
+
+.v2-title-svg { height: auto; aspect-ratio: 228 / 274; overflow: visible; }

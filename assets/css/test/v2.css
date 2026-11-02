@@ -37,8 +37,11 @@ img { border-radius: 0 !important; }
 .v2-title h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); max-width: 14ch; margin-bottom: .35em; }
 .v2-title .lede { color: #dfe6f0; max-width: 46ch; }
 .v2-title .crumb a { color: #fff; }
-.v2-title-mark { position: absolute; right: -6%; top: 50%; transform: translateY(-50%); height: 150%; width: auto; pointer-events: none; }
-@media (max-width: 760px) { .v2-title-mark { right: -12%; height: 115%; opacity: .5; } }
+.v2-title { min-height: 20rem; display: flex; align-items: center; }
+.v2-title > .wrap { width: 100%; }
+.v2-title-art { position: absolute; right: 0; top: 0; bottom: 0; width: 28rem; overflow: hidden; pointer-events: none; }
+.v2-title-art img, .v2-title-svg { position: absolute; left: 5rem; top: 50%; transform: translateY(-58%); width: 26rem; height: auto; max-width: none; border-radius: 0; }
+@media (max-width: 760px) { .v2-title { min-height: 15rem; } .v2-title-art { width: 12rem; opacity: .3; } .v2-title-art img, .v2-title-svg { left: 2rem; width: 17rem; } }
 
 /* HOME: volunteers become a full navy field with large, plain-language rows */
 .v2-recruit { background: var(--ink); color: #fff; }
@@ -107,3 +110,5 @@ img { border-radius: 0 !important; }
 .v2-footer-grid address { font-style: normal; }
 .v2-footer-base { margin-top: 3rem; font-size: .9rem; color: var(--ink-2); }
 @media (max-width: 860px) { .v2-footer-grid { grid-template-columns: 1fr 1fr; } }
+
+.v2-title-svg { height: auto; aspect-ratio: 228 / 274; overflow: visible; }
