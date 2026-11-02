@@ -3,7 +3,7 @@ layout: default
 title: "Test: expandable PI profile"
 permalink: /test/pi-profile/
 test: true
-test_note: "Dr. Borich's profile: links under the photo; Education, Memberships, and Honors as expandable panels side by side. Opening one connects its two dots."
+test_note: "Dr. Borich's profile: links under the photo; Education, Memberships, and Honors open one at a time into a shared space below."
 extra_css: /assets/css/test/pi-profile.css
 ---
 {% assign pi = site.data.pi %}
@@ -22,10 +22,35 @@ extra_css: /assets/css/test/pi-profile.css
         <p>{{ pi.summary }}</p>
       </div>
     </div>
-    <div class="pi-sections">
-      <details class="pi-sec edu"><summary>{{ mark }}Education<span class="count">{{ pi.education.size }}</span>{{ chev }}</summary><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul></details>
-      <details class="pi-sec mem"><summary>{{ mark }}Memberships<span class="count">{{ pi.memberships.size }}</span>{{ chev }}</summary><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></details>
-      <details class="pi-sec hon"><summary>{{ mark }}Honors<span class="count">{{ pi.honors.size }}</span>{{ chev }}</summary><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></details>
+    <div class="pi-tabs" data-pi-tabs>
+      <div class="pi-tab-row">
+        <button type="button" class="pi-tab edu" aria-expanded="false" aria-controls="pi-edu">{{ mark }}Education<span class="count">{{ pi.education.size }}</span>{{ chev }}</button>
+        <button type="button" class="pi-tab mem" aria-expanded="false" aria-controls="pi-mem">{{ mark }}Memberships<span class="count">{{ pi.memberships.size }}</span>{{ chev }}</button>
+        <button type="button" class="pi-tab hon" aria-expanded="false" aria-controls="pi-hon">{{ mark }}Honors<span class="count">{{ pi.honors.size }}</span>{{ chev }}</button>
+      </div>
+      <div class="pi-panel edu" id="pi-edu"><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul></div>
+      <div class="pi-panel mem" id="pi-mem"><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></div>
+      <div class="pi-panel hon" id="pi-hon"><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></div>
     </div>
   </div>
 </section>
+<script>
+// One shared panel: clicking a section shows its list in the space below; clicking it again closes it.
+document.querySelectorAll('[data-pi-tabs]').forEach(function (box) {
+  var tabs = box.querySelectorAll('.pi-tab');
+  box.querySelectorAll('.pi-panel').forEach(function (p) { p.hidden = true; });
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var open = t.getAttribute('aria-expanded') === 'true';
+      tabs.forEach(function (o) {
+        o.setAttribute('aria-expanded', 'false');
+        document.getElementById(o.getAttribute('aria-controls')).hidden = true;
+      });
+      if (!open) {
+        t.setAttribute('aria-expanded', 'true');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = false;
+      }
+    });
+  });
+});
+</script>

@@ -1,22 +1,27 @@
-/* TEST: expandable PI sections with the logo's linked-dot marker. Only loaded by /test/pi-profile/. */
-.pi-sections { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start; }
-@media (max-width: 860px) { .pi-sections { grid-template-columns: 1fr; } }
-.pi-links { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin-top: 1rem; font-weight: 600; font-size: 1rem; }
-.pi-sec { background: var(--mist); border-radius: var(--radius); }
-.pi-sec summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1rem; padding: 1.05rem 1.25rem; font-weight: 750; font-size: 1.2rem; letter-spacing: -0.01em; }
-.pi-sec summary::-webkit-details-marker { display: none; }
-.pi-sec summary .count { margin-left: auto; font-weight: 600; font-size: .95rem; color: var(--ink-2); }
-.pi-sec summary .chev { width: 1.4rem; height: 1.4rem; flex: none; transition: transform 250ms ease; }
-.pi-sec[open] summary .chev { transform: rotate(180deg); }
+/* TEST: PI profile. Only loaded by /test/pi-profile/. */
+.pi-side { text-align: center; }
+.pi-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin-top: 1rem; font-weight: 600; font-size: 1rem; }
+
+/* Three section buttons in a row, one shared panel below */
+.pi-tabs { margin-top: 2.5rem; }
+.pi-tab-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.pi-tab { display: flex; align-items: center; gap: 1rem; width: 100%; padding: 1.05rem 1.25rem; border: 0; border-radius: var(--radius); background: var(--mist); color: var(--ink); font: inherit; font-weight: 750; font-size: 1.2rem; letter-spacing: -0.01em; cursor: pointer; text-align: left; }
+.pi-tab:hover { background: #e4eaf1; }
+.pi-tab[aria-expanded="true"] { background: var(--ink); color: #fff; }
+.pi-tab .count { margin-left: auto; font-weight: 600; font-size: .95rem; opacity: .75; }
+.pi-tab .chev { width: 1.4rem; height: 1.4rem; flex: none; transition: transform 250ms ease; }
+.pi-tab[aria-expanded="true"] .chev { transform: rotate(180deg); }
 /* the marker: two logo dots; opening the section draws the connection between them */
-.pi-sec .mark { width: 44px; height: 18px; flex: none; color: var(--c); }
-.pi-sec .mark line { stroke-dasharray: 34; stroke-dashoffset: 34; transition: stroke-dashoffset 350ms ease; }
-.pi-sec .mark .b { opacity: .45; transition: opacity 250ms ease; }
-.pi-sec[open] .mark line { stroke-dashoffset: 0; }
-.pi-sec[open] .mark .b { opacity: 1; }
-.pi-sec summary:hover .mark .b { opacity: .8; }
-.pi-sec ul { margin: 0; padding: 0 1.25rem 1.25rem 2.5rem; color: var(--ink); font-size: 1.05rem; }
-.pi-sec li { margin-bottom: .45em; }
-.pi-sec.edu { --c: #e9193a; } .pi-sec.mem { --c: #7d4199; } .pi-sec.hon { --c: #0079c2; }
-@media (prefers-reduced-motion: reduce) { .pi-sec .mark line, .pi-sec .mark .b, .pi-sec summary .chev { transition: none; } }
-@media (max-width: 560px) { .pi-sec ul { padding-left: 1.5rem; } }
+.pi-tab .mark { width: 44px; height: 18px; flex: none; color: var(--c); }
+.pi-tab .mark line { stroke-dasharray: 34; stroke-dashoffset: 34; transition: stroke-dashoffset 350ms ease; }
+.pi-tab .mark .b { opacity: .45; transition: opacity 250ms ease; }
+.pi-tab[aria-expanded="true"] .mark line { stroke-dashoffset: 0; }
+.pi-tab[aria-expanded="true"] .mark .b { opacity: 1; }
+.pi-tab.edu, .pi-panel.edu { --c: #e9193a; } .pi-tab.mem, .pi-panel.mem { --c: #a77bd0; } .pi-tab.hon, .pi-panel.hon { --c: #2b9be0; }
+.pi-tab.mem:not([aria-expanded="true"]) { --c: #7d4199; } .pi-tab.hon:not([aria-expanded="true"]) { --c: #0079c2; }
+
+.pi-panel { margin-top: 1rem; background: var(--mist); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.pi-panel ul { margin: 0; padding-left: 1.1em; columns: 2 18rem; column-gap: 2.5rem; font-size: 1.05rem; }
+.pi-panel li { break-inside: avoid; margin-bottom: .55em; }
+@media (prefers-reduced-motion: reduce) { .pi-tab .mark line, .pi-tab .mark .b, .pi-tab .chev { transition: none; } }
+@media (max-width: 760px) { .pi-tab-row { grid-template-columns: 1fr; gap: .6rem; } }
