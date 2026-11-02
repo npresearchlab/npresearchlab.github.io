@@ -96,14 +96,23 @@ li { margin-bottom: 0.35em; }
 .section-head p { color: var(--ink-2); font-size: 1.15rem; }
 .lede { font-size: clamp(1.2rem, 1.8vw, 1.4rem); color: var(--ink-2); line-height: 1.55; max-width: 38ch; }
 
-/* Page title band (inner pages) */
-.page-title { padding: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
-.crumb { font-size: 1rem; font-weight: 700; margin-bottom: .75rem; }
-.page-title .wrap { position: relative; z-index: 1; }
-.page-title h1 { font-size: clamp(2.4rem, 5vw, 3.75rem); max-width: 18ch; }
-.page-title .lede { max-width: 52ch; }
-.page-title .dots-strip { position: absolute; right: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); top: 50%; transform: translateY(-50%); height: 72%; width: auto; max-height: 220px; }
-@media (max-width: 760px) { .page-title .dots-strip { display: none; } }
+/* Page title band (inner pages): navy field with the lab logo, drifting slowly (assets/js/title-drift.js) */
+.title-band { background: var(--ink); color: #fff; position: relative; overflow: hidden; min-height: 20rem; display: flex; align-items: center; padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+.title-band > .wrap { width: 100%; position: relative; z-index: 1; }
+.title-band h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); margin-bottom: .35em; }
+.title-band .lede { color: #dfe6f0; }
+.title-band h1, .title-band .lede { max-width: min(46ch, calc(100% - 17rem)); }
+.title-band .crumb { font-size: 1rem; font-weight: 700; margin-bottom: .75rem; }
+.title-band .crumb a { color: #fff; }
+.title-band-art { position: absolute; top: 0; bottom: 0; right: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); width: 15rem; pointer-events: none; }
+.title-band-art img, .title-band-svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 15rem; height: auto; max-width: none; overflow: visible; }
+.title-band-svg { aspect-ratio: 228 / 274; }
+@media (max-width: 760px) {
+  .title-band { min-height: 0; flex-direction: column-reverse; align-items: stretch; padding-top: 2rem; }
+  .title-band-art { position: static; width: 6.5rem; margin: 0 var(--gutter) 1.25rem; }
+  .title-band-art img, .title-band-svg { position: static; transform: none; width: 6.5rem; }
+  .title-band h1, .title-band .lede { max-width: none; }
+}
 
 /* Home hero: the dot brain is the one loud thing on the site */
 .hero { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 5rem); }

@@ -21,6 +21,6 @@
     {{ content }}
   </main>
   {% if page.footer %}{% include {{ page.footer }} %}{% else %}{% include footer.html %}{% endif %}
-  {% if page.hero_script %}<script src="{{ page.hero_script | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% elsif page.slug == 'home' %}<script src="{{ '/assets/js/connections.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endif %}
+  {% if page.hero_script %}<script src="{{ page.hero_script | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% elsif page.slug == 'home' %}<script src="{{ '/assets/js/connections.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% else %}<script src="{{ '/assets/js/title-drift.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endif %}
 </body>
 </html>

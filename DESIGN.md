@@ -4,7 +4,7 @@ The current, approved design. Changes to anything here go through a test page fi
 
 ## Identity
 - Built around the lab's "Making a connection" logo: a dot-matrix brain, gray on the left, colored on the right, with linked dots.
-- The one bold element is the animated dot brain in the home page hero (`assets/js/connections.js`). It plays once on load and respects reduced motion. Everything else stays quiet.
+- The home hero's dot brain (`assets/js/connections.js`) plays once on load and then holds still. Inner page headers use the drifting version. Both respect reduced motion.
 - Audience includes older adults and stroke survivors, so legibility and large type come first.
 
 ## Color (from the logo)
@@ -32,7 +32,7 @@ The current, approved design. Changes to anything here go through a test page fi
 - Max width 72rem, left-aligned content.
 - Sections alternate white and mist.
 - Rounded corners 14px on photos and cards; pill-shaped buttons.
-- Inner pages open with a title band: h1, lede, and the logo mark on the right.
+- Inner pages open with a navy title band (`_includes/title-band.html`): h1 and lede on the left, the whole logo on the right edge of the content. The logo drifts slowly and its colored dots form and release links (`assets/js/title-drift.js`); still for reduced motion, paused off screen. On phones the logo sits small above the title.
 
 ## Components
 - Buttons: primary (ink fill) and secondary (ink outline).

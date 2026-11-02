@@ -1,0 +1,8 @@
+<section class="title-band">
+  <div class="wrap">
+    {% if include.crumb_url %}<p class="crumb"><a href="{{ include.crumb_url | relative_url }}">{{ include.crumb }}</a></p>{% endif %}
+    <h1>{{ include.title }}</h1>
+    {% if include.lede %}<p class="lede">{{ include.lede }}</p>{% endif %}
+  </div>
+  <div class="title-band-art" aria-hidden="true"><img src="{{ '/assets/img/nprl-dots-dark.svg' | relative_url }}" alt=""></div>
+</section>
