@@ -9,9 +9,16 @@
   var LINKS = [{"c": "#e9193a", "nodes": [[224, 129, 10.8], [251, 115, 9.8], [251, 145, 11.2]], "segs": [[240, 131, 224, 129], [240, 131, 251, 115], [240, 131, 251, 145]]}, {"c": "#e9193a", "nodes": [[278, 137, 9.6], [278, 165, 10.2], [303, 177, 8.4]], "segs": [[278, 137, 278, 165], [278, 165, 303, 177]]}, {"c": "#ca006c", "nodes": [[224, 161, 11.7], [251, 178, 11.7], [278, 194, 12.0]], "segs": [[224, 161, 251, 178], [251, 178, 278, 194]]}, {"c": "#7d4199", "nodes": [[223, 192, 10.8], [251, 209, 11.0]], "segs": [[223, 192, 251, 209]]}];
   var MID = 212, START = '#b9bbbe';
   svg.setAttribute('viewBox', '92 88 228 274');
-  var lineLayer = document.createElementNS(NS, 'g'); svg.appendChild(lineLayer);
+  // "Goo" filter: blur then sharpen the alpha so linked dots and their connectors melt into one
+  // smooth blob, like the logo's links. Applied only to the linked groups.
+  var defs = document.createElementNS(NS, 'defs');
+  defs.innerHTML = '<filter id="nprl-goo" x="-20%" y="-20%" width="140%" height="140%">' +
+    '<feGaussianBlur in="SourceGraphic" stdDeviation="2.4" result="b"/>' +
+    '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/>' +
+    '<feComposite in="SourceGraphic" in2="g" operator="atop"/></filter>';
+  svg.appendChild(defs);
   var dotLayer = document.createElementNS(NS, 'g'); svg.appendChild(dotLayer);
-  function circle(x, y, r, c) {
+  function circle(x, y, r, c, parent) {
     var el = document.createElementNS(NS, 'circle');
     el.setAttribute('cx', x); el.setAttribute('cy', y); el.setAttribute('r', r);
     el.setAttribute('class', 'cx-dot');
@@ -19,12 +26,15 @@
     el.style.fill = right && !reduce ? START : c;
     if (right && !reduce) el.dataset.color = c;
     el.dataset.y = y;
-    dotLayer.appendChild(el);
+    (parent || dotLayer).appendChild(el);
   }
   DOTS.forEach(function (d) { circle(d[0], d[1], d[2], d[3]); });
   var lines = [];
   LINKS.forEach(function (L, i) {
-    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 0.88;
+    var group = document.createElementNS(NS, 'g');
+    group.setAttribute('filter', 'url(#nprl-goo)');
+    svg.appendChild(group);
+    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 0.6;
     L.segs.forEach(function (s) {
       var line = document.createElementNS(NS, 'line');
       line.setAttribute('x1', s[0]); line.setAttribute('y1', s[1]); line.setAttribute('x2', s[2]); line.setAttribute('y2', s[3]);
@@ -34,16 +44,24 @@
         line.style.strokeDasharray = len; line.style.strokeDashoffset = len;
         line.style.transition = 'stroke-dashoffset 450ms ease ' + (900 + i * 160) + 'ms';
       }
-      lineLayer.appendChild(line); lines.push(line);
+      group.appendChild(line); lines.push(line);
     });
-    L.nodes.forEach(function (n) { circle(n[0], n[1], n[2], L.c); });
+    L.nodes.forEach(function (n) { circle(n[0], n[1], n[2], L.c, group); });
+    // the three-way joint in the top red cluster is a filled knot in the logo
+    if (L.segs.length === 3 && L.segs[0][0] === L.segs[1][0]) {
+      var knot = document.createElementNS(NS, 'circle');
+      knot.setAttribute('cx', L.segs[0][0]); knot.setAttribute('cy', L.segs[0][1]); knot.setAttribute('r', 7);
+      knot.setAttribute('fill', L.c);
+      if (!reduce) { knot.style.opacity = 0; knot.style.transition = 'opacity 300ms ease ' + (900 + i * 160) + 'ms'; lines.push({ style: knot.style, knot: true }); }
+      group.appendChild(knot);
+    }
   });
   if (reduce) return;
   requestAnimationFrame(function () { requestAnimationFrame(function () {
-    dotLayer.querySelectorAll('circle[data-color]').forEach(function (el) {
+    svg.querySelectorAll('circle[data-color]').forEach(function (el) {
       el.style.transitionDelay = (150 + (el.dataset.y - 100) * 3) + 'ms';
       el.style.fill = el.dataset.color;
     });
-    lines.forEach(function (l) { l.style.strokeDashoffset = 0; });
+    lines.forEach(function (l) { if (l.knot) l.style.opacity = 1; else l.style.strokeDashoffset = 0; });
   }); });
 })();
