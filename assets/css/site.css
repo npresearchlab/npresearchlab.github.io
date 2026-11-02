@@ -160,6 +160,10 @@ li { margin-bottom: 0.35em; }
 .prose h3 { margin-top: 1.75rem; }
 
 .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 0 2.5rem; margin: 2rem 0; }
+/* Values stacked in three columns so short boxes don't leave gaps; reading order is kept on phones */
+.values-masonry { display: flex; gap: 0 2.5rem; align-items: flex-start; }
+.values-col { flex: 1; min-width: 0; }
+@media (max-width: 960px) { .values-masonry { flex-direction: column; } .values-col { display: contents; } .values-masonry .value { width: 100%; } }
 .value { border-top: 2px solid var(--ink); padding: 1.1rem 0 1.5rem; }
 .prose .value h3 { font-size: 1.2rem; margin: 0 0 .5rem; }
 .value ul { margin: 0; padding-left: 1.1em; color: var(--ink-2); font-size: 1.05rem; }
