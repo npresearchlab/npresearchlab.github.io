@@ -66,22 +66,24 @@ title: Neural Plasticity Research Lab
 
 {% assign recruiting = site.data.projects | where: "status", "recruiting" %}
 {% if recruiting.size > 0 %}
-<section class="section section-mist" aria-labelledby="recruiting-heading">
+<section class="section recruit-band" aria-labelledby="recruiting-heading">
   <div class="wrap">
     <div class="section-head">
       <h2 id="recruiting-heading">Studies looking for volunteers</h2>
-      <p>You don't need a science background to take part. Call us at <a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a> or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> and we'll walk you through it.</p>
+      <p>You don't need a science background to take part. Email us at <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> and we'll walk you through it.</p>
     </div>
-    <div class="recruit-list">
+    <ul class="recruit-rows">
       {% for p in recruiting %}
-      <article class="recruit">
-        <span class="status status-recruiting">Recruiting</span>
-        <h3>{{ p.title }}</h3>
-        <p class="who">{{ p.who }}</p>
-        <a class="more" href="{{ '/get-involved/' | relative_url }}#{{ p.title | slugify }}">Check if you're eligible</a>
-      </article>
+      <li>
+        <div>
+          <span class="linked-status recruiting">{% include linked.svg %}Recruiting</span>
+          <p class="who">{{ p.who }}</p>
+          <p class="t">{{ p.title }}</p>
+        </div>
+        <a class="btn go" href="{{ '/get-involved/' | relative_url }}#{{ p.title | slugify }}">Check if you're eligible</a>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </section>
 {% endif %}
