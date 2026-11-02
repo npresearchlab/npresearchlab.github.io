@@ -13,8 +13,8 @@
   // smooth blob, like the logo's links. Applied only to the linked groups.
   var defs = document.createElementNS(NS, 'defs');
   defs.innerHTML = '<filter id="nprl-goo" x="-20%" y="-20%" width="140%" height="140%">' +
-    '<feGaussianBlur in="SourceGraphic" stdDeviation="2.4" result="b"/>' +
-    '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/>' +
+    '<feGaussianBlur in="SourceGraphic" stdDeviation="3.6" result="b"/>' +
+    '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -11" result="g"/>' +
     '<feComposite in="SourceGraphic" in2="g" operator="atop"/></filter>';
   svg.appendChild(defs);
   var dotLayer = document.createElementNS(NS, 'g'); svg.appendChild(dotLayer);
@@ -34,7 +34,7 @@
     var group = document.createElementNS(NS, 'g');
     group.setAttribute('filter', 'url(#nprl-goo)');
     svg.appendChild(group);
-    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 0.6;
+    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 0.78;
     L.segs.forEach(function (s) {
       var line = document.createElementNS(NS, 'line');
       line.setAttribute('x1', s[0]); line.setAttribute('y1', s[1]); line.setAttribute('x2', s[2]); line.setAttribute('y2', s[3]);
