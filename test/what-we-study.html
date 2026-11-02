@@ -4,7 +4,7 @@ slug: home
 title: "Test: What we study layout"
 permalink: /test/what-we-study/
 test: true
-test_note: "What we study with one larger picture and two stacked, with the large one smaller than in v2. Everything else is the live home page."
+test_note: "What we study with one larger picture and two stacked, square corners, with the large one smaller than in v2. Everything else is the live home page."
 ---
 <section class="hero">
   <div class="wrap hero-grid">
@@ -115,6 +115,7 @@ test_note: "What we study with one larger picture and two stacked, with the larg
   .themes-mixed .theme:not(:first-child) img { aspect-ratio: 1 / 1; margin: 0; grid-row: span 2; }
   .themes-mixed .theme:not(:first-child) h3 { margin-top: .1rem; }
   .themes-mixed .theme:first-child h3 { font-size: 1.55rem; }
+  .themes-mixed img { border-radius: 0; }
   @media (max-width: 1000px) { .themes-mixed .theme:not(:first-child) { grid-template-columns: 9rem 1fr; } }
   @media (max-width: 860px) { .themes-mixed { grid-template-columns: 1fr; grid-template-rows: none; } .themes-mixed .theme:first-child { grid-row: auto; } .themes-mixed .theme:not(:first-child) { grid-template-columns: 1fr; } .themes-mixed .theme:not(:first-child) img { aspect-ratio: 16 / 9; margin-bottom: 1rem; grid-row: auto; } }
 </style>
