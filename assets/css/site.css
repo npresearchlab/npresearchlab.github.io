@@ -238,6 +238,7 @@ li { margin-bottom: 0.35em; }
 .collab a { color: var(--ink); text-decoration: none; }
 .collab a:hover strong { text-decoration: underline; }
 
+.alumni-type { font-size: 1.25rem; margin: 2.25rem 0 0; }
 .alumni { list-style: none; padding: 0; columns: 2 20rem; column-gap: 2.5rem; margin-top: 1.5rem; }
 .alumni li { break-inside: avoid; padding: .6rem 0; border-bottom: 1px solid var(--line); margin: 0; font-size: 1.02rem; }
 .alumni .r { color: var(--ink-2); display: block; font-size: .95rem; }

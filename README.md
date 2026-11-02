@@ -37,7 +37,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 2. Open `_data/members.yml`, copy an existing person's block (from `- name:` to the end of their `bio`), paste it where you want them to appear, and edit it. `group` must be exactly `Research staff, postdocs, and graduate students` or `Undergraduate students`.
 
 ### Move someone to alumni
-Delete their block from `_data/members.yml`, then add them to `_data/alumni.yml`.
+Delete their block from `_data/members.yml`, then add them to `_data/alumni.yml` with a `type` (Postdocs and research staff, Graduate students, Undergraduate students, or High school students and volunteers).
 
 ### Change a study's recruiting status
 In `_data/projects.yml`, set `status:` to `recruiting`, `coming-soon` or `ongoing`. Studies marked `recruiting` appear on the home page automatically.

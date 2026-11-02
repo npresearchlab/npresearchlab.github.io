@@ -76,11 +76,18 @@ permalink: /people/
 <section class="section" id="alumni">
   <div class="wrap">
     <h2>Alumni</h2>
+    {% assign alumni_types = "Postdocs and research staff|Graduate students|Undergraduate students|High school students and volunteers" | split: "|" %}
+    {% for ty in alumni_types %}
+    {% assign group = site.data.alumni | where: "type", ty %}
+    {% if group.size > 0 %}
+    <h3 class="alumni-type">{{ ty }}</h3>
     <ul class="alumni">
-      {% for a in site.data.alumni %}
+      {% for a in group %}
       <li>{{ a.name }}{% if a.role != "" or a.now %}<span class="r">{% if a.role != "" %}{{ a.role }}{% endif %}{% if a.role != "" and a.now %}. {% endif %}{% if a.now %}Now: {{ a.now }}{% endif %}</span>{% endif %}</li>
       {% endfor %}
     </ul>
+    {% endif %}
+    {% endfor %}
   </div>
 </section>
 <script>
