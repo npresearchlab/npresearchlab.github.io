@@ -98,6 +98,7 @@ li { margin-bottom: 0.35em; }
 
 /* Page title band (inner pages) */
 .page-title { padding: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.crumb { font-size: 1rem; font-weight: 700; margin-bottom: .75rem; }
 .page-title .wrap { position: relative; z-index: 1; }
 .page-title h1 { font-size: clamp(2.4rem, 5vw, 3.75rem); max-width: 18ch; }
 .page-title .lede { max-width: 52ch; }
