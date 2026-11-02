@@ -186,11 +186,37 @@ li { margin-bottom: 0.35em; }
 .pi { display: grid; grid-template-columns: minmax(14rem, 20rem) 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
 .pi-photo { border-radius: var(--radius); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; }
 .pi-role { font-size: 1.15rem; color: var(--ink-2); margin-top: -.25rem; }
-.pi-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 2rem; margin-top: 1.5rem; }
-.pi-cols h3 { font-size: 1.05rem; margin: 1rem 0 .4rem; }
-.pi-cols ul { font-size: 1rem; color: var(--ink-2); margin: 0; }
 @media (max-width: 760px) { .pi { grid-template-columns: 1fr; } .pi-photo { max-width: 18rem; } }
 
+/* PI profile: links under the photo; Education, Memberships, Honors open one at a time into a shared panel */
+.pi-side { text-align: center; }
+.pi { grid-template-columns: minmax(12rem, 16rem) 1fr; }
+.pi-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin-top: 1rem; font-weight: 600; font-size: 1rem; }
+
+/* Three section buttons in a row, one shared panel below */
+.pi-tabs { margin-top: 1.5rem; }
+.pi-tab-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+.pi-tab { display: flex; align-items: center; gap: .6rem; width: 100%; padding: .8rem .9rem; border: 0; border-radius: var(--radius); background: var(--mist); color: var(--ink); font: inherit; font-weight: 750; font-size: 1.05rem; letter-spacing: -0.01em; cursor: pointer; text-align: left; }
+.pi-tab:hover { background: #e4eaf1; }
+.pi-tab[aria-expanded="true"] { background: var(--ink); color: #fff; }
+.pi-tab .count { margin-left: auto; font-weight: 600; font-size: .95rem; opacity: .75; }
+.pi-tab .chev { width: 1.2rem; height: 1.2rem; flex: none; transition: transform 250ms ease; }
+.pi-tab[aria-expanded="true"] .chev { transform: rotate(180deg); }
+/* the marker: two logo dots; opening the section draws the connection between them */
+.pi-tab .mark { width: 36px; height: 15px; flex: none; color: var(--c); }
+.pi-tab .mark line { stroke-dasharray: 34; stroke-dashoffset: 34; transition: stroke-dashoffset 350ms ease; }
+.pi-tab .mark .b { opacity: .45; transition: opacity 250ms ease; }
+.pi-tab[aria-expanded="true"] .mark line { stroke-dashoffset: 0; }
+.pi-tab[aria-expanded="true"] .mark .b { opacity: 1; }
+.pi-tab.edu, .pi-panel.edu { --c: #e9193a; } .pi-tab.mem, .pi-panel.mem { --c: #a77bd0; } .pi-tab.hon, .pi-panel.hon { --c: #2b9be0; }
+.pi-tab.mem:not([aria-expanded="true"]) { --c: #7d4199; } .pi-tab.hon:not([aria-expanded="true"]) { --c: #0079c2; }
+
+.pi-panel { margin-top: .6rem; background: var(--mist); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.pi-panel ul { margin: 0; padding-left: 1.1em; columns: 2 15rem; column-gap: 2.5rem; font-size: 1.05rem; }
+.pi-panel li { break-inside: avoid; margin-bottom: .55em; }
+@media (prefers-reduced-motion: reduce) { .pi-tab .mark line, .pi-tab .mark .b, .pi-tab .chev { transition: none; } }
+@media (max-width: 1000px) { .pi-tab .count { display: none; } }
+@media (max-width: 760px) { .pi-tab-row { grid-template-columns: 1fr; } .pi-tab .count { display: inline; } }
 .member-group { margin-top: 3.5rem; }
 .member-group > h2 { font-size: var(--step-2); padding-bottom: .6rem; border-bottom: 2px solid var(--ink); }
 .members { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 2.25rem 1.75rem; margin-top: 1.75rem; }
