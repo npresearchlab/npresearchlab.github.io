@@ -33,7 +33,7 @@ permalink: /people/
       </div>
     </div>
 
-    {% assign groups = "Research staff,Graduate students,Undergraduate students" | split: "," %}
+    {% assign groups = "Research staff, postdocs, and graduate students|Undergraduate students" | split: "|" %}
     {% for g in groups %}
     {% assign ms = site.data.members | where: "group", g %}
     {% if ms.size > 0 %}
