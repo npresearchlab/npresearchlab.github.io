@@ -1,5 +1,7 @@
 /* TEST: expandable PI sections with the logo's linked-dot marker. Only loaded by /test/pi-profile/. */
-.pi-sections { margin-top: 1.75rem; display: grid; gap: .75rem; max-width: 46rem; }
+.pi-sections { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: start; }
+@media (max-width: 860px) { .pi-sections { grid-template-columns: 1fr; } }
+.pi-links { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin-top: 1rem; font-weight: 600; font-size: 1rem; }
 .pi-sec { background: var(--mist); border-radius: var(--radius); }
 .pi-sec summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 1rem; padding: 1.05rem 1.25rem; font-weight: 750; font-size: 1.2rem; letter-spacing: -0.01em; }
 .pi-sec summary::-webkit-details-marker { display: none; }
@@ -13,7 +15,7 @@
 .pi-sec[open] .mark line { stroke-dashoffset: 0; }
 .pi-sec[open] .mark .b { opacity: 1; }
 .pi-sec summary:hover .mark .b { opacity: .8; }
-.pi-sec ul { margin: 0; padding: 0 1.25rem 1.25rem 4.25rem; color: var(--ink); font-size: 1.05rem; }
+.pi-sec ul { margin: 0; padding: 0 1.25rem 1.25rem 2.5rem; color: var(--ink); font-size: 1.05rem; }
 .pi-sec li { margin-bottom: .45em; }
 .pi-sec.edu { --c: #e9193a; } .pi-sec.mem { --c: #7d4199; } .pi-sec.hon { --c: #0079c2; }
 @media (prefers-reduced-motion: reduce) { .pi-sec .mark line, .pi-sec .mark .b, .pi-sec summary .chev { transition: none; } }
