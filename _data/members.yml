@@ -6,7 +6,7 @@
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
 - name: Nathan Baune
-  role: Postdoctoral Research Fellow
+  role: Lead Biomedical Engineer
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
   honors: AHA Postdoctoral Fellowship Awardee
