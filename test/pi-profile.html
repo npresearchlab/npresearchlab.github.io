@@ -1,0 +1,30 @@
+---
+layout: default
+title: "Test: expandable PI profile"
+permalink: /test/pi-profile/
+test: true
+test_note: "Dr. Borich's Education, Memberships, and Honors as expandable sections. Opening one connects its two dots."
+extra_css: /assets/css/test/pi-profile.css
+---
+{% assign pi = site.data.pi %}
+<section class="section">
+  <div class="wrap">
+    <div class="pi">
+      <img class="pi-photo" src="{{ pi.photo | relative_url }}" alt="Portrait of {{ pi.name }}">
+      <div>
+        <h2>{{ pi.name }}</h2>
+        <p class="pi-role">{{ pi.role }}</p>
+        <p>{{ pi.summary }}</p>
+        <p>{% for l in pi.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} &nbsp;|&nbsp; {% endunless %}{% endfor %}</p>
+        <div class="pi-sections">
+          {% capture mark %}<svg class="mark" viewBox="0 0 44 18" aria-hidden="true"><line x1="9" y1="9" x2="35" y2="9" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="9" cy="9" r="8" fill="currentColor"/><circle class="b" cx="35" cy="9" r="8" fill="currentColor"/></svg>{% endcapture %}
+          {% capture chev %}<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endcapture %}
+          <details class="pi-sec edu"><summary>{{ mark }}Education<span class="count">{{ pi.education.size }}</span>{{ chev }}</summary><ul>{% for e in pi.education %}<li>{{ e }}</li>{% endfor %}</ul></details>
+          <details class="pi-sec mem"><summary>{{ mark }}Memberships<span class="count">{{ pi.memberships.size }}</span>{{ chev }}</summary><ul>{% for e in pi.memberships %}<li>{{ e }}</li>{% endfor %}</ul></details>
+          <details class="pi-sec hon"><summary>{{ mark }}Honors<span class="count">{{ pi.honors.size }}</span>{{ chev }}</summary><ul>{% for e in pi.honors %}<li>{{ e }}</li>{% endfor %}</ul></details>
+        </div>
+      </div>
+    </div>
+
+    </div>
+</section>
