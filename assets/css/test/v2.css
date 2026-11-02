@@ -34,14 +34,15 @@ img { border-radius: 0 !important; }
 /* Page titles: navy field, the logo enlarged and cropped at the right edge */
 .v2-title { background: var(--ink); color: #fff; position: relative; overflow: hidden; padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
 .v2-title .wrap { position: relative; z-index: 1; }
+.v2-title h1, .v2-title .lede { max-width: min(46ch, calc(100% - 17rem)); }
 .v2-title h1 { color: #fff; font-size: clamp(2.8rem, 6.5vw, 5rem); max-width: 14ch; margin-bottom: .35em; }
 .v2-title .lede { color: #dfe6f0; max-width: 46ch; }
 .v2-title .crumb a { color: #fff; }
 .v2-title { min-height: 20rem; display: flex; align-items: center; }
 .v2-title > .wrap { width: 100%; }
-.v2-title-art { position: absolute; right: 0; top: 0; bottom: 0; width: 28rem; overflow: hidden; pointer-events: none; }
-.v2-title-art img, .v2-title-svg { position: absolute; left: 5rem; top: 50%; transform: translateY(-58%); width: 26rem; height: auto; max-width: none; border-radius: 0; }
-@media (max-width: 760px) { .v2-title { min-height: 15rem; } .v2-title-art { width: 12rem; opacity: .3; } .v2-title-art img, .v2-title-svg { left: 2rem; width: 17rem; } }
+.v2-title-art { position: absolute; top: 0; bottom: 0; right: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); width: 15rem; pointer-events: none; }
+.v2-title-art img, .v2-title-svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 15rem; height: auto; max-width: none; border-radius: 0; overflow: visible; }
+@media (max-width: 760px) { .v2-title { min-height: 0; flex-direction: column-reverse; align-items: stretch; padding-top: 2rem; } .v2-title-art { position: static; width: 6.5rem; height: auto; margin: 0 var(--gutter) 1.25rem; } .v2-title-art img, .v2-title-svg { position: static; transform: none; width: 6.5rem; } .v2-title h1, .v2-title .lede { max-width: none; } }
 
 /* HOME: volunteers become a full navy field with large, plain-language rows */
 .v2-recruit { background: var(--ink); color: #fff; }

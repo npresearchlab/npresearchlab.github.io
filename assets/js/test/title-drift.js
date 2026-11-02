@@ -16,18 +16,23 @@
     svg.setAttribute('viewBox', '92 88 228 274');
     svg.setAttribute('class', 'v2-title-svg');
     var defs = document.createElementNS(NS, 'defs'); defs.innerHTML = FILTER.replace('%ID%', k); svg.appendChild(defs);
-    var movers = [];
-    function mover(el) {
+    var movers = [], free = [], logoLinks = [], live = [];
+    function mover(el, extra) {
       // slow, small, out-of-phase orbits: 2-3.5 units, 7-13 second periods
-      movers.push({ el: el, ax: 1.6 + Math.random() * 1.9, ay: 1.6 + Math.random() * 1.9,
+      var m = { el: el, x: 0, y: 0, ax: 1.6 + Math.random() * 1.9, ay: 1.6 + Math.random() * 1.9,
         wx: (2 * Math.PI) / (7000 + Math.random() * 6000), wy: (2 * Math.PI) / (7000 + Math.random() * 6000),
-        px: Math.random() * 6.3, py: Math.random() * 6.3 });
+        px: Math.random() * 6.3, py: Math.random() * 6.3 };
+      if (extra) for (var k2 in extra) m[k2] = extra[k2];
+      movers.push(m);
+      return m;
     }
     DOTS.forEach(function (d) {
       var c = document.createElementNS(NS, 'circle');
       c.setAttribute('cx', d[0]); c.setAttribute('cy', d[1]); c.setAttribute('r', d[2]);
       c.setAttribute('fill', DARK[d[3]] || d[3]);
-      svg.appendChild(c); mover(c);
+      svg.appendChild(c);
+      var m = mover(c, { bx: d[0], by: d[1], r: d[2], color: d[3] });
+      if (d[0] > 212) free.push(m); // the colored half is where connections happen
     });
     LINKS.forEach(function (L) {
       var g = document.createElementNS(NS, 'g'); g.setAttribute('filter', 'url(#goo-' + k + ')');
@@ -50,9 +55,76 @@
       }
       var outer = document.createElementNS(NS, 'g'); outer.appendChild(g);
       svg.appendChild(outer); mover(outer);
+      // the logo's own chains (not the three-way knot) can occasionally let go and reconnect
+      if (!(L.segs.length === 3 && L.segs[0][0] === L.segs[1][0])) {
+        g.querySelectorAll('line').forEach(function (l) {
+          var len = Math.hypot(l.x2.baseVal.value - l.x1.baseVal.value, l.y2.baseVal.value - l.y1.baseVal.value);
+          logoLinks.push({ el: l, len: len });
+        });
+      }
     });
     box.innerHTML = ''; box.appendChild(svg);
     if (reduce) return;
+
+    // --- Making connections: neighbouring colored dots link up, hold, then let go ---
+    var GROW = 1400, HOLD_MIN = 3500, HOLD_RAND = 3500, FADE = 1200;
+    function busy(m) { return live.some(function (c) { return c.a === m || c.b === m; }); }
+    function spawn(now) {
+      var pairs = [];
+      free.forEach(function (a) {
+        free.forEach(function (b) {
+          if (a === b || b.bx < a.bx || a.color !== b.color || busy(a) || busy(b)) return;
+          var d = Math.hypot(a.bx - b.bx, a.by - b.by);
+          if (d < 36) pairs.push([a, b]);
+        });
+      });
+      if (!pairs.length) return;
+      var pr = pairs[Math.floor(Math.random() * pairs.length)], a = pr[0], b = pr[1];
+      var g = document.createElementNS(NS, 'g'); g.setAttribute('filter', 'url(#goo-' + k + ')');
+      var line = document.createElementNS(NS, 'line');
+      line.setAttribute('stroke', DARK[a.color] || a.color); line.setAttribute('stroke-linecap', 'round');
+      line.setAttribute('stroke-width', (Math.min(a.r, b.r) * 0.78).toFixed(1));
+      // twins of the two dots inside the filter, so the new link melts into them
+      var ta = a.el.cloneNode(), tb = b.el.cloneNode();
+      g.appendChild(line); g.appendChild(ta); g.appendChild(tb);
+      svg.appendChild(g);
+      live.push({ a: a, b: b, g: g, line: line, ta: ta, tb: tb, t0: now, hold: HOLD_MIN + Math.random() * HOLD_RAND });
+    }
+    function updateLinks(now) {
+      for (var i = live.length - 1; i >= 0; i--) {
+        var c = live[i], age = now - c.t0;
+        var ax = c.a.bx + c.a.x, ay = c.a.by + c.a.y, bx = c.b.bx + c.b.x, by = c.b.by + c.b.y;
+        var p;
+        if (age < GROW) p = ease(age / GROW);
+        else if (age < GROW + c.hold) p = 1;
+        else if (age < GROW + c.hold + FADE) p = 1 - ease((age - GROW - c.hold) / FADE);
+        else { c.g.remove(); live.splice(i, 1); continue; }
+        // grow out from a toward b, and retract back to a
+        c.line.setAttribute('x1', ax); c.line.setAttribute('y1', ay);
+        c.line.setAttribute('x2', (ax + (bx - ax) * p).toFixed(2)); c.line.setAttribute('y2', (ay + (by - ay) * p).toFixed(2));
+        c.ta.setAttribute('transform', c.a.el.getAttribute('transform') || '');
+        c.tb.setAttribute('transform', c.b.el.getAttribute('transform') || '');
+        c.tb.style.opacity = p > 0.15 ? 1 : 0;
+      }
+    }
+    // a logo chain lets go and reconnects
+    var released = null;
+    function releaseLogoLink(now) {
+      if (released || !logoLinks.length) return;
+      var L = logoLinks[Math.floor(Math.random() * logoLinks.length)];
+      L.el.style.strokeDasharray = L.len; released = { L: L, t0: now };
+    }
+    function updateRelease(now) {
+      if (!released) return;
+      var age = now - released.t0, L = released.L, p;
+      if (age < FADE) p = ease(age / FADE);            // letting go
+      else if (age < FADE + 3000) p = 1;              // apart
+      else if (age < FADE * 2 + 3000) p = 1 - ease((age - FADE - 3000) / FADE); // reconnecting
+      else { L.el.style.strokeDasharray = ''; L.el.style.strokeDashoffset = ''; released = null; return; }
+      L.el.style.strokeDashoffset = (L.len * p).toFixed(2);
+    }
+    function ease(x) { return x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+    var nextSpawn = 600, nextRelease = 9000;
 
     var visible = true, start = performance.now();
     if ('IntersectionObserver' in window) {
@@ -63,8 +135,12 @@
       var t = now - start;
       for (var i = 0; i < movers.length; i++) {
         var m = movers[i];
-        m.el.setAttribute('transform', 'translate(' + (m.ax * Math.sin(t * m.wx + m.px)).toFixed(2) + ' ' + (m.ay * Math.sin(t * m.wy + m.py)).toFixed(2) + ')');
+        m.x = m.ax * Math.sin(t * m.wx + m.px); m.y = m.ay * Math.sin(t * m.wy + m.py);
+        m.el.setAttribute('transform', 'translate(' + m.x.toFixed(2) + ' ' + m.y.toFixed(2) + ')');
       }
+      if (t > nextSpawn) { if (live.length < 3) spawn(t); nextSpawn = t + 1800 + Math.random() * 2200; }
+      if (t > nextRelease) { releaseLogoLink(t); nextRelease = t + 12000 + Math.random() * 8000; }
+      updateLinks(t); updateRelease(t);
       requestAnimationFrame(tick);
     }
     document.addEventListener('visibilitychange', function () { if (!document.hidden && visible) requestAnimationFrame(tick); });
