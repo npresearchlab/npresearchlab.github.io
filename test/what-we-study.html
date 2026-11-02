@@ -4,7 +4,7 @@ slug: home
 title: "Test: What we study layout"
 permalink: /test/what-we-study/
 test: true
-test_note: "What we study with one larger picture and two stacked, square corners, with the large one smaller than in v2. Everything else is the live home page."
+test_note: "What we study exactly as on the v2 test page (one large picture, two stacked, square corners). Everything else is the live home page."
 ---
 <section class="hero">
   <div class="wrap hero-grid">
@@ -108,14 +108,11 @@ test_note: "What we study with one larger picture and two stacked, square corner
 </section>
 
 <style>
-  .themes-mixed { grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 2rem 2.5rem; }
+  /* Same as the "What we study" layout on the v2 test page */
+  .themes-mixed { grid-template-columns: 1.5fr 1fr; grid-template-rows: auto auto; gap: 2.5rem 3rem; }
   .themes-mixed .theme:first-child { grid-row: span 2; }
-  .themes-mixed .theme:first-child img { aspect-ratio: 16 / 10.5; }
-  .themes-mixed .theme:not(:first-child) { display: grid; grid-template-columns: 12rem 1fr; grid-template-rows: auto 1fr; gap: 0 1.25rem; align-items: start; align-content: start; }
-  .themes-mixed .theme:not(:first-child) img { aspect-ratio: 1 / 1; margin: 0; grid-row: span 2; }
-  .themes-mixed .theme:not(:first-child) h3 { margin-top: .1rem; }
-  .themes-mixed .theme:first-child h3 { font-size: 1.55rem; }
-  .themes-mixed img { border-radius: 0; }
-  @media (max-width: 1000px) { .themes-mixed .theme:not(:first-child) { grid-template-columns: 9rem 1fr; } }
-  @media (max-width: 860px) { .themes-mixed { grid-template-columns: 1fr; grid-template-rows: none; } .themes-mixed .theme:first-child { grid-row: auto; } .themes-mixed .theme:not(:first-child) { grid-template-columns: 1fr; } .themes-mixed .theme:not(:first-child) img { aspect-ratio: 16 / 9; margin-bottom: 1rem; grid-row: auto; } }
+  .themes-mixed .theme:first-child img { aspect-ratio: 4 / 3.6; }
+  .themes-mixed .theme img { aspect-ratio: 16 / 9; border-radius: 0; }
+  .themes-mixed .theme:first-child h3 { font-size: 1.75rem; }
+  @media (max-width: 860px) { .themes-mixed { grid-template-columns: 1fr; } .themes-mixed .theme:first-child { grid-row: auto; } }
 </style>
