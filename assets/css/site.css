@@ -231,6 +231,9 @@ li { margin-bottom: 0.35em; }
 .member h3 { font-size: 1.2rem; margin: 0; }
 .member .role { font-weight: 600; color: var(--ink); margin: .1rem 0 .25rem; font-size: 1.02rem; }
 .member .aff, .member .honors { font-size: .95rem; color: var(--ink-2); margin: 0 0 .2rem; line-height: 1.45; }
+/* Awards under a person: the logo's linked dots */
+.member .award { display: flex; gap: .55rem; align-items: flex-start; color: var(--ink); font-weight: 650; font-size: .95rem; margin-top: .35rem; }
+.member .award svg { width: 26px; height: 11px; flex: none; margin-top: .38em; color: var(--magenta); }
 .member details { margin-top: .6rem; }
 .member summary { cursor: pointer; font-weight: 700; color: var(--blue-text); font-size: 1rem; }
 .member details p { font-size: 1rem; color: var(--ink-2); margin-top: .6rem; }

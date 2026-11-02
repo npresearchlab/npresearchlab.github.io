@@ -37,5 +37,5 @@ The current, approved design. Changes to anything here go through a test page fi
 ## Components
 - Buttons: primary (ink fill) and secondary (ink outline).
 - Status badges: Recruiting (red), Recruiting soon (violet).
-- People cards: square photo, name, role, affiliation, expandable bio.
+- People cards: square photo, name, role, affiliation, optional joint-lab line, awards marked with magenta linked dots (not pills), expandable bio.
 - Expandable details (`<details>`) for bios and eligibility.

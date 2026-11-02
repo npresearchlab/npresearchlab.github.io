@@ -47,7 +47,7 @@ permalink: /people/
           <p class="role">{{ m.role }}</p>
           {% if m.affiliation %}<p class="aff">{{ m.affiliation }}</p>{% endif %}
           {% if m.joint %}<p class="aff joint">{{ m.joint }}</p>{% endif %}
-          {% if m.honors %}<p class="honors">{{ m.honors }}</p>{% endif %}
+          {% if m.honors %}<p class="honors award"><svg viewBox="0 0 34 14" aria-hidden="true"><line x1="7" y1="7" x2="27" y2="7" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="7" cy="7" r="6" fill="currentColor"/><circle cx="27" cy="7" r="6" fill="currentColor"/></svg><span>{{ m.honors }}</span></p>{% endif %}
           {% if m.links %}<p class="links">{% for l in m.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>{% endif %}
           {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio }}</p></details>{% endif %}
         </article>
