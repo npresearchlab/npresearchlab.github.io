@@ -18,6 +18,10 @@ Small content edits (text, people, projects, links, photos) can go straight to t
 
 See `DESIGN.md`. Design skills or references (taste-skill, impeccable, awesome-design-md) are advisory: use them to critique or to build test pages, never to overwrite the current design.
 
+## Writing style
+
+The lab uses the Oxford (serial) comma: "A, B, and C". Apply it in all new and edited text.
+
 ## Content
 
 Routine content lives in `_data/*.yml`; see README.md. Jekyll 3.10 (GitHub Pages native build), no custom plugins beyond jekyll-seo-tag.
