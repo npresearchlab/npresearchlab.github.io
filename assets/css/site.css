@@ -164,6 +164,13 @@ li { margin-bottom: 0.35em; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
 
+/* Home: Visit the lab (address + map) */
+.visit-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+.visit-address { font-style: normal; font-size: 1.25rem; line-height: 1.5; margin-bottom: 1rem; }
+.visit-frame { aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: var(--mist); }
+.visit-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+@media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+
 /* Prose pages */
 .prose h2 { margin-top: 2.5rem; font-size: var(--step-2); }
 .prose h3 { margin-top: 1.75rem; }

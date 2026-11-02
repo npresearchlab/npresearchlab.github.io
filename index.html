@@ -85,3 +85,19 @@ title: Neural Plasticity Research Lab
   </div>
 </section>
 {% endif %}
+
+<section class="section visit-map" aria-labelledby="visit-heading">
+  <div class="wrap visit-grid">
+    <div>
+      <h2 id="visit-heading">Visit the lab</h2>
+      <address class="visit-address">{% for l in site.contact.address_lines %}{{ l }}<br>{% endfor %}</address>
+      <p><a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination={{ 'Emory Rehabilitation Hospital, 1441 Clifton Road NE, Atlanta, GA 30322' | uri_escape }}">Get directions</a>
+      </div>
+    </div>
+    <div class="visit-frame">
+      <iframe title="Map showing Emory Rehabilitation Hospital, 1441 Clifton Road NE, Atlanta" src="https://www.google.com/maps?q={{ '1441 Clifton Rd NE, Atlanta, GA 30322' | uri_escape }}&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
