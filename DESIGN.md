@@ -4,7 +4,7 @@ The current, approved design. Changes to anything here go through a test page fi
 
 ## Identity
 - Built around the lab's "Making a connection" logo: a dot-matrix brain, gray on the left, colored on the right, with linked dots.
-- The home hero's dot brain (`assets/js/connections.js`) plays once on load and then holds still. Inner page headers use the drifting version. Both respect reduced motion.
+- The home hero's dot brain (`assets/js/connections.js`) is the logo traced dot for dot, with blob-like links. It plays once on load and then holds still. Inner page headers use the drifting version. Both respect reduced motion.
 - Audience includes older adults and stroke survivors, so legibility and large type come first.
 
 ## Color (from the logo)

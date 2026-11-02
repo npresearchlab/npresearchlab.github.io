@@ -1,100 +1,67 @@
-// Home page hero: the lab's dot-brain mark, drawn as a field of dots.
-// On load, the right half "connects": dots take on the logo colors and links draw between neighbours.
+// Home page hero: the lab logo traced dot for dot from NPRL_Logo.png.
+// On load the right half colors in from top to bottom and the linked dots connect, then it holds still.
 (function () {
   var svg = document.getElementById('connections');
   if (!svg) return;
   var NS = 'http://www.w3.org/2000/svg';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var cols = 11, rows = 14, gx = 34, gy = 30;
-  var cx = (cols - 1) / 2, cy = (rows - 1) / 2;
-  var grays = ['#58585a', '#818285', '#a7a9ac'];
-  // top to bottom on the right side, like the logo
-  var hues = ['#e9193a', '#ca006c', '#7d4199', '#0079c2', '#00a4e4'];
-  var dots = [];
-
-  function inBrain(c, r) {
-    // slightly egg-shaped outline
-    var dx = (c - cx) / (cols / 2), dy = (r - cy) / (rows / 2);
-    return dx * dx * 1.05 + dy * dy * (dy < 0 ? 1.0 : 1.1) < 0.98;
+  var DOTS = [[189.4, 100.9, 7.8, "#58585a"], [224.0, 100.9, 7.8, "#e9193a"], [162.3, 115.2, 8.6, "#58585a"], [189.4, 129.3, 9.1, "#58585a"], [135.2, 137.1, 6.6, "#58585a"], [162.4, 145.7, 9.5, "#58585a"], [189.5, 160.7, 10.1, "#58585a"], [135.2, 164.7, 8.5, "#58585a"], [162.4, 177.4, 10.2, "#58585a"], [109.8, 177.4, 7.2, "#58585a"], [189.4, 192.3, 11.1, "#818285"], [135.3, 193.5, 11.0, "#58585a"], [162.5, 209.1, 11.1, "#818285"], [109.8, 208.7, 9.1, "#58585a"], [303.4, 208.7, 9.2, "#ca006c"], [189.4, 224.6, 11.1, "#818285"], [223.9, 224.6, 11.0, "#0079c2"], [135.3, 226.4, 11.1, "#818285"], [278.2, 226.4, 11.1, "#7d4199"], [162.4, 240.6, 10.2, "#818285"], [250.8, 240.6, 10.1, "#0079c2"], [109.8, 240.2, 9.0, "#818285"], [303.5, 240.2, 9.1, "#7d4199"], [189.4, 256.0, 10.9, "#a7a9ac"], [224.0, 256.0, 10.9, "#0079c2"], [135.3, 257.7, 10.1, "#818285"], [278.2, 257.6, 10.1, "#0079c2"], [162.4, 272.4, 9.9, "#a7a9ac"], [251.0, 272.3, 9.9, "#0079c2"], [109.8, 271.5, 7.1, "#818285"], [303.5, 271.5, 7.2, "#0079c2"], [189.4, 287.6, 10.2, "#a7a9ac"], [223.9, 287.5, 10.1, "#00a4e4"], [135.3, 288.5, 9.2, "#a7a9ac"], [278.1, 288.5, 9.3, "#0079c2"], [162.3, 304.0, 8.8, "#a7a9ac"], [251.0, 304.0, 8.8, "#00a4e4"], [135.2, 316.8, 6.6, "#a7a9ac"], [189.4, 319.6, 9.2, "#a7a9ac"], [223.9, 319.5, 9.2, "#00a4e4"], [278.1, 316.8, 6.6, "#00a4e4"], [162.4, 333.8, 8.1, "#a7a9ac"], [250.8, 333.8, 8.1, "#00a4e4"], [189.4, 348.1, 7.8, "#a7a9ac"], [224.0, 348.1, 7.8, "#00a4e4"]];
+  var LINKS = [{"c": "#e9193a", "nodes": [[224, 129, 10.8], [251, 115, 9.8], [251, 145, 11.2]], "segs": [[240, 131, 224, 129], [240, 131, 251, 115], [240, 131, 251, 145]]}, {"c": "#e9193a", "nodes": [[278, 137, 9.6], [278, 165, 10.2], [303, 177, 8.4]], "segs": [[278, 137, 278, 165], [278, 165, 303, 177]]}, {"c": "#ca006c", "nodes": [[224, 161, 11.7], [251, 178, 11.7], [278, 194, 12.0]], "segs": [[224, 161, 251, 178], [251, 178, 278, 194]]}, {"c": "#7d4199", "nodes": [[223, 192, 10.8], [251, 209, 11.0]], "segs": [[223, 192, 251, 209]]}];
+  var MID = 212, START = '#b9bbbe';
+  svg.setAttribute('viewBox', '92 88 228 274');
+  // "Goo" filter: blur then sharpen the alpha so linked dots and their connectors melt into one
+  // smooth blob, like the logo's links. Applied only to the linked groups.
+  var defs = document.createElementNS(NS, 'defs');
+  defs.innerHTML = '<filter id="nprl-goo" x="-20%" y="-20%" width="140%" height="140%">' +
+    '<feGaussianBlur in="SourceGraphic" stdDeviation="3.6" result="b"/>' +
+    '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -11" result="g"/>' +
+    '<feComposite in="SourceGraphic" in2="g" operator="atop"/></filter>';
+  svg.appendChild(defs);
+  var dotLayer = document.createElementNS(NS, 'g'); svg.appendChild(dotLayer);
+  function circle(x, y, r, c, parent) {
+    var el = document.createElementNS(NS, 'circle');
+    el.setAttribute('cx', x); el.setAttribute('cy', y); el.setAttribute('r', r);
+    el.setAttribute('class', 'cx-dot');
+    var right = x > MID;
+    el.style.fill = right && !reduce ? START : c;
+    if (right && !reduce) el.dataset.color = c;
+    el.dataset.y = y;
+    (parent || dotLayer).appendChild(el);
   }
-
-  for (var r = 0; r < rows; r++) {
-    for (var c = 0; c < cols; c++) {
-      if (!inBrain(c, r)) continue;
-      var x = 20 + c * gx, y = 20 + r * gy + (c % 2 ? gy / 2 : 0);
-      var right = c > cx;
-      // dots shrink toward the edge, like the logo
-      var dx = (c - cx) / (cols / 2), dy = (r - cy) / (rows / 2);
-      var rad = 9.5 - 4.2 * Math.sqrt(dx * dx + dy * dy);
-      var depth = r / (rows - 1);
-      var gray = grays[Math.min(2, Math.floor(depth * 3))];
-      var hue = hues[Math.min(4, Math.floor(depth * 5))];
-      var el = document.createElementNS(NS, 'circle');
-      el.setAttribute('cx', x); el.setAttribute('cy', y); el.setAttribute('r', Math.max(3.2, rad).toFixed(1));
-      el.setAttribute('class', 'cx-dot');
-      el.style.fill = right && !reduce ? grays[2] : (right ? hue : gray);
-      svg.appendChild(el);
-      dots.push({ c: c, r: r, x: x, y: y, right: right, hue: hue, el: el, rad: rad });
-    }
-  }
-
-  // Links between neighbouring right-side dots in the upper half: the "connections"
-  var linkLayer = document.createElementNS(NS, 'g');
-  svg.insertBefore(linkLayer, svg.firstChild);
-  var pairs = [];
-  var seed = 7;
-  function rand() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-  // Short chains of 2-3 dots running down and to the right, like the links in the logo
-  var used = {};
-  function key(d) { return d.c + ',' + d.r; }
-  function nextDot(a) {
-    var best = null;
-    dots.forEach(function (b) {
-      if (b.c === a.c + 1 && b.y > a.y && b.y - a.y < 20 && !used[key(b)]) best = b;
+  DOTS.forEach(function (d) { circle(d[0], d[1], d[2], d[3]); });
+  var lines = [];
+  LINKS.forEach(function (L, i) {
+    var group = document.createElementNS(NS, 'g');
+    group.setAttribute('filter', 'url(#nprl-goo)');
+    svg.appendChild(group);
+    var w = Math.min.apply(null, L.nodes.map(function (n) { return n[2]; })) * 0.78;
+    L.segs.forEach(function (s) {
+      var line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', s[0]); line.setAttribute('y1', s[1]); line.setAttribute('x2', s[2]); line.setAttribute('y2', s[3]);
+      line.setAttribute('stroke', L.c); line.setAttribute('stroke-width', w.toFixed(1)); line.setAttribute('stroke-linecap', 'round');
+      var len = Math.hypot(s[2] - s[0], s[3] - s[1]);
+      if (!reduce) {
+        line.style.strokeDasharray = len; line.style.strokeDashoffset = len;
+        line.style.transition = 'stroke-dashoffset 450ms ease ' + (900 + i * 160) + 'ms';
+      }
+      group.appendChild(line); lines.push(line);
     });
-    return best;
-  }
-  dots.filter(function (d) { return d.right && d.r < rows * 0.58; }).forEach(function (a) {
-    if (used[key(a)] || rand() > 0.5) return;
-    var steps = rand() < 0.5 ? 1 : 2, cur = a;
-    for (var i = 0; i < steps; i++) {
-      var n = nextDot(cur);
-      if (!n) break;
-      used[key(cur)] = used[key(n)] = true;
-      pairs.push([cur, n]);
-      cur = n;
+    L.nodes.forEach(function (n) { circle(n[0], n[1], n[2], L.c, group); });
+    // the three-way joint in the top red cluster is a filled knot in the logo
+    if (L.segs.length === 3 && L.segs[0][0] === L.segs[1][0]) {
+      var knot = document.createElementNS(NS, 'circle');
+      knot.setAttribute('cx', L.segs[0][0]); knot.setAttribute('cy', L.segs[0][1]); knot.setAttribute('r', 7);
+      knot.setAttribute('fill', L.c);
+      if (!reduce) { knot.style.opacity = 0; knot.style.transition = 'opacity 300ms ease ' + (900 + i * 160) + 'ms'; lines.push({ style: knot.style, knot: true }); }
+      group.appendChild(knot);
     }
   });
-  pairs.forEach(function (p, i) {
-    var line = document.createElementNS(NS, 'line');
-    line.setAttribute('x1', p[0].x); line.setAttribute('y1', p[0].y);
-    line.setAttribute('x2', p[1].x); line.setAttribute('y2', p[1].y);
-    line.setAttribute('stroke', p[0].hue);
-    line.setAttribute('stroke-width', Math.min(p[0].rad, p[1].rad) * 1.15);
-    line.setAttribute('class', 'cx-link');
-    var len = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
-    if (!reduce) {
-      line.style.strokeDasharray = len;
-      line.style.strokeDashoffset = len;
-      line.style.transition = 'stroke-dashoffset 500ms ease ' + (700 + i * 45) + 'ms';
-    }
-    linkLayer.appendChild(line);
-    p.line = line;
-  });
-
-  var maxX = 20 + (cols - 1) * gx, maxY = 20 + rows * gy;
-  svg.setAttribute('viewBox', '0 0 ' + (maxX + 20) + ' ' + (maxY + 10));
-
   if (reduce) return;
-  requestAnimationFrame(function () {
-    requestAnimationFrame(function () {
-      dots.forEach(function (d) {
-        if (!d.right) return;
-        d.el.style.transitionDelay = (150 + (d.c - cx) * 90 + d.r * 25) + 'ms';
-        d.el.style.fill = d.hue;
-      });
-      pairs.forEach(function (p) { p.line.style.strokeDashoffset = 0; });
+  requestAnimationFrame(function () { requestAnimationFrame(function () {
+    svg.querySelectorAll('circle[data-color]').forEach(function (el) {
+      el.style.transitionDelay = (150 + (el.dataset.y - 100) * 3) + 'ms';
+      el.style.fill = el.dataset.color;
     });
-  });
+    lines.forEach(function (l) { if (l.knot) l.style.opacity = 1; else l.style.strokeDashoffset = 0; });
+  }); });
 })();
