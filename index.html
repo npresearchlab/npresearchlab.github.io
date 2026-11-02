@@ -39,29 +39,7 @@ title: Neural Plasticity Research Lab
   </div>
 </section>
 
-{% assign recruiting = site.data.projects | where: "status", "recruiting" %}
-{% if recruiting.size > 0 %}
-<section class="section section-recruit" aria-labelledby="recruiting-heading">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="recruiting-heading">Studies looking for volunteers</h2>
-      <p>You don't need a science background to take part. Call us at <a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a> or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> and we'll walk you through it.</p>
-    </div>
-    <div class="recruit-list">
-      {% for p in recruiting %}
-      <article class="recruit">
-        <span class="status status-recruiting">Recruiting</span>
-        <h3>{{ p.title }}</h3>
-        <p class="who">{{ p.who }}</p>
-        <a class="more" href="{{ '/get-involved/' | relative_url }}#{{ p.title | slugify }}">Check if you're eligible</a>
-      </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<section class="section section-mist" aria-labelledby="study-heading">
+<section class="section" aria-labelledby="study-heading">
   <div class="wrap">
     <div class="section-head">
       <h2 id="study-heading">What we study</h2>
@@ -86,3 +64,25 @@ title: Neural Plasticity Research Lab
     </div>
   </div>
 </section>
+
+{% assign recruiting = site.data.projects | where: "status", "recruiting" %}
+{% if recruiting.size > 0 %}
+<section class="section section-mist" aria-labelledby="recruiting-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="recruiting-heading">Studies looking for volunteers</h2>
+      <p>You don't need a science background to take part. Call us at <a href="tel:+1{{ site.contact.phone | remove: '-' }}">{{ site.contact.phone }}</a> or email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a> and we'll walk you through it.</p>
+    </div>
+    <div class="recruit-list">
+      {% for p in recruiting %}
+      <article class="recruit">
+        <span class="status status-recruiting">Recruiting</span>
+        <h3>{{ p.title }}</h3>
+        <p class="who">{{ p.who }}</p>
+        <a class="more" href="{{ '/get-involved/' | relative_url }}#{{ p.title | slugify }}">Check if you're eligible</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,13 @@
+---
+layout: default
+title: Test pages
+permalink: /test/
+test: true
+test_note: "previews of possible changes. Nothing here is on the live site yet."
+---
+<section class="section"><div class="wrap">
+<h1 style="font-size:2.5rem">Test pages</h1>
+<ul>
+{% assign tests = site.pages | where: "test", true %}{% for t in tests %}{% unless t.url == "/test/" %}<li><a href="{{ t.url | relative_url }}">{{ t.title }}</a>{% if t.test_note %}: {{ t.test_note }}{% endif %}</li>{% endunless %}{% endfor %}
+</ul>
+</div></section>
