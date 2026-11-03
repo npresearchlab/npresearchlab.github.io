@@ -44,23 +44,25 @@ title: Neural Plasticity Research Lab
       <h2 id="study-heading">What we study</h2>
       <p>We use neuroimaging, brain stimulation, robotics, and virtual reality to see how the nervous system changes with learning, aging, and injury.</p>
     </div>
-    <div class="themes">
-      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
-        <img src="{{ '/assets/img/research/perturbation.jpg' | relative_url }}" alt="A participant in a safety harness during a balance experiment, wearing an EEG cap" loading="lazy">
-        <h3>Balance and falls</h3>
-        <p>How the brain senses body motion and keeps us upright, and why that changes with age and after a stroke.</p>
-      </a>
-      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
-        <img src="{{ '/assets/img/tools/kinarm.jpg' | relative_url }}" alt="A researcher using the Kinarm robotic arm-movement system" loading="lazy">
-        <h3>Sensation and movement after stroke</h3>
-        <p>Measuring how the brain uses touch, body position, and vision to guide the arm, and predicting who will recover.</p>
-      </a>
-      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
-        <img src="{{ '/assets/img/research/er.jpg' | relative_url }}" alt="A participant navigating a virtual environment wearing a VR headset" loading="lazy">
-        <h3>Aging and navigation</h3>
-        <p>How the brain's navigation network changes as we get older, studied with virtual reality and combined TMS and fMRI.</p>
-      </a>
+    <div class="idx" data-idx>
+      <ol class="idx-list">
+        {% for t in site.data.themes %}
+        <li style="--c: var(--{{ t.color }})">
+          <a href="{{ '/research/' | relative_url }}" data-img="{{ t.img | relative_url }}">
+            <span class="idx-n">{{ forloop.index | prepend: '0' }}</span>
+            <span class="idx-body">
+              <span class="idx-t">{{ t.title }}</span>
+              <span class="idx-d">{{ t.text }}</span>
+            </span>
+            <img class="idx-thumb" src="{{ t.img | relative_url }}" alt="" loading="lazy">
+            <span class="idx-go" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+      <figure class="idx-preview" aria-hidden="true"><img src="{{ site.data.themes[0].img | relative_url }}" alt=""></figure>
     </div>
+    <p class="idx-more"><a class="btn" href="{{ '/research/' | relative_url }}">See all our research <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </section>
 
@@ -103,3 +105,5 @@ title: Neural Plasticity Research Lab
     </div>
   </div>
 </section>
+
+<script src="{{ '/assets/js/index-list.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

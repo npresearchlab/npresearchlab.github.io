@@ -22,6 +22,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 | Alumni | `_data/alumni.yml` |
 | Collaborators | `_data/collaborators.yml` |
 | Research projects and recruiting status | `_data/projects.yml` |
+| "What we study" themes on the home page | `_data/themes.yml` |
 | Selected publications | `_data/publications.yml` |
 | Tools and methods | `_data/tools.yml` |
 | Email, phone, address, social links, menu | `_config.yml` |

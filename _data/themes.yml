@@ -1,0 +1,27 @@
+# Research themes shown in "What we study" on the home page (the numbered list).
+# color: red, magenta, violet, blue, or cyan (the logo colors).
+# img: a photo in assets/img/. Keep it to about four themes; the Research page lists every project.
+
+- title: Balance and falls
+  text: How the brain senses body motion and keeps us upright, and why that changes with age and after a stroke.
+  img: /assets/img/research/perturbation.jpg
+  alt: A participant in a safety harness during a balance experiment, wearing an EEG cap
+  color: red
+
+- title: Sensation and movement after stroke
+  text: Measuring how the brain uses touch, body position, and vision to guide the arm, and predicting who will recover.
+  img: /assets/img/tools/kinarm.jpg
+  alt: A researcher using the Kinarm robotic arm-movement system
+  color: magenta
+
+- title: Aging and navigation
+  text: How the brain's navigation network changes as we get older, studied with virtual reality and combined TMS and fMRI.
+  img: /assets/img/research/er.jpg
+  alt: A participant navigating a virtual environment wearing a VR headset
+  color: violet
+
+- title: Spinal cord and mobility
+  text: How circuits in the spinal cord work with the brain to keep us walking and balanced.
+  img: /assets/img/research/tms-balance.jpg
+  alt: A participant wearing an EEG cap and a safety harness during a standing balance study
+  color: blue

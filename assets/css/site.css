@@ -393,3 +393,29 @@ li { margin-bottom: 0.35em; }
 /* Banner shown only on test pages */
 .test-banner { background: #fff4c2; color: var(--ink); border-bottom: 1px solid #e8d77a; padding: .6rem var(--gutter); font-size: 1rem; font-weight: 600; text-align: center; }
 .test-banner a { margin-left: .75rem; }
+
+/* What we study: numbered index list (home). The photo on the right follows the hovered row. */
+.idx { display:grid; grid-template-columns:1fr 22rem; gap:3rem; align-items:start; }
+.idx-list { list-style:none; margin:0; padding:0; border-top:2px solid var(--ink); }
+.idx-list li { border-bottom:1px solid var(--line); }
+.idx-list a { display:grid; grid-template-columns:3rem 1fr auto; gap:1.25rem; align-items:baseline; padding:1.4rem .25rem; color:inherit; text-decoration:none; transition:padding 200ms ease, background 200ms ease; }
+.idx-n { font-weight:700; color:var(--c); }
+.idx-t { display:block; font-size:var(--step-2); font-weight:700; line-height:1.15; }
+.idx-d { display:block; color:var(--ink-2); margin-top:.35rem; max-width:50ch; max-height:0; overflow:hidden; opacity:0; transition:max-height 300ms ease, opacity 300ms ease; }
+.idx-list a:hover .idx-d, .idx-list a:focus-visible .idx-d, .idx-list li.on .idx-d { max-height:6rem; opacity:1; }
+.idx-list a:hover, .idx-list li.on a { padding-left:1rem; }
+.idx-list li.on .idx-t, .idx-list a:hover .idx-t { color:var(--c); }
+.idx-go { font-size:1.5rem; color:var(--c); }
+.idx-thumb { display:none; }
+.idx-preview { margin:0; position:sticky; top:6rem; }
+.idx-preview img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:0; display:block; transition:opacity 250ms ease; }
+@media (max-width:860px) {
+  .idx { grid-template-columns:1fr; } .idx-preview { display:none; }
+  .idx-list a { grid-template-columns:2rem 1fr 5rem; align-items:center; }
+  .idx-go { display:none; } .idx-thumb { display:block; width:5rem; height:5rem; object-fit:cover; border-radius:0; }
+  .idx-list li .idx-d { max-height:none; opacity:1; font-size:.95rem; }
+  .idx-t { font-size:1.3rem; } .idx-list li a, .idx-list li.on a { padding-left:0; align-items:start; }
+  .idx-list li.on .idx-t { color:inherit; }
+}
+.idx-more { margin: 1.75rem 0 0; display: flex; justify-content: center; max-width: none; }
+@media (prefers-reduced-motion: reduce) { .idx-list a, .idx-d, .idx-preview img { transition: none; } }
