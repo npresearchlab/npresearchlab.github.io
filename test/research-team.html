@@ -1,0 +1,75 @@
+---
+layout: default
+slug: research
+title: "Test: Research with project teams"
+permalink: /test/research-team/
+test: true
+test_note: "each project shows \"Who's working on this\", linking to the person's card. Filled in only where current bios say who works on what."
+---
+{% include title-band.html title="Research" lede="We combine neuroimaging, brain stimulation, robotics, and virtual reality to understand how the nervous system adapts, and to find better ways to support recovery after neurologic injury." %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Current projects</h2></div>
+    <div class="projects">
+      {% for p in site.data.projects %}
+      <article class="project" id="{{ p.title | slugify }}">
+        <img src="{{ p.photo | relative_url }}" alt="" loading="lazy">
+        <div>
+          {% if p.status == "recruiting" %}<span class="status status-recruiting">Recruiting</span>{% elsif p.status == "coming-soon" %}<span class="status status-coming-soon">Recruiting soon</span>{% endif %}
+          <h3>{{ p.title }}</h3>
+          {% if p.summary != "" %}<p>{{ p.summary }}</p>{% endif %}
+          {% if p.team %}
+          <div class="team-strip">
+            <p class="team-label">Who's working on this</p>
+            <ul>{% for n in p.team %}{% assign person = site.data.members | where: "name", n | first %}<li><a href="{{ '/test/people-v3/' | relative_url }}#{{ n | slugify }}"><img src="{{ person.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt=""><span>{{ n }}</span></a></li>{% endfor %}</ul>
+          </div>
+          {% endif %}
+          {% if p.eligibility %}
+          <details>
+            <summary>Who can take part</summary>
+            <ul>{% for e in p.eligibility %}<li>{{ e }}</li>{% endfor %}</ul>
+            <p><a href="{{ '/get-involved/' | relative_url }}">How to sign up</a></p>
+          </details>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-mist" id="tools">
+  <div class="wrap">
+    <div class="section-head"><h2>Tools and methods</h2></div>
+    <div class="tools">
+      {% for t in site.data.tools %}
+      <div class="tool"><figure><img src="{{ t.photo | relative_url }}" alt="{{ t.name }}" loading="lazy"><figcaption>{{ t.name }}</figcaption></figure></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected publications</h2>
+      <p>For the full list, see <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Borich+MR+OR+Borich+M">PubMed</a> or <a href="https://scholar.google.com/citations?user=6sEAJ1MAAAAJ&hl=en&oi=sra">Google Scholar</a>.</p>
+    </div>
+    <ul class="pubs">
+      {% for p in site.data.publications %}
+      <li><a class="t" href="{{ p.url }}">{{ p.title }}</a><span class="m">{{ p.authors }}. <em>{{ p.venue }}</em>{% if p.year %}, {{ p.year }}{% endif %}.</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .team-strip { margin: .25rem 0 1rem; }
+  .team-label { font-weight: 700; font-size: .95rem; margin: 0 0 .5rem; color: var(--ink) !important; }
+  .team-strip ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+  .team-strip li { margin: 0; }
+  .team-strip a { display: inline-flex; align-items: center; gap: .55rem; color: var(--ink); text-decoration: none; font-weight: 600; font-size: .98rem; }
+  .team-strip a:hover span { text-decoration: underline; }
+  .team-strip img { width: 2.4rem; height: 2.4rem; border-radius: 50% !important; object-fit: cover; object-position: 50% 25%; aspect-ratio: 1; }
+</style>
