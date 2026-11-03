@@ -3,6 +3,7 @@
 # Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
 # pronouns (optional): shown small after the name, e.g. pronouns: she/her
 # links (optional): label + url, e.g. Google Scholar, Website.
+# mentor (optional, mainly for undergraduates): the mentor's name exactly as listed here, e.g. mentor: "Yasmine Bassil, PhD"
 # joint (optional): one line for people shared with another lab, e.g. "Joint with Dr. Lena Ting's Neuromechanics Lab".
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
@@ -107,6 +108,7 @@
   group: Undergraduate students
   affiliation: >-
     Neuroscience Major, Health & Medical Sciences (HMED) Minor, Georgia Institute of Technology
+  mentor: "Yasmine Bassil, PhD"
   photo: /assets/img/people/akarshana-arunkumar.jpg
   bio: >-
     Akarshana is a fourth-year undergraduate student at Georgia Tech with a major in Neuroscience and
@@ -117,6 +119,7 @@
   role: Undergraduate Student
   group: Undergraduate students
   affiliation: Neuroscience Major, Georgia Institute of Technology
+  mentor: "Nathan Baune"
   photo: /assets/img/people/kanishka-sindhwani.jpg
   bio: >-
     Kanishka is a second-year undergraduate student at Georgia Tech. She is currently working with Dr.

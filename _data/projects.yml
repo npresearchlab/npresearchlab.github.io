@@ -3,6 +3,7 @@
 #   recruiting  -> shown with a red "Recruiting" badge and listed on the home page
 #   coming-soon -> "Recruiting soon"
 #   ongoing     -> no badge
+# team (optional): names exactly as in members.yml; shows "Who's working on this" and links people to the project.
 # eligibility is a list of plain sentences. Leave it out if the study isn't enrolling.
 
 - title: Neural correlates of whole-body motion perception
@@ -46,6 +47,8 @@
     - Unilateral ischemic stroke within the previous 3 weeks
 
 - title: Neurophysiologic assessment of proprioceptive deficit and altered visuo-proprioceptive processing post-stroke
+  team:
+    - "Nathan Baune"
   status: coming-soon
   photo: /assets/img/tools/kinarm.jpg
   summary: >-
@@ -63,6 +66,9 @@
     - Normal or corrected-to-normal vision
 
 - title: Aging-related changes in the connectivity and plasticity of the human spatial navigation network using concurrent TMS-fMRI
+  team:
+    - "Yasmine Bassil, PhD"
+    - "Akarshana Arunkumar"
   status: coming-soon
   photo: /assets/img/research/er.jpg
   summary: >-
