@@ -28,3 +28,18 @@
 .members.compact .member .aff { font-size: .9rem; }
 .mentor { font-size: .92rem; margin: .3rem 0 0; color: var(--ink); }
 .mentor a { font-weight: 600; }
+
+/* undergraduate bios: a thin outlined speech bubble under "Read bio" */
+.members.compact details { margin-top: .5rem; }
+.members.compact details summary { font-size: .95rem; }
+.members.compact details[open] summary { margin-bottom: .75rem; }
+.members.compact details p {
+  position: relative; margin: 0; padding: .8rem .9rem;
+  border: 1.5px solid var(--ink); border-radius: 10px;
+  font-size: .92rem; line-height: 1.5; color: var(--ink); background: var(--paper);
+}
+.members.compact details p::before {
+  content: ""; position: absolute; top: -8px; left: 1.1rem; width: 13px; height: 13px;
+  background: var(--paper); border-left: 1.5px solid var(--ink); border-top: 1.5px solid var(--ink);
+  transform: rotate(45deg); border-top-left-radius: 3px;
+}
