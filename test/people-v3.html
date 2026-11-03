@@ -66,7 +66,7 @@ extra_css: /assets/css/test/people-v3.css
               {% if mine.size > 0 %}
               <div class="bio-projects">
                 <p class="bio-label">Projects</p>
-                <ul>{% for pr in mine %}<li><a href="{{ '/test/research-team/' | relative_url }}#{{ pr.title | slugify }}">{{ pr.title }}</a></li>{% endfor %}</ul>
+                <ul>{% for pr in mine %}<li><a href="{{ '/research/' | relative_url }}#{{ pr.title | slugify }}">{{ pr.title }}</a></li>{% endfor %}</ul>
               </div>
               {% endif %}
             </div>

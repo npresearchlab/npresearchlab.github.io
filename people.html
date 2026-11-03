@@ -41,7 +41,7 @@ permalink: /people/
       <h2>{{ g }}</h2>
       <div class="members">
         {% for m in ms %}
-        <article class="member">
+        <article class="member" id="{{ m.name | slugify }}">
           <img src="{{ m.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt="Portrait of {{ m.name }}" loading="lazy">
           <h3>{{ m.name }}{% if m.pronouns %} <span class="pronouns">({{ m.pronouns }})</span>{% endif %}</h3>
           <p class="role">{{ m.role }}</p>

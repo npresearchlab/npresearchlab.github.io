@@ -17,6 +17,12 @@ permalink: /research/
           {% if p.status == "recruiting" %}<span class="linked-status recruiting">{% include linked.svg %}Recruiting</span>{% elsif p.status == "coming-soon" %}<span class="linked-status soon">{% include unlinked.svg %}Recruiting soon</span>{% endif %}
           <h3>{{ p.title }}</h3>
           {% if p.summary != "" %}<p>{{ p.summary }}</p>{% endif %}
+          {% if p.team %}
+          <div class="team-strip">
+            <p class="team-label">Who's working on this</p>
+            <ul>{% for n in p.team %}{% assign person = site.data.members | where: "name", n | first %}<li><a href="{{ '/people/' | relative_url }}#{{ n | slugify }}"><img src="{{ person.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt=""><span>{{ n }}</span></a></li>{% endfor %}</ul>
+          </div>
+          {% endif %}
           {% if p.eligibility %}
           <details>
             <summary>Who can take part</summary>
