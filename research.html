@@ -14,7 +14,7 @@ permalink: /research/
       <article class="project" id="{{ p.title | slugify }}">
         <img src="{{ p.photo | relative_url }}" alt="" loading="lazy">
         <div>
-          {% if p.status == "recruiting" %}<span class="status status-recruiting">Recruiting</span>{% elsif p.status == "coming-soon" %}<span class="status status-coming-soon">Recruiting soon</span>{% endif %}
+          {% if p.status == "recruiting" %}<span class="linked-status recruiting">{% include linked.svg %}Recruiting</span>{% elsif p.status == "coming-soon" %}<span class="linked-status soon">{% include unlinked.svg %}Recruiting soon</span>{% endif %}
           <h3>{{ p.title }}</h3>
           {% if p.summary != "" %}<p>{{ p.summary }}</p>{% endif %}
           {% if p.eligibility %}
@@ -31,14 +31,10 @@ permalink: /research/
   </div>
 </section>
 
-<section class="section section-mist" id="tools">
-  <div class="wrap">
-    <div class="section-head"><h2>Tools and methods</h2></div>
-    <div class="tools">
-      {% for t in site.data.tools %}
-      <div class="tool"><figure><img src="{{ t.photo | relative_url }}" alt="{{ t.name }}" loading="lazy"><figcaption>{{ t.name }}</figcaption></figure></div>
-      {% endfor %}
-    </div>
+<section class="section section-mist tools-section" id="tools">
+  <div class="wrap"><div class="section-head"><h2>Tools and methods</h2></div></div>
+  <div class="tool-strip">
+    {% for t in site.data.tools %}<figure><img src="{{ t.photo | relative_url }}" alt="" loading="lazy"><figcaption>{{ t.name }}</figcaption></figure>{% endfor %}
   </div>
 </section>
 
