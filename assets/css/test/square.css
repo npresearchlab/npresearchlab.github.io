@@ -1,0 +1,6 @@
+/* Test: square corners on photos and panels. Buttons, pills, and dots stay round. */
+.theme img, .team-figure img, .visit-frame, .pi-photo, .pi-tab, .pi-panel,
+.member img, .bio-panel, .bio-head img, .collab img, .project img, .tool img,
+.team-strip img, .gallery img, .video-wrap video, .contact-card,
+.members.compact details p { border-radius: 0 !important; }
+.bio-pointer { border-radius: 0; }
