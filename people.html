@@ -33,29 +33,62 @@ permalink: /people/
       </div>
     </div>
 
-    {% assign groups = "Research staff, postdocs, and graduate students|Undergraduate students" | split: "|" %}
-    {% for g in groups %}
-    {% assign ms = site.data.members | where: "group", g %}
-    {% if ms.size > 0 %}
+    {% capture award_svg %}<svg viewBox="0 0 34 14" aria-hidden="true"><line x1="7" y1="7" x2="27" y2="7" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="7" cy="7" r="6" fill="currentColor"/><circle cx="27" cy="7" r="6" fill="currentColor"/></svg>{% endcapture %}
+
+    {% comment %} Core members: bios open one at a time into a wide panel under their row {% endcomment %}
+    {% assign core = site.data.members | where: "group", "Research staff, postdocs, and graduate students" %}
     <div class="member-group">
-      <h2>{{ g }}</h2>
-      <div class="members">
-        {% for m in ms %}
-        <article class="member" id="{{ m.name | slugify }}">
+      <h2>Research staff, postdocs, and graduate students</h2>
+      <div class="members core-grid" data-bio-grid>
+        {% for m in core %}
+        {% assign mid = m.name | slugify %}
+        <article class="member" id="{{ mid }}">
           <img src="{{ m.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt="Portrait of {{ m.name }}" loading="lazy">
           <h3>{{ m.name }}{% if m.pronouns %} <span class="pronouns">({{ m.pronouns }})</span>{% endif %}</h3>
           <p class="role">{{ m.role }}</p>
           {% if m.affiliation %}<p class="aff">{{ m.affiliation }}</p>{% endif %}
           {% if m.joint %}<p class="aff joint">{{ m.joint }}</p>{% endif %}
-          {% if m.honors %}<p class="honors award"><svg viewBox="0 0 34 14" aria-hidden="true"><line x1="7" y1="7" x2="27" y2="7" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="7" cy="7" r="6" fill="currentColor"/><circle cx="27" cy="7" r="6" fill="currentColor"/></svg><span>{{ m.honors }}</span></p>{% endif %}
+          {% if m.honors %}<p class="honors award">{{ award_svg }}<span>{{ m.honors }}</span></p>{% endif %}
           {% if m.links %}<p class="links">{% for l in m.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>{% endif %}
+          {% if m.bio %}<button type="button" class="bio-toggle" aria-expanded="false" data-bio="bio-{{ mid }}">Read bio</button>{% endif %}
+          <template id="bio-{{ mid }}">
+            <div class="bio-head">
+              <img src="{{ m.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt="">
+              <div><p class="bio-name">{{ m.name }}</p><p class="bio-role">{{ m.role }}</p></div>
+            </div>
+            <div class="bio-body">
+              <p>{{ m.bio }}</p>
+              {% assign mine = "" | split: "" %}
+              {% for pr in site.data.projects %}{% if pr.team contains m.name %}{% assign mine = mine | push: pr %}{% endif %}{% endfor %}
+              {% if mine.size > 0 %}
+              <div class="bio-projects">
+                <p class="bio-label">Projects</p>
+                <ul>{% for pr in mine %}<li><a href="{{ '/research/' | relative_url }}#{{ pr.title | slugify }}">{{ pr.title }}</a></li>{% endfor %}</ul>
+              </div>
+              {% endif %}
+            </div>
+          </template>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% comment %} Everyone else: compact cards, short bio, mentor line {% endcomment %}
+    {% assign ugs = site.data.members | where: "group", "Undergraduate students" %}
+    <div class="member-group">
+      <h2>Undergraduate students</h2>
+      <div class="members compact">
+        {% for m in ugs %}
+        <article class="member" id="{{ m.name | slugify }}">
+          <img src="{{ m.photo | default: '/assets/img/nprl-mark.png' | relative_url }}" alt="Portrait of {{ m.name }}" loading="lazy">
+          <h3>{{ m.name }}{% if m.pronouns %} <span class="pronouns">({{ m.pronouns }})</span>{% endif %}</h3>
+          {% if m.affiliation %}<p class="aff">{{ m.affiliation }}</p>{% endif %}
+          {% if m.mentor %}<p class="mentor">Mentor: <a href="#{{ m.mentor | slugify }}">{{ m.mentor }}</a></p>{% else %}<p class="mentor">Mentor: [to be added]</p>{% endif %}
           {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio }}</p></details>{% endif %}
         </article>
         {% endfor %}
       </div>
     </div>
-    {% endif %}
-    {% endfor %}
   </div>
 </section>
 
@@ -109,4 +142,52 @@ document.querySelectorAll('[data-pi-tabs]').forEach(function (box) {
     });
   });
 });
+</script>
+<script>
+// Core bios: one wide panel at a time, placed under the row of the person who opened it,
+// with a pointer back to their card.
+(function () {
+  var grid = document.querySelector('[data-bio-grid]');
+  if (!grid) return;
+  var panel = document.createElement('section');
+  panel.className = 'bio-panel'; panel.hidden = true; panel.setAttribute('aria-live', 'polite');
+  panel.innerHTML = '<span class="bio-pointer" aria-hidden="true"></span><button type="button" class="bio-close" aria-label="Close bio">&times;</button><div class="bio-content"></div>';
+  var current = null;
+  function rowEnd(card) {
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.member'));
+    var top = card.offsetTop, last = card;
+    cards.forEach(function (c) { if (c.offsetTop === top) last = c; });
+    return last;
+  }
+  function place() {
+    if (!current) return;
+    var last = rowEnd(current);
+    if (last.nextElementSibling !== panel) last.after(panel);
+    var g = grid.getBoundingClientRect(), c = current.getBoundingClientRect();
+    panel.querySelector('.bio-pointer').style.left = (c.left - g.left + c.width / 2) + 'px';
+  }
+  function close() {
+    if (!current) return;
+    current.classList.remove('is-open');
+    current.querySelector('.bio-toggle').setAttribute('aria-expanded', 'false');
+    current.querySelector('.bio-toggle').textContent = 'Read bio';
+    panel.hidden = true; var was = current; current = null; return was;
+  }
+  grid.addEventListener('click', function (e) {
+    var btn = e.target.closest('.bio-toggle'); if (!btn) return;
+    var card = btn.closest('.member');
+    if (current === card) { close(); return; }
+    close();
+    current = card; card.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true'); btn.textContent = 'Close bio';
+    var tpl = document.getElementById(btn.dataset.bio);
+    var content = panel.querySelector('.bio-content'); content.innerHTML = ''; content.appendChild(tpl.content.cloneNode(true));
+    panel.hidden = false; place();
+    var r = panel.getBoundingClientRect();
+    if (r.bottom > window.innerHeight) panel.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+  });
+  panel.querySelector('.bio-close').addEventListener('click', function () { var was = close(); if (was) was.querySelector('.bio-toggle').focus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && current) { var was = close(); was.querySelector('.bio-toggle').focus(); } });
+  window.addEventListener('resize', place);
+})();
 </script>

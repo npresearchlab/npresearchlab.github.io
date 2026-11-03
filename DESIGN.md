@@ -41,4 +41,6 @@ The current, approved design. Changes to anything here go through a test page fi
 - Buttons: primary (ink fill) and secondary (ink outline).
 - Status badges: Recruiting (red), Recruiting soon (violet).
 - People cards: square photo, name, role, affiliation, optional joint-lab line, awards marked with magenta linked dots (not pills), expandable bio.
-- Expandable details (`<details>`) for bios and eligibility.
+- Core members' bios open one at a time in a wide navy panel under their row, pointing back to their card, with their projects linked. Undergraduate cards are compact, show a mentor line, and open their bio in a thin outlined bubble.
+- Each project on Research lists "Who's working on this" (from `team` in projects.yml), linking to People cards.
+- Expandable details (`<details>`) for eligibility.
