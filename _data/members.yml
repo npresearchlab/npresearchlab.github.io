@@ -1,6 +1,8 @@
 # Current lab members, shown on the People page in this order.
 # To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
 # Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
+# pronouns (optional): shown small after the name, e.g. pronouns: she/her
+# links (optional): label + url, e.g. Google Scholar, Website.
 # joint (optional): one line for people shared with another lab, e.g. "Joint with Dr. Lena Ting's Neuromechanics Lab".
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.

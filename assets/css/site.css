@@ -238,6 +238,7 @@ li { margin-bottom: 0.35em; }
 .members { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 2.25rem 1.75rem; margin-top: 1.75rem; }
 .member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 25%; border-radius: var(--radius); margin-bottom: .9rem; background: var(--mist); }
 .member h3 { font-size: 1.2rem; margin: 0; }
+.member h3 .pronouns { font-size: .85rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }
 .member .role { font-weight: 600; color: var(--ink); margin: .1rem 0 .25rem; font-size: 1.02rem; }
 .member .aff, .member .honors { font-size: .95rem; color: var(--ink-2); margin: 0 0 .2rem; line-height: 1.45; }
 /* Awards under a person: the logo's linked dots */

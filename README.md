@@ -34,7 +34,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 
 ### Add a new lab member
 1. Upload their photo: go to `assets/img/people/`, click **Add file → Upload files**, and upload it. Use a square-ish photo about 600–800 px wide, named like `firstname-lastname.jpg`.
-2. Open `_data/members.yml`, copy an existing person's block (from `- name:` to the end of their `bio`), paste it where you want them to appear, and edit it. `group` must be exactly `Research staff, postdocs, and graduate students` or `Undergraduate students`.
+2. Open `_data/members.yml`, copy an existing person's block (from `- name:` to the end of their `bio`), paste it where you want them to appear, and edit it. Optional fields: `pronouns` (shown small after the name), `honors` (one award), `joint` (another lab), and `links` (Google Scholar, Website). `group` must be exactly `Research staff, postdocs, and graduate students` or `Undergraduate students`.
 
 ### Move someone to alumni
 Delete their block from `_data/members.yml`, then add them to `_data/alumni.yml` with a `type` (Postdocs and research staff, Graduate students, Undergraduate students, or High school students and volunteers).
