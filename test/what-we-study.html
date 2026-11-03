@@ -27,7 +27,7 @@ wws:
     color: violet
     methods: [Virtual reality, TMS, MRI]
 methods: [EEG, Motion capture, Balance platform, Robotics, TMS, MRI, Virtual reality]
-test_note: "Six ways to lay out What we study: A is the current live section, B is a gallery wall, C is big questions, D is an index list, E is a connection map, and F is a scroll story. Everything else is the live home page."
+test_note: "Six ways to lay out What we study: A is the current live section, B is a gallery wall, B2 is the gallery wall with four themes and a link to Research, C is big questions, D is an index list, E is a connection map, and F is a scroll story. Everything else is the live home page."
 ---
 <section class="hero">
   <div class="wrap hero-grid">
@@ -140,6 +140,39 @@ test_note: "Six ways to lay out What we study: A is the current live section, B 
         <p>[Placeholder: one sentence about this research area.]</p>
       </a>
     </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-top:2.5rem"><p class="opt-badge">Option B2: gallery wall, four themes</p></div>
+<section class="section" aria-labelledby="study-heading-b2">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="study-heading-b2">What we study</h2>
+      <p>We use neuroimaging, brain stimulation, robotics, and virtual reality to see how the nervous system changes with learning, aging, and injury.</p>
+    </div>
+    <div class="themes wall">
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/research/perturbation.jpg' | relative_url }}" alt="A participant in a safety harness during a balance experiment, wearing an EEG cap" loading="lazy">
+        <h3>Balance and falls</h3>
+        <p>How the brain senses body motion and keeps us upright, and why that changes with age and after a stroke.</p>
+      </a>
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/tools/kinarm.jpg' | relative_url }}" alt="A researcher using the Kinarm robotic arm-movement system" loading="lazy">
+        <h3>Sensation and movement after stroke</h3>
+        <p>Measuring how the brain uses touch, body position, and vision to guide the arm, and predicting who will recover.</p>
+      </a>
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/research/er.jpg' | relative_url }}" alt="A participant navigating a virtual environment wearing a VR headset" loading="lazy">
+        <h3>Aging and navigation</h3>
+        <p>How the brain's navigation network changes as we get older, studied with virtual reality and combined TMS and fMRI.</p>
+      </a>
+      <a class="theme" href="{{ '/research/' | relative_url }}" style="color:inherit;text-decoration:none">
+        <img src="{{ '/assets/img/research/tms-balance.jpg' | relative_url }}" alt="A participant wearing an EEG cap and a safety harness during a standing balance study" loading="lazy">
+        <h3>Spinal cord and mobility</h3>
+        <p>How circuits in the spinal cord work with the brain to keep us walking and balanced.</p>
+      </a>
+    </div>
+    <p class="wall-more"><a class="btn" href="{{ '/research/' | relative_url }}">See all our research <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </section>
 
@@ -265,6 +298,7 @@ test_note: "Six ways to lay out What we study: A is the current live section, B 
 </section>
 
 <style>
+  .wall-more { margin:1.75rem 0 0; display:flex; justify-content:center; max-width:none; }
   .opt-badge { display:inline-block; margin:0; padding:.35rem .8rem; border:2px solid #ca006c; border-radius:999px; color:#ca006c; font-weight:700; font-size:.9rem; letter-spacing:.04em; text-transform:uppercase; }
   .chips { list-style:none; padding:0; margin:.75rem 0 0; display:flex; flex-wrap:wrap; gap:.4rem; }
   .chips li { font-size:.82rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; background:var(--mist); color:var(--ink); }
