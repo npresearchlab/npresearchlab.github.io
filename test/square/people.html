@@ -60,7 +60,9 @@ extra_css: /assets/css/test/square.css
               <div><p class="bio-name">{{ m.name }}</p><p class="bio-role">{{ m.role }}</p></div>
             </div>
             <div class="bio-body">
-              <p>{{ m.bio }}</p>
+              <p>{{ m.bio | strip | replace: "
+
+", "</p><p>" }}</p>
               {% assign mine = "" | split: "" %}
               {% for pr in site.data.projects %}{% if pr.team contains m.name %}{% assign mine = mine | push: pr %}{% endif %}{% endfor %}
               {% if mine.size > 0 %}
@@ -87,7 +89,9 @@ extra_css: /assets/css/test/square.css
           <h3>{{ m.name }}{% if m.pronouns %} <span class="pronouns">({{ m.pronouns }})</span>{% endif %}</h3>
           {% if m.affiliation %}<p class="aff">{{ m.affiliation }}</p>{% endif %}
           {% if m.mentor %}<p class="mentor">Mentor: <a href="#{{ m.mentor | slugify }}">{{ m.mentor }}</a></p>{% else %}<p class="mentor">Mentor: [to be added]</p>{% endif %}
-          {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio }}</p></details>{% endif %}
+          {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio | strip | replace: "
+
+", "</p><p>" }}</p></details>{% endif %}
         </article>
         {% endfor %}
       </div>
@@ -119,7 +123,7 @@ extra_css: /assets/css/test/square.css
     <h3 class="alumni-type">{{ ty }}</h3>
     <ul class="alumni">
       {% for a in group %}
-      <li>{{ a.name }}{% if a.role != "" or a.now %}<span class="r">{% if a.role != "" %}{{ a.role }}{% endif %}{% if a.role != "" and a.now %}. {% endif %}{% if a.now %}Now: {{ a.now }}{% endif %}</span>{% endif %}</li>
+      <li>{{ a.name }}{% if a.role != "" %}<span class="r">{{ a.role }}</span>{% endif %}{% if a.now %}<span class="now"><b>Now</b> {{ a.now }}</span>{% endif %}</li>
       {% endfor %}
     </ul>
     {% endif %}
