@@ -7,6 +7,8 @@
 # eligibility is a list of plain sentences. Leave it out if the study isn't enrolling.
 
 - title: Neural correlates of whole-body motion perception
+  team:
+    - "Rekha Crawford"
   status: recruiting
   photo: /assets/img/research/perturbation.jpg
   summary: >-
@@ -103,6 +105,8 @@
     - Motor deficits in the acutely affected arm
 
 - title: Probing the effective connectivity of sensorimotor circuits in the spinal cord and their relation to mobility and balance
+  team:
+    - "Rekha Crawford"
   status: ongoing
   photo: /assets/img/research/sensorimotor.jpg
   summary: ""
