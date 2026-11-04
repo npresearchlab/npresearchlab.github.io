@@ -23,11 +23,11 @@
 }
 
 /* Light volunteers band */
-.recruit-band { background: #d5eaf7; color: var(--ink); } /* the logo's blue (#0079c2) at about 16% on white */
+.recruit-band { background: var(--mist); color: var(--ink); border-top: 5px solid var(--red); } /* gray like other sections, with a red rule that matches the Recruiting dots */
 .recruit-band h2, .recruit-rows .who { color: var(--ink); }
 .recruit-band .section-head p, .recruit-rows .t { color: var(--ink-2); }
 .recruit-band a { color: var(--blue-text); }
-.recruit-rows li + li { box-shadow: 0 -2px 0 rgba(0,121,194,.22); }
+.recruit-rows li + li { box-shadow: 0 -2px 0 var(--line); }
 .recruit-rows .linked-status.recruiting { color: var(--red-text); }
 .recruit-rows .go { border-color: var(--ink); color: var(--ink); }
 .recruit-rows .go:hover { background: rgba(20,32,58,.06); }
