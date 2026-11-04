@@ -237,12 +237,12 @@ li { margin-bottom: 0.35em; }
 .member-group > h2 { font-size: var(--step-2); padding-bottom: .6rem; border-bottom: 2px solid var(--ink); }
 .members { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 2.25rem 1.75rem; margin-top: 1.75rem; }
 .member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 25%; border-radius: var(--radius); margin-bottom: .9rem; background: var(--mist); }
-.member h3 { font-size: 1.2rem; margin: 0; }
+.member h3 { font-size: 1.2rem; margin: 0; line-height: 1.25; }
 .member h3 .pronouns { font-size: .85rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }
-.member .role { font-weight: 600; color: var(--ink); margin: .1rem 0 .25rem; font-size: 1.02rem; }
+.member .role { font-weight: 600; color: var(--ink); margin: .1rem 0 .3rem; font-size: 1.02rem; line-height: 1.3; }
 .member .aff, .member .honors { font-size: .95rem; color: var(--ink-2); margin: 0 0 .2rem; line-height: 1.45; }
 /* Awards under a person: the logo's linked dots */
-.member .award { display: flex; gap: .55rem; align-items: flex-start; color: var(--ink); font-weight: 650; font-size: .95rem; margin-top: .35rem; }
+.member .award { line-height: 1.35; display: flex; gap: .55rem; align-items: flex-start; color: var(--ink); font-weight: 650; font-size: .95rem; margin-top: .35rem; }
 .member .award svg { width: 26px; height: 11px; flex: none; margin-top: .38em; color: var(--magenta); }
 .member details { margin-top: .6rem; }
 .member summary { cursor: pointer; font-weight: 700; color: var(--blue-text); font-size: 1rem; }
