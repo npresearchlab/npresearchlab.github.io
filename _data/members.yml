@@ -1,5 +1,5 @@
 # Current lab members, shown on the People page in this order.
-# Core group order: staff, then postdocs, then PhD students, then affiliated members.
+# Core group order: staff and postdocs by seniority (years since PhD), then PhD students, then affiliated members.
 # To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
 # Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
 # pronouns (optional): shown small after the name, e.g. pronouns: she/her
@@ -34,6 +34,20 @@
     sensors to track activities of daily living in the homes of stroke survivors. Nathan enjoys the latest
     technology, especially considering how it can be used to answer difficult research questions. Nathan
     is also fond of cycling, gardening, snowboarding (which is difficult in Georgia), and hunting mushrooms.
+- name: Isaiah Lachica, PhD
+  role: Postdoctoral Fellow
+  group: Research staff, postdocs, and graduate students
+  affiliation: Department of Rehabilitation Medicine, Emory University
+  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
+  photo: /assets/img/people/isaiah-lachica.jpg
+  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+- name: Oindrila Sinha, PhD
+  role: Postdoctoral Fellow
+  group: Research staff, postdocs, and graduate students
+  affiliation: "Department of Rehabilitation Medicine, Emory University | School of Biological Sciences, Georgia Institute of Technology"
+  joint: Joint with Dr. Lewis Wheaton's Cognitive Motor Control Lab
+  photo: /assets/img/people/oindrila-sinha.jpg
+  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Yasmine Bassil, PhD
   pronouns: she/her
   role: Assistant Research Scientist
@@ -56,20 +70,6 @@
     In graduate school, she co-chaired the Neuroscience Graduate Program's Diversity, Equity, and Inclusion Committee, served as Co-President of Graduates in Neuroscience, and was Internal Affairs Chair of the international non-profit Arabs in Neuroscience.
 
     Outside the lab, you might find her at local concerts, thrifting, wandering a museum, or singing karaoke. At home, she tends houseplants, cooks cuisines from around the world, and plays music (piano, learning bass guitar).
-- name: Isaiah Lachica, PhD
-  role: Postdoctoral Fellow
-  group: Research staff, postdocs, and graduate students
-  affiliation: Department of Rehabilitation Medicine, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  photo: /assets/img/people/isaiah-lachica.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
-- name: Oindrila Sinha, PhD
-  role: Postdoctoral Fellow
-  group: Research staff, postdocs, and graduate students
-  affiliation: "Department of Rehabilitation Medicine, Emory University | School of Biological Sciences, Georgia Institute of Technology"
-  joint: Joint with Dr. Lewis Wheaton's Cognitive Motor Control Lab
-  photo: /assets/img/people/oindrila-sinha.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Iran Gutierrez
   role: PhD Student
   group: Research staff, postdocs, and graduate students
