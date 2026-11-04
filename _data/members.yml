@@ -2,7 +2,8 @@
 # To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
 # Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
 # pronouns (optional): shown small after the name, e.g. pronouns: she/her
-# links (optional): label + url, e.g. Google Scholar, Website.
+# links (optional): label + url, e.g. Google Scholar, Website, or Email (url: mailto:name@emory.edu).
+# bio: for paragraph breaks, write 'bio: |-' and leave a blank line between paragraphs.
 # mentor (optional, mainly for undergraduates): the mentor's name exactly as listed here, e.g. mentor: "Yasmine Bassil, PhD"
 # joint (optional): one line for people shared with another lab, e.g. "Joint with Dr. Lena Ting's Neuromechanics Lab".
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
@@ -47,24 +48,27 @@
   photo: /assets/img/people/oindrila-sinha.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Yasmine Bassil, PhD
+  pronouns: she/her
   role: Assistant Research Scientist
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
-  honors: NSF GRFP Awardee
+  honors: NSF GRFP
   photo: /assets/img/people/yasmine-bassil.jpg
-  bio: >-
-    Yasmine received her Bachelor's degree in Neuroscience at the Georgia Institute of Technology, where
-    she completed the Research Option certificate and conducted undergraduate research with Dr. Shella
-    Keilholz as a part of the Keilholz MIND Lab. Her primary undergraduate research focused on studying
-    resting-state functional connectivity and whole-brain dynamics in ADHD using fMRI. Currently, Yasmine
-    is pursuing her PhD in Neuroscience at Emory University and is interested in aging-related changes
-    in the connectivity and plasticity of the human spatial navigation network, using concurrent TMS-fMRI.
-    She also serves as the Co-Chair of the Emory Neuroscience Graduate Program's Diversity, Equity, &
-    Inclusion (DEI) Committee, as well as the Secretary for the Graduates in Neuroscience organization.
-    Additionally, she is a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training
-    Program. Outside of Emory, she enjoys roller-skating, taking care of her indoor plants, cooking food
-    from various cultural cuisines, visiting museums, thrifting, playing the piano, singing karaoke, and
-    learning how to play the bass guitar.
+  links:
+  - label: Email
+    url: mailto:ybassil@emory.edu
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=mcp_4HQAAAAJ&hl=en
+  - label: Website
+    url: https://yasminebassil.com
+  bio: |-
+    Yasmine Bassil, PhD, is an Assistant Research Scientist in the Neural Plasticity Research Lab, where she studies how the brain helps us find our way, and how that ability changes with age. She uses brain imaging (fMRI) to map the human spatial navigation network and link changes in it to navigation ability later in life, and pairs imaging with brain stimulation (concurrent TMS-fMRI) to map navigational circuits.
+
+    Yasmine earned her PhD in Neuroscience at Emory University, completing her dissertation in this lab as an NSF Graduate Research Fellow and a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training Program. She earned her bachelor's in Neuroscience at Georgia Tech, where she completed the Research Option and used fMRI to study whole-brain dynamics in ADHD in Dr. Shella Keilholz's MIND Lab.
+
+    In graduate school, she co-chaired the Neuroscience Graduate Program's Diversity, Equity, and Inclusion Committee, served as Co-President of Emory Graduates in Neuroscience, and was Internal Affairs Chair of the international non-profit Arabs in Neuroscience.
+
+    Outside the lab, you might find her at local concerts, thrifting, wandering a museum, or singing karaoke. At home she tends houseplants, cooks cuisines from around the world, plays piano, and is learning bass guitar.
 - name: Iran Gutierrez
   role: PhD Student
   group: Research staff, postdocs, and graduate students

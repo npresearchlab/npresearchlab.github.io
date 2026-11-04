@@ -258,7 +258,7 @@ li { margin-bottom: 0.35em; }
 .member.is-open img { outline: 4px solid var(--ink); outline-offset: 3px; }
 
 /* the shared bio panel: full row width, pointer up to the card it belongs to */
-.bio-panel { grid-column: 1 / -1; position: relative; background: var(--ink); color: #fff; border-radius: var(--radius); padding: 2rem 2.25rem; margin-top: .25rem; display: block; }
+.bio-panel { grid-column: 1 / -1; position: relative; background: var(--ink); color: #fff; border-radius: var(--radius); padding: 2rem 4.5rem 2rem 2.25rem; margin-top: .25rem; display: block; }
 .bio-panel[hidden] { display: none; }
 .bio-pointer { position: absolute; top: -12px; width: 26px; height: 26px; background: var(--ink); transform: translateX(-50%) rotate(45deg); border-radius: 4px; }
 .bio-close { position: absolute; top: .9rem; right: 1rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 0; background: rgba(255,255,255,.12); color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
