@@ -270,9 +270,17 @@ li { margin-bottom: 0.35em; }
 .bio-role { margin: .1rem 0 0; color: #c9d3e2; font-size: 1rem; }
 .bio-body p { color: #eef2f7; max-width: 72ch; font-size: 1.05rem; }
 .bio-label { font-weight: 700; color: #fff !important; margin: 1.25rem 0 .4rem; font-size: 1rem !important; }
-.bio-projects ul { margin: 0; padding-left: 1.1em; }
+.bio-projects ul { margin: 0; padding-left: 1.1em; font-size: 1.05rem; }
 .bio-projects a { color: #fff; }
 @media (max-width: 760px) { .bio-content { grid-template-columns: 1fr; } .bio-panel { padding: 1.5rem 1.25rem; } }
+/* Desktop: the bio wraps under the photo, name, and role and uses the panel's full width */
+@media (min-width: 761px) {
+  .bio-content { display: block; }
+  .bio-content::after { content: ""; display: block; clear: both; }
+  .bio-head { float: left; width: 14rem; margin: 0 2.25rem .75rem 0; }
+  .bio-body p { max-width: none; }
+  .bio-body > :first-child { margin-top: 0; }
+}
 
 /* compact cards for undergraduates and other non-core members */
 .members.compact { grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)); gap: 2rem 1.25rem; }
