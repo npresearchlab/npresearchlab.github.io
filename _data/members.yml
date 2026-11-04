@@ -6,7 +6,7 @@
 # links (optional): label + url, e.g. Google Scholar, Website, or Email (url: mailto:name@emory.edu).
 # bio: for paragraph breaks, write 'bio: |-' and leave a blank line between paragraphs.
 # mentor (optional, mainly for undergraduates): the mentor's name exactly as listed here, e.g. mentor: "Yasmine Bassil, PhD"
-# joint (optional): one line for people shared with another lab, e.g. "Joint with Dr. Lena Ting's Neuromechanics Lab".
+# joint (optional): one line about another lab. Shared members: "Joint with Dr. Lena Ting's Neuromechanics Lab". Affiliated members: "Based in Dr. Lena Ting's Neuromechanics Lab".
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
@@ -97,7 +97,7 @@
   role: Affiliated Neuroscience PhD Candidate
   group: Research staff, postdocs, and graduate students
   affiliation: Neuroscience Graduate Program, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
+  joint: "Based in Dr. Lena Ting's Neuromechanics Lab and Dr. Trisha Kesar's Motion Analysis Laboratory"
   honors: NIH F31 Awardee
   photo: /assets/img/people/catie-mason.jpg
   bio: >-
@@ -114,7 +114,7 @@
   role: Affiliated Research Specialist
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
+  joint: "Based in Dr. Lena Ting's Neuromechanics Lab"
   photo: /assets/img/people/joon-han-kim.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Akarshana Arunkumar
