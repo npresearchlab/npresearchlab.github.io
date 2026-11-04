@@ -31,7 +31,7 @@ The current, approved design. Changes to anything here go through a test page fi
 ## Layout
 - Max width 72rem, left-aligned content.
 - Sections alternate white and mist.
-- Rounded corners 14px on photos and cards; pill-shaped buttons.
+- Square corners on photos, cards, panels, and headshots (including the small round-looking ones); pill-shaped buttons and status pills stay round, so round shapes stay tied to the logo dots.
 - Inner pages open with a navy title band (`_includes/title-band.html`): h1 and lede on the left, the whole logo on the right edge of the content. The logo drifts slowly and its colored dots form and release links (`assets/js/title-drift.js`); still for reduced motion, paused off screen. On phones the logo sits small above the title.
 
 - Home "What we study" is a numbered index list (`_data/themes.yml`, `assets/js/index-list.js`): big titles with thin rules, each number in a logo color; hovering a row opens its sentence and swaps the square photo on the right. On phones, every row shows its sentence and a small thumbnail.
