@@ -1,0 +1,9 @@
+/* Test: a more compact What we study list */
+.idx { grid-template-columns: 1fr 17rem; gap: 2.5rem; }
+.idx-list a { padding: 1rem .25rem; gap: 1rem; grid-template-columns: 2.5rem 1fr auto; }
+.idx-t { font-size: var(--step-1); }
+.idx-d { font-size: 1.05rem; margin-top: .25rem; }
+.idx-go { font-size: 1.25rem; }
+.idx-preview img { aspect-ratio: 1 / 1; }
+.idx-list a:hover, .idx-list li.on a { padding-left: .75rem; }
+@media (max-width: 860px) { .idx-t { font-size: 1.2rem; } .idx-thumb { width: 4.25rem; height: 4.25rem; } .idx-list a { grid-template-columns: 2rem 1fr 4.25rem; } }
