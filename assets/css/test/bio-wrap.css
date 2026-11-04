@@ -1,0 +1,8 @@
+/* Test: bio text wraps under the photo, name, and role, using the panel's full width */
+@media (min-width: 761px) {
+  .bio-content { display: block; }
+  .bio-content::after { content: ""; display: block; clear: both; }
+  .bio-head { float: left; width: 14rem; margin: 0 2.25rem .75rem 0; }
+  .bio-body p { max-width: none; }
+  .bio-body > :first-child { margin-top: 0; }
+}
