@@ -120,7 +120,7 @@ permalink: /people/
     <h3 class="alumni-type">{{ ty }}</h3>
     <ul class="alumni">
       {% for a in group %}
-      <li>{{ a.name }}{% if a.role != "" or a.now %}<span class="r">{% if a.role != "" %}{{ a.role }}{% endif %}{% if a.role != "" and a.now %}. {% endif %}{% if a.now %}Now: {{ a.now }}{% endif %}</span>{% endif %}</li>
+      <li>{{ a.name }}{% if a.role != "" %}<span class="r">{{ a.role }}</span>{% endif %}{% if a.now %}<span class="now"><b>Now</b> {{ a.now }}</span>{% endif %}</li>
       {% endfor %}
     </ul>
     {% endif %}

@@ -316,6 +316,8 @@ li { margin-bottom: 0.35em; }
 .alumni { list-style: none; padding: 0; columns: 2 20rem; column-gap: 2.5rem; margin-top: 1.5rem; }
 .alumni li { break-inside: avoid; padding: .6rem 0; border-bottom: 1px solid var(--line); margin: 0; font-size: 1.02rem; }
 .alumni .r { color: var(--ink-2); display: block; font-size: .95rem; }
+.alumni .now { display: block; font-size: .95rem; color: var(--ink); margin-top: .15rem; }
+.alumni .now b { color: var(--blue-text); font-weight: 700; margin-right: .3em; }
 
 /* Research */
 .projects { display: grid; gap: 1.25rem; }
