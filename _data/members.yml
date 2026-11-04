@@ -9,7 +9,7 @@
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
-- name: Nathan Baune
+- name: Nathan Baune, PhD
   role: Lead Biomedical Engineer
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
@@ -33,14 +33,14 @@
     sensors to track activities of daily living in the homes of stroke survivors. Nathan enjoys the latest
     technology, especially considering how it can be used to answer difficult research questions. Nathan
     is also fond of cycling, gardening, snowboarding (which is difficult in Georgia), and hunting mushrooms.
-- name: Isaiah Lachica
+- name: Isaiah Lachica, PhD
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
   joint: Joint with Dr. Lena Ting's Neuromechanics Lab
   photo: /assets/img/people/isaiah-lachica.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
-- name: Oindrila Sinha
+- name: Oindrila Sinha, PhD
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
   affiliation: "Department of Rehabilitation Medicine, Emory University | School of Biological Sciences, Georgia Institute of Technology"
@@ -123,7 +123,7 @@
   role: Undergraduate Student
   group: Undergraduate students
   affiliation: Neuroscience Major, Georgia Institute of Technology
-  mentor: "Nathan Baune"
+  mentor: "Nathan Baune, PhD"
   photo: /assets/img/people/kanishka-sindhwani.jpg
   bio: >-
     Kanishka is a second-year undergraduate student at Georgia Tech. She is currently working with Dr.
