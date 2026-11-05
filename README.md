@@ -55,3 +55,14 @@ The `.yml` files are sensitive to indentation, so keep the spacing the same as t
 ## Previewing locally (optional)
 
 If you have Ruby installed: `gem install jekyll -v 3.10.0 jekyll-seo-tag kramdown-parser-gfm webrick`, then `jekyll serve` in this folder and open http://localhost:4000.
+
+## Planned: People page from the profile form
+
+Not built yet. New profile form responses are added to `_data/members.yml` by hand for now.
+
+The plan, for whoever picks this up: an Apps Script in the "NPRL Website Profile (Responses)" sheet (lab account) that, every night, writes everyone with Status = **On website** to the website, the same way `tools/sync-alumni.gs` does for alumni, reusing the same GitHub token. Before switching it on:
+
+- Add an **Order** column to the responses sheet (staff and postdocs by seniority, then PhD students, then affiliated members), since the form doesn't capture order.
+- Copy each person's current website text back into their response row, so edits made on the site (Oxford commas, shortened award lines, "Based in" for affiliated members) aren't overwritten. From then on, edits go in the sheet, not the website.
+- Headshots: the script runs as the lab account, so it can read the uploaded photo from Drive and save it to `assets/img/people/`. Photos are cropped to squares by the page itself.
+- Status **Alumni** hides someone from the People page (then mark them Alum in the Lab Member Archive); **Remove** hides them completely.
