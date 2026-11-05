@@ -46,3 +46,7 @@ The current, approved design. Changes to anything here go through a test page fi
 - Core members' bios open one at a time in a wide navy panel under their row, pointing back to their card, with their projects linked. On desktop the bio text wraps under the photo, name, and role and runs the full panel width; bios can have paragraphs. Undergraduate cards are compact, show a mentor line, and open their bio in a thin outlined bubble.
 - Each project on Research lists "Who's working on this" (from `team` in projects.yml), linking to People cards.
 - Expandable details (`<details>`) for eligibility.
+
+## Home page order (Nov 2026)
+
+Hero (white) → About the lab (gray) → What we study, compact numbered list (white) → Studies looking for volunteers (gray with a 5px red rule on top, matching the Recruiting dots) → Join the lab band + funders row (white) → Visit the lab (gray) → footer (navy). Backgrounds alternate so no two neighbors match. Lab news + featured paper (preview at /test/home-extras-light/) is planned to sit after the volunteers band once its content is filled in; adding it means re-balancing the backgrounds.

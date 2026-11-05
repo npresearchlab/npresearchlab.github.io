@@ -141,18 +141,19 @@ li { margin-bottom: 0.35em; }
 /* Home: volunteers band (navy field, plain-language rows, linked-dot status) */
 .linked-status { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1rem; }
 .linked-status .linked { width: 34px; height: 14px; }
-.recruit-band { background: var(--ink); color: #fff; }
-.recruit-band h2 { color: #fff; }
-.recruit-band .section-head p { color: #dfe6f0; }
-.recruit-band a { color: #fff; }
+/* Volunteers band: gray like the other sections, with a red rule on top that matches the Recruiting dots */
+.recruit-band { background: var(--mist); color: var(--ink); border-top: 5px solid var(--red); }
+.recruit-band h2 { color: var(--ink); }
+.recruit-band .section-head p { color: var(--ink-2); }
+.recruit-band a { color: var(--blue-text); }
 .recruit-rows { list-style: none; padding: 0; margin: 0; }
 .recruit-rows li { display: grid; grid-template-columns: 1fr auto; gap: .5rem 2rem; align-items: end; padding: 1.75rem 0; margin: 0; }
-.recruit-rows li + li { box-shadow: 0 -2px 0 rgba(255,255,255,.12); }
-.recruit-rows .who { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 750; line-height: 1.15; letter-spacing: -0.02em; margin: .5rem 0 .35rem; color: #fff; }
-.recruit-rows .t { color: #c9d3e2; font-size: 1.05rem; margin: 0; }
-.recruit-rows .linked-status.recruiting { color: #ff7d92; }
-.recruit-rows .go { white-space: nowrap; border-color: #fff; color: #fff; }
-.recruit-rows .go:hover { background: rgba(255,255,255,.1); }
+.recruit-rows li + li { box-shadow: 0 -2px 0 var(--line); }
+.recruit-rows .who { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 750; line-height: 1.15; letter-spacing: -0.02em; margin: .5rem 0 .35rem; color: var(--ink); }
+.recruit-rows .t { color: var(--ink-2); font-size: 1.05rem; margin: 0; }
+.recruit-rows .linked-status.recruiting { color: var(--red-text); }
+.recruit-rows .go { white-space: nowrap; border-color: var(--ink); color: var(--ink); }
+.recruit-rows .go:hover { background: rgba(20,32,58,.06); }
 @media (max-width: 760px) { .recruit-rows li { grid-template-columns: 1fr; } }
 
 /* Research themes on home */
@@ -438,3 +439,12 @@ li { margin-bottom: 0.35em; }
 @media (max-width: 860px) { .idx-t { font-size: 1.2rem; } .idx-thumb { width: 4.25rem; height: 4.25rem; } .idx-list a { grid-template-columns: 2rem 1fr 4.25rem; } }
 .idx-more { margin: 1.75rem 0 0; display: flex; justify-content: center; max-width: none; }
 @media (prefers-reduced-motion: reduce) { .idx-list a, .idx-d, .idx-preview img { transition: none; } }
+
+/* Join the lab band and funders row (home) */
+.join-band { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 2rem 0; }
+.join-band h2 { margin: 0 0 .4rem; font-size: var(--step-2); }
+.join-band p { margin: 0; color: var(--ink-2); max-width: 60ch; }
+.funders { display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; align-items: center; list-style: none; margin: 1rem 0 0; padding: 0; }
+.funders li { font-weight: 700; font-size: 1.15rem; color: var(--ink-2); }
+.funders-note { margin: 0; font-weight: 700; color: var(--ink); }
+@media (max-width: 860px) { .join-band { grid-template-columns: 1fr; gap: 1.5rem; } }
