@@ -113,14 +113,14 @@ permalink: /people/
 <section class="section" id="alumni">
   <div class="wrap">
     <h2>Alumni</h2>
-    {% assign alumni_types = "Postdocs and research staff|Graduate students|Undergraduate students|High school students and volunteers" | split: "|" %}
+    {% assign alumni_types = "Postdocs and research staff|Graduate students|DPT students|Undergraduate students|High school students and volunteers" | split: "|" %}
     {% for ty in alumni_types %}
     {% assign group = site.data.alumni | where: "type", ty %}
     {% if group.size > 0 %}
     <h3 class="alumni-type">{{ ty }}</h3>
     <ul class="alumni">
       {% for a in group %}
-      <li>{{ a.name }}{% if a.role != "" %}<span class="r">{{ a.role }}</span>{% endif %}{% if a.now %}<span class="now"><b>Now</b> {{ a.now }}</span>{% endif %}</li>
+      <li>{{ a.name }}{% if a.role != "" %}<span class="r">{{ a.role }}</span>{% endif %}{% if a.next != "" and a.next %}<span class="next"><b>Next</b> {{ a.next }}</span>{% endif %}</li>
       {% endfor %}
     </ul>
     {% endif %}
