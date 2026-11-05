@@ -6,11 +6,9 @@
  * Only names, roles, groups, and "where they went next" are sent.
  * Emails, mentors, projects, and notes never leave this sheet.
  *
- * Who counts as an alum:
- *   - Core members: Status is "Alum".
- *   - Non-core members: their "Semesters in lab" does not include the current
- *     semester (Spring = Jan-May, Summer = Jun-Jul, Fall = Aug-Dec).
- *     Current students should have the current semester listed.
+ * Who counts as an alum: anyone whose Status is "Alum", on either tab.
+ * (If a Non-core row has no Status yet, they count as an alum unless their
+ * "Semesters in lab" includes the current semester.)
  *
  * Setup (once, from the lab account):
  *   1. In this sheet: Extensions > Apps Script, paste this file, save.
@@ -108,11 +106,16 @@ function buildAlumni_() {
   const nLevel = col_(nh, ['level']);
   const nSem = col_(nh, ['semester']);
   const nNext = col_(nh, ['where they']);
+  const nStatus = nh.map(x => String(x).toLowerCase().trim()).indexOf('status');
   non.slice(1).forEach(r => {
     const name = clean_(r[nName]);
     if (!name) return;
-    const sems = String(r[nSem]).toLowerCase().split(',').map(s => s.trim());
-    if (sems.indexOf(now) !== -1) return; // still in the lab this semester
+    const status = nStatus === -1 ? '' : clean_(r[nStatus]).toLowerCase();
+    if (status === 'current') return;
+    if (status !== 'alum') {
+      const sems = String(r[nSem]).toLowerCase().split(',').map(s => s.trim());
+      if (sems.indexOf(now) !== -1) return; // no Status yet, but in the lab this semester
+    }
     const level = clean_(r[nLevel]);
     const school = clean_(r[nSchool]);
     let type, role;
