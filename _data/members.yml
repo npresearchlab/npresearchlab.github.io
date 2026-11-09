@@ -51,12 +51,26 @@
     neuroscience to determine how dysfunction across multiple levels of the motor system contributes
     to mobility impairment in movement disorders.
 - name: Oindrila Sinha, PhD
+  pronouns: she/her
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
   affiliation: School of Biological Sciences, Georgia Institute of Technology
   joint: Joint with Dr. Lewis Wheaton's Cognitive Motor Control Lab
+  honors: Jack and Dana McCallum Early Career Postdoctoral Fellowship in Neurorehabilitation
   photo: /assets/img/people/oindrila-sinha.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  links:
+  - label: Email
+    url: mailto:osinha8@gatech.edu
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=RunZZMYAAAAJ&hl=en
+  - label: Website
+    url: https://oindrila-sinha.github.io/
+  bio: |-
+    Oindrila Sinha, PhD, is a postdoctoral fellow at the Georgia Institute of Technology and Emory School of Medicine. She studies how perceptual learning becomes motor skill, how this changes across adulthood, and why people respond differently to the same practice. Her current projects combine eye tracking, EEG, motor-behavior measures, and machine learning. One shows that anticipatory gaze reveals who is learning a movement sequence before their performance improves. Another uses embedded sensors to measure how people use upper-limb prostheses in daily life. A third asks how aging changes the way vision prepares the body for balance.
+
+    Oindrila's path to research began in the life sciences at Presidency University, India. There, she built biomedical devices, including a patented EEG-based drowsy-driver detector and a navigation aid for people with visual impairments. That work led her to a PhD in Motor Control at Penn State, with a minor in Statistics.
+
+    Outside the lab, she loves working out, spending time in nature, and cooking for friends and family.
 - name: Yasmine Bassil, PhD
   pronouns: she/her
   role: Assistant Research Scientist
