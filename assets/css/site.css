@@ -444,7 +444,7 @@ li { margin-bottom: 0.35em; }
 .join-band { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 2rem 0; }
 .join-band h2 { margin: 0 0 .4rem; font-size: var(--step-2); }
 .join-band p { margin: 0; color: var(--ink-2); max-width: 60ch; }
-.funders { display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; align-items: center; list-style: none; margin: 1rem 0 0; padding: 0; }
-.funders li { font-weight: 700; font-size: 1.15rem; color: var(--ink-2); }
+.funders { display: flex; flex-wrap: wrap; gap: .5rem 2rem; align-items: center; list-style: none; margin: 1rem 0 0; padding: 0; }
+.funders li { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); }
 .funders-note { margin: 0; font-weight: 700; color: var(--ink); }
 @media (max-width: 860px) { .join-band { grid-template-columns: 1fr; gap: 1.5rem; } }
