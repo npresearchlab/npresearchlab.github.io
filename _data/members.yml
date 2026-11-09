@@ -34,13 +34,22 @@
     sensors to track activities of daily living in the homes of stroke survivors. Nathan enjoys the latest
     technology, especially considering how it can be used to answer difficult research questions. Nathan
     is also fond of cycling, gardening, snowboarding (which is difficult in Georgia), and hunting mushrooms.
-- name: Isaiah Lachica, PhD
+- name: Isaiah J. Lachica, PhD
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
-  affiliation: Department of Rehabilitation Medicine, Emory University
+  affiliation: Department of Biomedical Engineering, Emory University
   joint: Joint with Dr. Lena Ting's Neuromechanics Lab
   photo: /assets/img/people/isaiah-lachica.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  links:
+  - label: Email
+    url: mailto:ilachic@emory.edu
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=ZRW9yhcAAAAJ&hl=en
+  bio: >-
+    Isaiah Lachica is a Postdoctoral Fellow at Emory University working with Dr. Lena Ting and
+    Dr. Michael Borich. His research integrates principles from motor control, biomechanics, and
+    neuroscience to determine how dysfunction across multiple levels of the motor system contributes
+    to mobility impairment in movement disorders.
 - name: Oindrila Sinha, PhD
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
@@ -118,12 +127,24 @@
     Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show
     tunes, and explore the city!
 - name: Joon Han Kim
+  pronouns: he/him
   role: Affiliated Research Specialist
   group: Research staff, postdocs, and graduate students
-  affiliation: Department of Rehabilitation Medicine, Emory University
+  affiliation: Wallace H. Coulter Department of Biomedical Engineering, Georgia Institute of Technology and Emory University
   joint: "Based in Dr. Lena Ting's Neuromechanics Lab"
+  honors: Petit Lanier Undergraduate Research Scholarship, 2024
   photo: /assets/img/people/joon-han-kim.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  links:
+  - label: Email
+    url: mailto:joon.kim@emory.edu
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=CpI_AuUAAAAJ&hl=en
+  bio: >-
+    Joon's research focuses on understanding how brain disorders increase fall risk and impair balance
+    by examining changes in the brain and body movement. He aims to translate these findings into
+    strategies and assistive devices that better detect fall risk and prevent falls. His current
+    projects investigate the mechanisms underlying balance impairment in Parkinson's disease and explore
+    robotic exoskeletons as potential tools to reduce fall risk.
 - name: Akarshana Arunkumar
   role: Undergraduate Student
   group: Undergraduate students
@@ -166,14 +187,31 @@
   photo: /assets/img/people/placeholder.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Grace Kim
+  pronouns: she/her
   role: Undergraduate Student
   group: Undergraduate students
-  affiliation: Biomedical Engineering (BME), Georgia Institute of Technology
-  photo: /assets/img/people/placeholder.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  affiliation: Biomedical Engineering Major, Georgia Institute of Technology
+  mentor: "Iran Gutierrez"
+  photo: /assets/img/people/grace-kim.jpg
+  bio: >-
+    Grace is a fifth-year undergraduate dual-degree student at Georgia Tech studying Biomedical
+    Engineering. She is currently working with Iran Gutierrez on the RESeT project, which uses robotic
+    reaching tasks and EEG to study how beta-wave activity in the supplementary motor area relates to
+    cognitive flexibility in Parkinson's disease. Outside of the lab, Grace loves playing tennis and just
+    got into cooking and baking!
 - name: Yash Varakala
-  role: Undergraduate Student
+  pronouns: he/him
+  role: Undergraduate Research Assistant
   group: Undergraduate students
-  affiliation: Neuroscience, Georgia Institute of Technology
-  photo: /assets/img/people/placeholder.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  affiliation: Neuroscience Major, Public Health & Economics and Health & Medical Sciences (HMED) Minors, Georgia Institute of Technology
+  mentor: "Joon Han Kim"
+  photo: /assets/img/people/yash-varakala.jpg
+  links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/yash-varakala
+  bio: >-
+    Yash is a second-year undergraduate student at Georgia Tech majoring in Neuroscience, with minors in
+    Public Health & Economics, and Health and Medical Sciences (HMED). He is currently working with Tina
+    Lerro and Joon Han Kim on data collection and analysis for research on Parkinson's disease, and he
+    also helps with participant recruitment. Outside of the lab, Yash enjoys playing chess and guitar and
+    going hiking.

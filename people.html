@@ -88,7 +88,7 @@ permalink: /people/
           {% if m.mentor %}<p class="mentor">Mentor: <a href="#{{ m.mentor | slugify }}">{{ m.mentor }}</a></p>{% else %}<p class="mentor">Mentor: [to be added]</p>{% endif %}
           {% if m.bio %}<details><summary>Read bio</summary><p>{{ m.bio | strip | replace: "
 
-", "</p><p>" }}</p></details>{% endif %}
+", "</p><p>" }}</p>{% if m.links %}<p class="links">{% for l in m.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>{% endif %}</details>{% endif %}
         </article>
         {% endfor %}
       </div>
