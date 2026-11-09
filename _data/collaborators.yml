@@ -38,8 +38,7 @@
 - name: Sook-Lei Liew, OT, PhD
   institution: University of Southern California
   photo: /assets/img/collaborators/sook-lei-liew.jpg
-  # The old site linked to Dr. Wolf's page here by mistake. Add Dr. Liew's profile URL below.
-  url: ""
+  url: https://chan.usc.edu/npnl
 - name: Robert Liu, PhD
   institution: Emory University
   photo: /assets/img/collaborators/robert-liu.jpg
