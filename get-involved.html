@@ -4,9 +4,24 @@ slug: involved
 title: Get involved
 permalink: /get-involved/
 ---
-{% include title-band.html title="Get involved" lede="Volunteer for a study, or join the lab as a student or postdoc." %}
+{% include title-band.html title="Get involved" lede="Join the lab as a student or postdoc, or volunteer for a study." %}
 
-<section class="section" id="participate">
+<section class="section" id="join">
+  <div class="wrap split">
+    <img src="{{ '/assets/img/tools/tms-eeg.jpg' | relative_url }}" alt="Researchers running a TMS and EEG session with a participant" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;width:100%">
+    <div>
+      <h2>Prospective students and fellows</h2>
+      <p>Are you interested in contributing to faculty research or developing a research project that supports your career goals? Students and postdoctoral fellows in the NPRL are provided with opportunities to engage with scholarly research or develop autonomous projects.</p>
+      <p>Email us with a short note about your background, your interests, and whether you're an undergraduate, graduate student, or postdoc.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:{{ site.contact.email }}?subject={{ 'Joining the NPRL' | uri_escape }}">Email about joining the lab</a>
+        <a class="btn" href="{{ '/equity-inclusion-mentorship/#mentorship' | relative_url }}">How we mentor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-mist" id="participate">
   <div class="wrap paths">
     <div>
       <h2>Take part in a study</h2>
@@ -32,20 +47,5 @@ permalink: /get-involved/
         </div>
       </div>
     </aside>
-  </div>
-</section>
-
-<section class="section section-mist" id="join">
-  <div class="wrap split">
-    <img src="{{ '/assets/img/tools/tms-eeg.jpg' | relative_url }}" alt="Researchers running a TMS and EEG session with a participant" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;width:100%">
-    <div>
-      <h2>Prospective students and fellows</h2>
-      <p>Are you interested in contributing to faculty research or developing a research project that supports your career goals? Students and postdoctoral fellows in the NPRL are provided with opportunities to engage with scholarly research or develop autonomous projects.</p>
-      <p>Email us with a short note about your background, your interests, and whether you're an undergraduate, graduate student, or postdoc.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="mailto:{{ site.contact.email }}?subject={{ 'Joining the NPRL' | uri_escape }}">Email about joining the lab</a>
-        <a class="btn" href="{{ '/equity-inclusion-mentorship/#mentorship' | relative_url }}">How we mentor</a>
-      </div>
-    </div>
   </div>
 </section>
