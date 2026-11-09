@@ -90,6 +90,27 @@ title: Neural Plasticity Research Lab
 </section>
 {% endif %}
 
+{% if site.data.news and site.data.news.size > 0 %}
+<section class="section" aria-labelledby="news-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="news-heading">Lab news</h2>
+    </div>
+    <ul class="news-list">
+      {% for n in site.data.news limit: 3 %}
+      <li{% if n.date == nil or n.date == "" %} class="no-date"{% endif %}>
+        {% if n.date and n.date != "" %}<time>{{ n.date }}</time>{% endif %}
+        <div>
+          <h3>{{ n.title }}</h3>
+          {% if n.text and n.text != "" %}<p>{{ n.text }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
 <section class="section" aria-labelledby="join-heading" style="padding-bottom:0">
   <div class="wrap">
     <div class="join-band">

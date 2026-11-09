@@ -23,6 +23,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 | Collaborators | `_data/collaborators.yml` |
 | Research projects and recruiting status | `_data/projects.yml` |
 | "What we study" themes on the home page | `_data/themes.yml` |
+| Lab news on the home page | `_data/news.yml` (newest first; the first 3 show) |
 | Selected publications | `_data/publications.yml` |
 | Tools and methods | `_data/tools.yml` |
 | Email, phone, address, social links, menu | `_config.yml` |
@@ -47,6 +48,10 @@ In `_data/projects.yml`, set `status:` to `recruiting`, `coming-soon` or `ongoin
 
 ### Add gallery photos
 Upload images to `assets/img/gallery/`. They appear on the Gallery page automatically, sorted by file name. Keep them under about 1 MB each; phone photos can be shrunk at squoosh.app first.
+
+### Post lab news
+
+Add an item to the top of `_data/news.yml` with a `date` (e.g. "Nov 2026"), a `title`, and a one-sentence `text`. The home page shows the newest three. A blank date or text is simply hidden.
 
 ## A note on YAML files
 
