@@ -449,3 +449,6 @@ li { margin-bottom: 0.35em; }
 .funders li { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); }
 .funders-note { margin: 0; font-weight: 700; color: var(--ink); }
 @media (max-width: 860px) { .join-band { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+/* "Joint with" / "Based in" line on member cards */
+.member .aff.joint { font-style: italic; }
