@@ -49,4 +49,4 @@ The current, approved design. Changes to anything here go through a test page fi
 
 ## Home page order (Nov 2026)
 
-Hero (white) → About the lab (gray) → What we study, compact numbered list (white) → Studies looking for volunteers (gray with a 5px red rule on top, matching the Recruiting dots) → Lab news (white; items in `_data/news.yml`, first 3 shown, a blank date or text is hidden) → Join the lab band + funders row (white, set off by the band's dark rules) → Visit the lab (gray) → footer (navy). A featured-paper card beside the news is still a preview at /test/home-extras-light/.
+Hero (white) → About the lab (gray) → What we study, compact numbered list (white) → Studies looking for volunteers (gray with a 5px red rule on top, matching the Recruiting dots) → Lab news (white; items in `_data/news.yml`, first 3 shown, a blank date or text is hidden) → Join the lab band + funders row (white, set off by the band's dark rules) → Visit the lab (gray) → footer (navy). A Featured paper card sits beside the news (the first entry in `_data/publications.yml`, with an optional `plain:` summary).

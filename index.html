@@ -96,17 +96,29 @@ title: Neural Plasticity Research Lab
     <div class="section-head">
       <h2 id="news-heading">Lab news</h2>
     </div>
-    <ul class="news-list">
-      {% for n in site.data.news limit: 3 %}
-      <li{% if n.date == nil or n.date == "" %} class="no-date"{% endif %}>
-        {% if n.date and n.date != "" %}<time>{{ n.date }}</time>{% endif %}
-        <div>
-          <h3>{{ n.title }}</h3>
-          {% if n.text and n.text != "" %}<p>{{ n.text }}</p>{% endif %}
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
+    <div class="news-grid">
+      <ul class="news-list">
+        {% for n in site.data.news limit: 3 %}
+        <li{% if n.date == nil or n.date == "" %} class="no-date"{% endif %}>
+          {% if n.date and n.date != "" %}<time>{{ n.date }}</time>{% endif %}
+          <div>
+            <h3>{{ n.title }}</h3>
+            {% if n.text and n.text != "" %}<p>{{ n.text }}</p>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% assign paper = site.data.publications | first %}
+      {% if paper %}
+      <aside class="paper-card" aria-label="Featured paper">
+        <p class="k">Featured paper</p>
+        <h3>{{ paper.title }}</h3>
+        <p class="venue">{{ paper.authors }}. <em>{{ paper.venue }}</em>{% if paper.year %}, {{ paper.year }}{% endif %}.</p>
+        {% if paper.plain and paper.plain != "" %}<p class="plain">{{ paper.plain }}</p>{% endif %}
+        <a class="btn" href="{{ paper.url }}">Read the paper</a>
+      </aside>
+      {% endif %}
+    </div>
   </div>
 </section>
 {% endif %}
