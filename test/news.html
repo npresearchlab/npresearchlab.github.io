@@ -4,7 +4,7 @@ slug: news
 title: "Test: News page"
 permalink: /test/news/
 test: true
-test_note: "A possible News tab: one feed, newest first, with filters and an Upcoming strip. Items marked in yellow need real dates or text; the event is a sample."
+test_note: "A possible News tab: one feed, newest first, with filters, an Upcoming strip, and a Featured paper rail. Items marked in yellow need real dates or text; the event is a sample."
 extra_css: /assets/css/test/news.css
 extra_nav:
   title: News
@@ -106,6 +106,8 @@ years:
       <button type="button" aria-pressed="false" data-filter="{{ t.key }}" style="--c: var(--{{ t.color }})"><span class="dot" aria-hidden="true"></span>{{ t.label }}</button>
       {% endfor %}
     </div>
+    <div class="news-layout">
+    <div class="news-main">
     <p class="news-empty" hidden>Nothing here yet.</p>
 
     {% for y in page.years %}
@@ -133,6 +135,28 @@ years:
       </ol>
     </div>
     {% endfor %}
+    </div>
+
+    {% assign paper = site.data.publications | first %}
+    <aside class="news-rail" aria-label="Papers">
+      <div class="paper-feature">
+        <p class="k">Featured paper</p>
+        <h2>{{ paper.title }}</h2>
+        <p class="plain"><span class="ph">[In plain words: one or two sentences on what we found and why it matters.]</span></p>
+        <p class="venue">{{ paper.authors }}. <em>{{ paper.venue }}</em>, {{ paper.year }}.</p>
+        <a class="btn btn-primary" href="{{ paper.url }}">Read the paper</a>
+      </div>
+      <div class="paper-recent">
+        <h2>Recent papers</h2>
+        <ul>
+          {% for p in site.data.publications offset: 1 limit: 3 %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a><span>{{ p.venue | split: "," | first }}, {{ p.year }}</span></li>
+          {% endfor %}
+        </ul>
+        <a class="all" href="{{ '/research/#publications' | relative_url }}">All publications <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </aside>
+    </div>
 
     <aside class="news-share">
       <h2>Have news to share?</h2>

@@ -60,3 +60,38 @@
   .news-share { margin-left: 0; }
   .news-filters { margin-bottom: 2rem; }
 }
+
+/* Right rail: one featured paper, always, plus the next few papers */
+.news-layout { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: 3.5rem; align-items: start; }
+.news-year { grid-template-columns: 7rem 1fr; gap: 0 2.25rem; }
+.news-rail { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 2.5rem; }
+.paper-feature { background: var(--ink); color: var(--paper); padding: 1.75rem 1.75rem 2rem; border-top: 6px solid var(--magenta); }
+.paper-feature .k { margin: 0 0 .75rem; font-weight: 700; font-size: 1rem; color: #ff7ab8; }
+.paper-feature h2 { margin: 0 0 .9rem; font-size: 1.4rem; line-height: 1.25; letter-spacing: -0.01em; color: var(--paper); text-wrap: balance; }
+.paper-feature .plain { margin: 0 0 1rem; font-size: 1.05rem; color: #e3e8f0; }
+.paper-feature .plain .ph { color: var(--ink); }
+.paper-feature .venue { margin: 0 0 1.4rem; font-size: .95rem; color: #b9c3d3; }
+.paper-feature .btn-primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.paper-feature .btn-primary:hover { background: var(--mist); }
+.paper-recent h2 { font-size: 1.15rem; margin: 0 0 .75rem; }
+.paper-recent ul { list-style: none; margin: 0 0 1rem; padding: 0; }
+.paper-recent li { padding: .75rem 0; box-shadow: 0 -2px 0 var(--mist); }
+.paper-recent li:first-child { box-shadow: none; padding-top: 0; }
+.paper-recent a { display: block; font-weight: 700; font-size: 1rem; line-height: 1.35; color: var(--ink); text-decoration: none; }
+.paper-recent a:hover { color: var(--blue-text); text-decoration: underline; }
+.paper-recent span { display: block; margin-top: .2rem; font-size: .9rem; color: var(--ink-2); }
+.paper-recent .all { font-weight: 700; color: var(--blue-text); text-decoration: underline; text-underline-offset: .2em; }
+.news-share { margin-left: 9.25rem; }
+@media (max-width: 1000px) {
+  .news-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .news-rail { position: static; order: -1; }
+  .paper-recent { display: none; }
+}
+@media (max-width: 760px) { .news-share { margin-left: 0; } }
+.news-year > h2 { font-size: 2.6rem; letter-spacing: -0.03em; }
+.paper-recent .all { white-space: nowrap; }
+.paper-recent a.all { display: inline-block; white-space: nowrap; }
+@media (max-width: 760px) {
+  .news-year { grid-template-columns: 1fr; }
+  .news-year > h2 { position: static; margin: 0 0 1.25rem; }
+}
