@@ -4,5 +4,6 @@ layout: null
 ---
 {% assign core = site.data.members | where: "group", "Research staff, postdocs, and graduate students" %}{
   "projects": [{% for p in site.data.projects %}{{ p.title | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
-  "mentors": [{% for m in core %}{{ m.name | jsonify }}, {% endfor %}{{ site.data.pi.name | jsonify }}]
+  "mentors": [{% for m in core %}{{ m.name | jsonify }}, {% endfor %}{{ site.data.pi.name | jsonify }}],
+  "members": [{{ site.data.pi.name | jsonify }}{% for m in site.data.members %}, {{ m.name | jsonify }}{% endfor %}]
 }
