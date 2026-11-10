@@ -23,7 +23,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 | Collaborators | `_data/collaborators.yml` |
 | Research projects and recruiting status | `_data/projects.yml` |
 | "What we study" themes on the home page | `_data/themes.yml` |
-| Lab news on the home page | `_data/news.yml` (newest first; the first 3 show) |
+| Lab news (News page and home page) | The **NPRL News & Events** form and its responses sheet (Drive: 3 - News & Events). Approved rows sync to `_data/news_feed.json`; don't edit the JSON by hand |
 | Selected publications | `_data/publications.yml` |
 | Tools and methods | `_data/tools.yml` |
 | Email, phone, address, social links, menu | `_config.yml` |
@@ -51,7 +51,7 @@ Upload images to `assets/img/gallery/`. They appear on the Gallery page automati
 
 ### Post lab news
 
-Add an item to the top of `_data/news.yml` with a `date` (e.g. "Nov 2026"), a `title`, and a one-sentence `text`. The home page shows the newest three. A blank date or text is simply hidden.
+Lab members fill out the **NPRL News & Events** form (the link is shared inside the lab only, never on the website). New responses land in **NPRL News & Events (Responses)** as **Pending**. To publish one, set its Status to **Approved**; it appears on the News page within a few minutes (the "NPRL news form" Apps Script sends it). **Hidden** takes it down. Tick **Pin to home page** to keep it in the home page's Lab news. Only rows with a Date are posted, lab-only events never are, and Lab life items stay on the News page. The script also runs nightly so upcoming events move into the feed after their date. Its code is in `tools/create-news-form.gs` and `tools/sync-news.gs`; it uses the same GitHub token as the alumni sync.
 
 ## A note on YAML files
 

@@ -1,12 +1,16 @@
+# Fallback lab news, used only until the News & Events form has approved items (_data/news_feed.json).
 # Lab news, shown on the home page, newest first.
 # The home page shows the first 3 items. Leave date or text blank to hide them.
 # date: short and human, e.g. "Oct 2026"
-- date: ""
+- type: award
+  date: ""
   title: Nathan Baune awarded an AHA Postdoctoral Fellowship
   text: The American Heart Association fellowship funds his study of how the brain uses touch and body position to guide the arm after stroke.
-- date: ""
+- type: milestone
+  date: ""
   title: Yasmine Bassil earns her PhD
   text: Dr. Bassil defended her dissertation on how the brain's navigation network changes with age, and is now an Assistant Research Scientist in the lab.
-- date: ""
+- type: award
+  date: ""
   title: Catie Mason receives an NIH F31 fellowship
   text: ""

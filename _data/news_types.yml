@@ -1,0 +1,25 @@
+# News page types: filter buttons, item markers, and colors (logo colors from site.css).
+- key: award
+  label: Awards
+  one: Award
+  color: magenta
+- key: paper
+  label: Papers
+  one: Paper
+  color: blue
+- key: talk
+  label: Talks and posters
+  one: Talk or poster
+  color: cyan
+- key: milestone
+  label: Milestones
+  one: Milestone
+  color: violet
+- key: outreach
+  label: Outreach
+  one: Outreach
+  color: red
+- key: life
+  label: Lab life
+  one: Lab life
+  color: gray-2

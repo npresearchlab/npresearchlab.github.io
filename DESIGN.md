@@ -47,6 +47,9 @@ The current, approved design. Changes to anything here go through a test page fi
 - Each project on Research lists "Who's working on this" (from `team` in projects.yml), linking to People cards.
 - Expandable details (`<details>`) for eligibility.
 
+## News page (/news/)
+One feed, newest first, grouped by year (the year stays put beside its items on desktop). Filter pills by type, each with a logo-color dot; each item has a linked-dot type marker in the same color (`_data/news_types.yml`). Lab life (personal news) items are photo-first with a gray marker, and stay off the home page. An Upcoming card overlaps the bottom of the navy title band when there are public upcoming events. A navy Featured paper card (magenta top bar) and Recent papers sit in a sticky right rail. Items come from the News & Events form (see README).
+
 ## Home page order (Nov 2026)
 
-Hero (white) → About the lab (gray) → What we study, compact numbered list (white) → Studies looking for volunteers (gray with a 5px red rule on top, matching the Recruiting dots) → Lab news (white; items in `_data/news.yml`, first 3 shown, a blank date or text is hidden) → Join the lab band + funders row (gray) → Visit the lab (white) → footer (navy). A Featured paper card sits beside the news (the first entry in `_data/publications.yml`, with an optional `plain:` summary).
+Hero (white) → About the lab (gray) → What we study, compact numbered list (white) → Studies looking for volunteers (gray with a 5px red rule on top, matching the Recruiting dots) → Lab news (white; pinned then newest 3 from `_data/news_feed.json`, falling back to `_data/news.yml`) → Join the lab band + funders row (gray) → Visit the lab (white) → footer (navy). A Featured paper card sits beside the news (the first entry in `_data/publications.yml`, with an optional `plain:` summary).

@@ -1,0 +1,111 @@
+---
+layout: default
+slug: news
+title: News
+permalink: /news/
+description: Awards, papers, talks, milestones, and life in the Neural Plasticity Research Lab.
+---
+{% include title-band.html title="News" lede="Awards, papers, talks, and milestones from the lab." %}
+
+{% comment %} Items come from the News & Events form (_data/news_feed.json, synced from the responses sheet).
+Until the first item is approved, the page shows _data/news.yml. {% endcomment %}
+{% assign feed = site.data.news_feed %}
+{% if feed and feed.size > 0 %}
+  {% assign upcoming = feed | where: "upcoming", true | reverse %}
+  {% assign past = feed | where_exp: "n", "n.upcoming != true" %}
+  {% assign years = past | group_by: "year" %}
+{% else %}
+  {% assign upcoming = "" | split: "" %}
+  {% assign years = site.data.news | group_by: "year" %}
+{% endif %}
+{% if upcoming.size > 0 %}
+<section class="news-upcoming" aria-labelledby="upcoming-heading">
+  <div class="wrap">
+    <div class="upcoming-card">
+      <h2 id="upcoming-heading">Upcoming</h2>
+      <ul>
+        {% for e in upcoming %}
+        <li>
+          <p class="t">{% if e.link %}<a href="{{ e.link }}">{{ e.title }}</a>{% else %}{{ e.title }}{% endif %}</p>
+          <p class="when">{{ e.when }}</p>
+          <p class="where">{{ e.where }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section news-feed" aria-label="All news">
+  <div class="wrap">
+    <div class="news-filters" role="group" aria-label="Show">
+      <button type="button" aria-pressed="true" data-filter="all">All</button>
+      {% for t in site.data.news_types %}
+      <button type="button" aria-pressed="false" data-filter="{{ t.key }}" style="--c: var(--{{ t.color }})"><span class="dot" aria-hidden="true"></span>{{ t.label }}</button>
+      {% endfor %}
+    </div>
+    <div class="news-layout">
+    <div class="news-main">
+    <p class="news-empty" hidden>Nothing here yet.</p>
+
+    {% for y in years %}
+    {% assign yname = y.name | default: y.year %}
+    <div class="news-year" data-year>
+      {% if yname and yname != "" %}<h2>{{ yname }}</h2>{% else %}<span></span>{% endif %}
+      <ol class="news-items">
+        {% for n in y.items %}{% include news-item.html n=n year=yname %}{% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+    </div>
+
+    {% assign fpapers = site.data.news_feed | where: "type", "paper" | where_exp: "n", "n.plain" %}
+    {% assign fp = fpapers | first %}
+    {% assign paper = site.data.publications | first %}
+    <aside class="news-rail" aria-label="Papers">
+      <div class="paper-feature">
+        <p class="k">Featured paper</p>
+        {% if fp %}
+        <h2>{{ fp.title }}</h2>
+        <p class="plain">{{ fp.plain }}</p>
+        {% if fp.venue %}<p class="venue">{{ fp.venue }}</p>{% endif %}
+        {% if fp.link %}<a class="btn btn-primary" href="{{ fp.link }}">Read the paper</a>{% endif %}
+        {% else %}
+        <h2>{{ paper.title }}</h2>
+        {% if paper.plain %}<p class="plain">{{ paper.plain }}</p>{% endif %}
+        <p class="venue">{{ paper.authors }}. <em>{{ paper.venue }}</em>, {{ paper.year }}.</p>
+        <a class="btn btn-primary" href="{{ paper.url }}">Read the paper</a>
+        {% endif %}
+      </div>
+      <div class="paper-recent">
+        <h2>Recent papers</h2>
+        <ul>
+          {% for p in site.data.publications offset: 1 limit: 3 %}
+          <li><a href="{{ p.url }}">{{ p.title }}</a><span>{{ p.venue | split: "," | first }}, {{ p.year }}</span></li>
+          {% endfor %}
+        </ul>
+        <a class="all" href="{{ '/research/#publications' | relative_url }}">All publications <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </aside>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.news-filters button');
+  var items = document.querySelectorAll('.news-items li');
+  var years = document.querySelectorAll('[data-year]');
+  var empty = document.querySelector('.news-empty');
+  function show(key) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === key)); });
+    var any = false;
+    items.forEach(function (li) { var on = key === 'all' || li.dataset.type === key; li.hidden = !on; if (on) any = true; });
+    years.forEach(function (y) { y.hidden = !y.querySelector('li:not([hidden])'); });
+    empty.hidden = any;
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.filter); }); });
+})();
+</script>
