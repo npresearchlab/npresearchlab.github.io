@@ -4,7 +4,7 @@ slug: news
 title: "Test: News page"
 permalink: /test/news/
 test: true
-test_note: "A possible News tab: one feed, newest first, with filters, an Upcoming card, and a Featured paper rail. Items marked in yellow need real dates or text; the event is a sample."
+test_note: "A possible News tab: one feed, newest first, with filters, an Upcoming card, a Featured paper rail, and photo-first Lab life items. Items marked in yellow need real dates or text; the event and Lab life items are samples."
 extra_css: /assets/css/test/news.css
 extra_nav:
   title: News
@@ -30,6 +30,10 @@ types:
     label: Outreach
     one: Outreach
     color: red
+  - key: life
+    label: Lab life
+    one: Lab life
+    color: gray-2
 upcoming:
   - title: "[Sample event] Lab open house for study volunteers"
     when: "[Day, Month 00 · 2–4 pm]"
@@ -58,6 +62,11 @@ years:
         title: Oindrila Sinha named a McCallum Early Career Fellow
         text: The fellowship, from the Jack and Dana McCallum Neurorehabilitation Program, supports her work on how eye movements reveal motor learning.
         people: ["Oindrila Sinha, PhD"]
+      - type: life
+        date: ""
+        sample: true
+        title: "[Sample] [Name] finished their first half marathon"
+        text: "[A caption in their own words, one or two sentences.]"
       - type: milestone
         date: Fall 2026
         title: Five new members join the lab
@@ -69,6 +78,11 @@ years:
         text: Dr. Mirdamadi, a former research scientist in the lab, now leads her own research group and continues to collaborate with us.
         link: https://www.uvm.edu/cnhs/profile/jasmine-mirdamadi
         link_label: Her faculty page
+      - type: life
+        date: ""
+        sample: true
+        title: "[Sample] Welcome to the world, [baby's name]!"
+        text: "[Caption, shared by the parent.]"
   - year: 2021
     items:
       - type: paper
@@ -118,6 +132,20 @@ years:
       <ol class="news-items">
         {% for n in y.items %}
         {% assign t = page.types | where: "key", n.type | first %}
+        {% if n.type == "life" %}
+        <li id="{{ n.title | slugify }}" data-type="life" class="life" style="--c: var(--{{ t.color }})">
+          <figure class="life-photo">{% if n.photo %}<img src="{{ n.photo | relative_url }}" alt="{{ n.alt }}" loading="lazy">{% else %}<span class="ph">[Photo]</span>{% endif %}</figure>
+          <div>
+            <p class="meta">
+              <span class="type">{% include linked.svg %}{{ t.one }}</span>
+              <span class="date">{% if n.date != "" %}{{ n.date }}{% else %}<span class="ph">[Month {{ y.year }}]</span>{% endif %}</span>
+            </p>
+            <h3>{% if n.sample %}<span class="ph">{{ n.title }}</span>{% else %}{{ n.title }}{% endif %}</h3>
+            <p class="text">{% if n.sample %}<span class="ph">{{ n.text }}</span>{% else %}{{ n.text }}{% endif %}</p>
+          </div>
+        </li>
+        {% continue %}
+        {% endif %}
         <li id="{{ n.title | slugify }}" data-type="{{ n.type }}" style="--c: var(--{{ t.color }})">
           <p class="meta">
             <span class="type">{% include linked.svg %}{{ t.one }}</span>

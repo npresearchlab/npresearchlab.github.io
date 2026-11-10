@@ -98,3 +98,11 @@
   .news-year { grid-template-columns: 1fr; }
   .news-year > h2 { position: static; margin: 0 0 1.25rem; }
 }
+
+/* Lab life: personal news, photo first, a lighter voice (gray marker = the logo's gray half) */
+.news-items li.life { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; align-items: start; }
+.life-photo { margin: 0; aspect-ratio: 1; background: var(--mist); display: grid; place-items: center; overflow: hidden; }
+.life-photo img { width: 100%; height: 100%; object-fit: cover; }
+.news-items li.life h3 { font-size: var(--step-1); line-height: 1.25; }
+.news-items li.life .text { color: var(--ink-2); }
+@media (max-width: 520px) { .news-items li.life { grid-template-columns: 6.5rem 1fr; gap: 1rem; } }
