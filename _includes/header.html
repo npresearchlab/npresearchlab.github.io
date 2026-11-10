@@ -4,6 +4,7 @@
   {% assign u = item.url %}{% if page.v2_links contains item.url %}{% assign u = '/test/v2' | append: item.url %}{% endif %}
   <li><a href="{{ u | relative_url }}"{% if page.url contains item.url or item.url == "/about/" and page.slug == "equity" %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
   {% endfor %}
+  {% if page.extra_nav %}<li><a href="{{ page.extra_nav.url | relative_url }}"{% if page.url == page.extra_nav.url %} aria-current="page"{% endif %}>{{ page.extra_nav.title }}</a></li>{% endif %}
 </ul>
 {% endcapture %}
 <header class="site-header">

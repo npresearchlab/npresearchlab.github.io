@@ -1,0 +1,159 @@
+---
+layout: default
+slug: news
+title: "Test: News page"
+permalink: /test/news/
+test: true
+test_note: "A possible News tab: one feed, newest first, with filters and an Upcoming strip. Items marked in yellow need real dates or text; the event is a sample."
+extra_css: /assets/css/test/news.css
+extra_nav:
+  title: News
+  url: /test/news/
+types:
+  - key: award
+    label: Awards
+    one: Award
+    color: magenta
+  - key: paper
+    label: Papers
+    one: Paper
+    color: blue
+  - key: talk
+    label: Talks and posters
+    one: Talk or poster
+    color: cyan
+  - key: milestone
+    label: Milestones
+    one: Milestone
+    color: violet
+  - key: outreach
+    label: Outreach
+    one: Outreach
+    color: red
+upcoming:
+  - title: "[Sample event] Lab open house for study volunteers"
+    when: "[Day, Month 00 · 2–4 pm]"
+    where: "Emory Rehabilitation Hospital"
+    sample: true
+years:
+  - year: 2026
+    items:
+      - type: award
+        date: ""
+        title: Nathan Baune awarded an AHA Postdoctoral Fellowship
+        text: The American Heart Association fellowship funds his study of how the brain uses touch and body position to guide the arm after stroke.
+        people: ["Nathan A. Baune, PhD"]
+      - type: milestone
+        date: ""
+        title: Yasmine Bassil earns her PhD
+        text: Dr. Bassil defended her dissertation on how the brain's navigation network changes with age, and is now an Assistant Research Scientist in the lab.
+        people: ["Yasmine Bassil, PhD"]
+      - type: award
+        date: ""
+        title: Catie Mason receives an NIH F31 fellowship
+        text: ""
+        people: ["Catie Mason, PhD"]
+      - type: award
+        date: ""
+        title: Oindrila Sinha named a McCallum Early Career Fellow
+        text: The fellowship, from the Jack and Dana McCallum Neurorehabilitation Program, supports her work on how eye movements reveal motor learning.
+        people: ["Oindrila Sinha, PhD"]
+      - type: milestone
+        date: Fall 2026
+        title: Five new members join the lab
+        text: Rekha Crawford joins as a Neuroscience PhD student, Joon Han Kim as an affiliated research specialist, and Grace Kim, Kaili Tseng, and Yash Varakala as undergraduate researchers.
+        people: ["Rekha Crawford", "Joon Han Kim", "Grace Kim", "Kaili Tseng", "Yash Varakala"]
+      - type: milestone
+        date: ""
+        title: Jasmine Mirdamadi starts as Assistant Professor at the University of Vermont
+        text: Dr. Mirdamadi, a former research scientist in the lab, now leads her own research group and continues to collaborate with us.
+        link: https://www.uvm.edu/cnhs/profile/jasmine-mirdamadi
+        link_label: Her faculty page
+  - year: 2021
+    items:
+      - type: paper
+        date: ""
+        title: Motor cortical network flexibility is associated with biomechanical walking impairment in chronic stroke
+        text: ""
+        venue: Palmer JA, Kesar TM, Wolf SL, Borich MR. Neurorehabilitation and Neural Repair, 2021.
+        link: https://doi.org/10.1177/15459683211046272
+        link_label: Read the paper
+---
+{% include title-band.html title="News" lede="Awards, papers, talks, and milestones from the lab." %}
+
+{% if page.upcoming.size > 0 %}
+<section class="news-upcoming" aria-labelledby="upcoming-heading">
+  <div class="wrap">
+    <h2 id="upcoming-heading">Upcoming</h2>
+    <ul>
+      {% for e in page.upcoming %}
+      <li>
+        <p class="when">{% if e.sample %}<span class="ph">{{ e.when }}</span>{% else %}{{ e.when }}{% endif %}</p>
+        <p class="t">{% if e.sample %}<span class="ph">{{ e.title }}</span>{% else %}{{ e.title }}{% endif %}</p>
+        <p class="where">{{ e.where }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="section news-feed" aria-label="All news">
+  <div class="wrap">
+    <div class="news-filters" role="group" aria-label="Show">
+      <button type="button" aria-pressed="true" data-filter="all">All</button>
+      {% for t in page.types %}
+      <button type="button" aria-pressed="false" data-filter="{{ t.key }}" style="--c: var(--{{ t.color }})"><span class="dot" aria-hidden="true"></span>{{ t.label }}</button>
+      {% endfor %}
+    </div>
+    <p class="news-empty" hidden>Nothing here yet.</p>
+
+    {% for y in page.years %}
+    <div class="news-year" data-year>
+      <h2>{{ y.year }}</h2>
+      <ol class="news-items">
+        {% for n in y.items %}
+        {% assign t = page.types | where: "key", n.type | first %}
+        <li id="{{ n.title | slugify }}" data-type="{{ n.type }}" style="--c: var(--{{ t.color }})">
+          <p class="meta">
+            <span class="type">{% include linked.svg %}{{ t.one }}</span>
+            <span class="date">{% if n.date != "" %}{{ n.date }}{% else %}<span class="ph">[Month {{ y.year }}]</span>{% endif %}</span>
+          </p>
+          <h3>{{ n.title }}</h3>
+          {% if n.venue %}<p class="venue">{{ n.venue }}</p>{% endif %}
+          {% if n.text != "" %}<p class="text">{{ n.text }}</p>{% elsif n.type == "paper" %}<p class="text"><span class="ph">[In plain words: what we found and why it matters.]</span></p>{% else %}<p class="text"><span class="ph">[One sentence of detail.]</span></p>{% endif %}
+          {% if n.people or n.link %}
+          <p class="more">
+            {% for who in n.people %}<a class="who" href="{{ '/people/' | relative_url }}#{{ who | slugify }}">{{ who | split: "," | first }}</a>{% endfor %}
+            {% if n.link %}<a class="go" href="{{ n.link }}">{{ n.link_label | default: "Read more" }}<span aria-hidden="true"> &rarr;</span></a>{% endif %}
+          </p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+
+    <aside class="news-share">
+      <h2>Have news to share?</h2>
+      <p>Lab members can send awards, papers, talks, and milestones through the <span class="ph">[news form]</span>. Items appear here once they're approved.</p>
+    </aside>
+  </div>
+</section>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.news-filters button');
+  var items = document.querySelectorAll('.news-items li');
+  var years = document.querySelectorAll('[data-year]');
+  var empty = document.querySelector('.news-empty');
+  function show(key) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === key)); });
+    var any = false;
+    items.forEach(function (li) { var on = key === 'all' || li.dataset.type === key; li.hidden = !on; if (on) any = true; });
+    years.forEach(function (y) { y.hidden = !y.querySelector('li:not([hidden])'); });
+    empty.hidden = any;
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.filter); }); });
+})();
+</script>
