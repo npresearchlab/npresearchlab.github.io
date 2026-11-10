@@ -11,6 +11,7 @@
     - "Rekha Crawford"
     - "Isaiah J. Lachica, PhD"
     - "Joon Han Kim"
+    - "Nathan A. Baune, PhD"
   status: recruiting
   photo: /assets/img/research/perturbation.jpg
   summary: >-
@@ -33,6 +34,8 @@
     - Able to walk 10 meters, with or without an assistive device
 
 - title: Global brain health in stroke
+  team:
+    - "Nathan A. Baune, PhD"
   status: recruiting
   photo: /assets/img/research/motion-capture.jpg
   summary: >-
@@ -52,7 +55,7 @@
 
 - title: Neurophysiologic assessment of proprioceptive deficit and altered visuo-proprioceptive processing post-stroke
   team:
-    - "Nathan Baune, PhD"
+    - "Nathan A. Baune, PhD"
   status: coming-soon
   photo: /assets/img/tools/kinarm.jpg
   summary: >-
@@ -73,6 +76,7 @@
   team:
     - "Yasmine Bassil, PhD"
     - "Akarshana Arunkumar"
+    - "Nathan A. Baune, PhD"
   status: coming-soon
   photo: /assets/img/research/er.jpg
   summary: >-

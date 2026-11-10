@@ -10,30 +10,27 @@
 # group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
 # To move someone to alumni: delete their block here and add a line to alumni.yml.
 
-- name: Nathan Baune, PhD
-  role: Lead Biomedical Engineer
+- name: Nathan A. Baune, PhD
+  pronouns: he/him
+  role: Lead Research Biomedical Engineer
   group: Research staff, postdocs, and graduate students
   affiliation: Department of Rehabilitation Medicine, Emory University
   joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  honors: AHA Postdoctoral Fellowship
+  honors: AHA/APDA Fellow
   photo: /assets/img/people/nathan-baune.jpg
   links:
+  - label: Email
+    url: mailto:nbaune@emory.edu
   - label: Google Scholar
     url: https://scholar.google.com/citations?user=BpYiSmQAAAAJ&hl=en
-  bio: >-
-    Nathan is a rehabilitation neuroscientist interested in sensory and multisensory contributions to
-    upper limb goal-directed action. He has utilized virtual reality, fMRI, and behavioral measures to
-    study neural and behavioral changes post-stroke and in peripheral nerve injury, including amputees
-    and former amputees that have received a donor hand transplant. He is most interested in the interplay
-    between vision and proprioception, including how their interaction changes following neurological
-    injury or as we age. He is currently working on a project funded by the American Heart Association
-    to identify neurophysiologic assessments of proprioceptive deficit and altered visuo-proprioceptive
-    processing post-stroke. This research relies on measures of brain activity (EEG) along with precision
-    robotics to record markers of sensory change during upper limb behaviors. He has also worked in industry
-    as a co-inventor and Director of Operations in developing a motion AI system which utilizes wearable
-    sensors to track activities of daily living in the homes of stroke survivors. Nathan enjoys the latest
-    technology, especially considering how it can be used to answer difficult research questions. Nathan
-    is also fond of cycling, gardening, snowboarding (which is difficult in Georgia), and hunting mushrooms.
+  - label: Website
+    url: https://nathanabaune.com
+  bio: |-
+    Nathan Baune, PhD, is Lead Research Biomedical Engineer in the Neural Plasticity Research Lab and the Neuromechanics Lab at Emory University. He studies how the brain estimates and controls the state of the body, and builds the instruments and software that make those questions testable in patients. His current work combines EEG, EMG, and robotic perturbations to study movement in Parkinson's disease, including the brain–body dynamics behind freezing. He designed PRE-Sync, a synchronization device now used by labs across institutions, co-invented POISE, a portable balance-perturbation device, and built the open-source tools Epoche and MR.Flow, in use across several Emory labs.
+
+    Nathan came to research through psychology at the University of Oregon. He earned his PhD in Rehabilitation Science at Washington University School of Medicine, using fMRI and virtual reality to study how people control movement when they cannot see their own body, and co-founded a start-up that used smartwatches to track daily activities in stroke survivors. He joined Emory as a postdoctoral fellow in 2021, supported by fellowships from the American Heart Association and the American Parkinson Disease Association.
+
+    Outside the lab, he plays music, cooks, and builds elaborate Halloween costumes.
 - name: Isaiah J. Lachica, PhD
   role: Postdoctoral Fellow
   group: Research staff, postdocs, and graduate students
@@ -175,7 +172,7 @@
   role: Undergraduate Student
   group: Undergraduate students
   affiliation: Neuroscience Major, Georgia Institute of Technology
-  mentor: "Nathan Baune, PhD"
+  mentor: "Nathan A. Baune, PhD"
   photo: /assets/img/people/kanishka-sindhwani.jpg
   bio: >-
     Kanishka is an undergraduate student at Georgia Tech. She is currently working with Dr.
@@ -195,11 +192,12 @@
   photo: /assets/img/people/placeholder.jpg
   bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
 - name: Kaili Tseng
-  role: Undergraduate Student
+  role: Undergraduate Researcher
   group: Undergraduate students
-  affiliation: Neuroscience & Behavioral Biology (NBB), Emory University
-  photo: /assets/img/people/placeholder.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  affiliation: Neuroscience and Behavioral Biology Major, Ethics Minor, Emory University
+  mentor: Joon Han Kim
+  photo: /assets/img/people/kaili-tseng.jpg
+  bio: Kaili is an undergraduate student at Emory University, studying Neuroscience and Behavioral Biology. She is a pre-med hoping to be a surgeon in the future. Outside of academics, Kaili loves going on drives, thrifting, and putting together new food combos at the dining hall. She loves neurophysiology and looks forward to doing research on it!
 - name: Grace Kim
   pronouns: she/her
   role: Undergraduate Student
