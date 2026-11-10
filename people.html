@@ -4,7 +4,7 @@ slug: people
 title: People
 permalink: /people/
 ---
-{% assign pi = site.data.pi %}
+{% assign pi = site.data.pi_profile | default: site.data.pi %}
 {% capture mark %}<svg class="mark" viewBox="0 0 44 18" aria-hidden="true"><line x1="9" y1="9" x2="35" y2="9" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="9" cy="9" r="8" fill="currentColor"/><circle class="b" cx="35" cy="9" r="8" fill="currentColor"/></svg>{% endcapture %}
 {% capture chev %}<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endcapture %}
 {% include title-band.html title="People" lede="Physical therapists, neuroscientists, engineers, and students working together at Emory and Georgia Tech." %}
@@ -13,11 +13,11 @@ permalink: /people/
   <div class="wrap">
     <div class="pi">
       <div class="pi-side">
-        <img class="pi-photo" src="{{ pi.photo | relative_url }}" alt="Portrait of {{ pi.name }}">
+        <img class="pi-photo" src="{{ site.data.pi.photo | relative_url }}" alt="Portrait of {{ pi.name }}">
         <p class="pi-links">{% for l in pi.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
       </div>
       <div>
-        <h2>{{ pi.name }}</h2>
+        <h2>{{ pi.name }}{% if pi.pronouns %} <span class="pronouns">({{ pi.pronouns }})</span>{% endif %}</h2>
         <p class="pi-role">{{ pi.role }}</p>
         <p>{{ pi.summary }}</p>
         <div class="pi-tabs" data-pi-tabs>

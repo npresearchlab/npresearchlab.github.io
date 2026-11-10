@@ -1,5 +1,8 @@
 # The principal investigator, shown at the top of the People page.
+# Dr. Borich edits his profile in the "NPRL website: PI profile (Dr. Borich)" Google Sheet, which syncs to
+# _data/pi_profile.json. That file wins when it exists; this one is the fallback, and the photo always comes from here.
 name: Michael R. Borich, DPT, PhD
+pronouns: he/him
 role: Principal Investigator
 photo: /assets/img/people/michael-borich.jpg
 summary: >-

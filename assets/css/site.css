@@ -579,3 +579,4 @@ li { margin-bottom: 0.35em; }
 .item-photo img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 520px) { .news-items li.has-photo { grid-template-columns: 1fr; } .item-photo { width: 9rem; } }
 .paper-recent .all span { display: inline; margin: 0; font-size: inherit; color: inherit; }
+.pi h2 .pronouns { font-size: 1rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }

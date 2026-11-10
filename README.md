@@ -18,7 +18,7 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 | To change… | Edit this file |
 |---|---|
 | Lab members (add, remove, update bios) | `_data/members.yml` |
-| Dr. Borich's profile | `_data/pi.yml` |
+| Dr. Borich's profile | The **NPRL website: PI profile (Dr. Borich)** Google Sheet (Drive: 1 - People Updates), synced to `_data/pi_profile.json`. His photo stays in `_data/pi.yml` |
 | Alumni | The **NPRL Lab Member Archive** Google Sheet (synced to `_data/alumni.json` nightly; don't edit the JSON by hand) |
 | Collaborators | `_data/collaborators.yml` |
 | Research projects and recruiting status | `_data/projects.yml` |
