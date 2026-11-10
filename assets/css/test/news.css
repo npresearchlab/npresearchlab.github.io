@@ -106,3 +106,7 @@
 .news-items li.life h3 { font-size: var(--step-1); line-height: 1.25; }
 .news-items li.life .text { color: var(--ink-2); }
 @media (max-width: 520px) { .news-items li.life { grid-template-columns: 6.5rem 1fr; gap: 1rem; } }
+.news-items li.has-photo { display: grid; grid-template-columns: 1fr 9rem; gap: 1.5rem; align-items: start; }
+.item-photo { margin: 0; aspect-ratio: 1; overflow: hidden; }
+.item-photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 520px) { .news-items li.has-photo { grid-template-columns: 1fr; } .item-photo { width: 9rem; } }

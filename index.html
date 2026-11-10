@@ -90,7 +90,11 @@ title: Neural Plasticity Research Lab
 </section>
 {% endif %}
 
-{% if site.data.news and site.data.news.size > 0 %}
+{% comment %} Lab news: from the News & Events form (_data/news_feed.json) once it has items; until then, _data/news.yml.
+Pinned items first, then the newest. Lab life and upcoming events stay on the News page. {% endcomment %}
+{% assign feed = site.data.news_feed | where_exp: "n", "n.type != 'life'" | where_exp: "n", "n.upcoming != true" %}
+{% if feed.size > 0 %}{% assign use_feed = true %}{% else %}{% assign use_feed = false %}{% endif %}
+{% if use_feed or site.data.news.size > 0 %}
 <section class="section" aria-labelledby="news-heading">
   <div class="wrap">
     <div class="section-head">
@@ -98,6 +102,21 @@ title: Neural Plasticity Research Lab
     </div>
     <div class="news-grid">
       <ul class="news-list">
+        {% if use_feed %}
+          {% assign pinned = feed | where: "pin", true %}
+          {% assign rest = feed | where_exp: "n", "n.pin != true" %}
+          {% assign shown = 0 %}
+          {% for group in (1..2) %}{% if group == 1 %}{% assign list = pinned %}{% else %}{% assign list = rest %}{% endif %}
+          {% for n in list %}{% if shown < 3 %}{% assign shown = shown | plus: 1 %}
+        <li>
+          <time datetime="{{ n.date }}">{{ n.date | date: "%b %Y" }}</time>
+          <div>
+            <h3>{{ n.title }}</h3>
+            {% if n.text and n.text != "" %}<p>{{ n.text }}</p>{% elsif n.plain %}<p>{{ n.plain }}</p>{% endif %}
+          </div>
+        </li>
+          {% endif %}{% endfor %}{% endfor %}
+        {% else %}
         {% for n in site.data.news limit: 3 %}
         <li{% if n.date == nil or n.date == "" %} class="no-date"{% endif %}>
           {% if n.date and n.date != "" %}<time>{{ n.date }}</time>{% endif %}
@@ -107,9 +126,20 @@ title: Neural Plasticity Research Lab
           </div>
         </li>
         {% endfor %}
+        {% endif %}
       </ul>
+      {% assign fpapers = site.data.news_feed | where: "type", "paper" | where_exp: "n", "n.plain" %}
+      {% assign fp = fpapers | first %}
       {% assign paper = site.data.publications | first %}
-      {% if paper %}
+      {% if fp %}
+      <aside class="paper-card" aria-label="Featured paper">
+        <p class="k">Featured paper</p>
+        <h3>{{ fp.title }}</h3>
+        {% if fp.venue %}<p class="venue">{{ fp.venue }}</p>{% endif %}
+        <p class="plain">{{ fp.plain }}</p>
+        {% if fp.link %}<a class="btn" href="{{ fp.link }}">Read the paper</a>{% endif %}
+      </aside>
+      {% elsif paper %}
       <aside class="paper-card" aria-label="Featured paper">
         <p class="k">Featured paper</p>
         <h3>{{ paper.title }}</h3>

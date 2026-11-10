@@ -95,15 +95,24 @@ years:
 ---
 {% include title-band.html title="News" lede="Awards, papers, talks, and milestones from the lab." %}
 
-{% if page.upcoming.size > 0 %}
+{% assign feed = site.data.news_feed %}
+{% if feed and feed.size > 0 %}
+  {% assign upcoming = feed | where: "upcoming", true | reverse %}
+  {% assign past = feed | where_exp: "n", "n.upcoming != true" %}
+  {% assign years = past | group_by: "year" %}
+{% else %}
+  {% assign upcoming = page.upcoming %}
+  {% assign years = page.years %}
+{% endif %}
+{% if upcoming.size > 0 %}
 <section class="news-upcoming" aria-labelledby="upcoming-heading">
   <div class="wrap">
     <div class="upcoming-card">
       <h2 id="upcoming-heading">Upcoming</h2>
       <ul>
-        {% for e in page.upcoming %}
+        {% for e in upcoming %}
         <li>
-          <p class="t">{% if e.sample %}<span class="ph">{{ e.title }}</span>{% else %}{{ e.title }}{% endif %}</p>
+          <p class="t">{% if e.sample %}<span class="ph">{{ e.title }}</span>{% elsif e.link %}<a href="{{ e.link }}">{{ e.title }}</a>{% else %}{{ e.title }}{% endif %}</p>
           <p class="when">{% if e.sample %}<span class="ph">{{ e.when }}</span>{% else %}{{ e.when }}{% endif %}</p>
           <p class="where">{{ e.where }}</p>
         </li>
@@ -126,55 +135,34 @@ years:
     <div class="news-main">
     <p class="news-empty" hidden>Nothing here yet.</p>
 
-    {% for y in page.years %}
+    {% for y in years %}
+    {% assign yname = y.name | default: y.year %}
     <div class="news-year" data-year>
-      <h2>{{ y.year }}</h2>
+      <h2>{{ yname }}</h2>
       <ol class="news-items">
-        {% for n in y.items %}
-        {% assign t = page.types | where: "key", n.type | first %}
-        {% if n.type == "life" %}
-        <li id="{{ n.title | slugify }}" data-type="life" class="life" style="--c: var(--{{ t.color }})">
-          <figure class="life-photo">{% if n.photo %}<img src="{{ n.photo | relative_url }}" alt="{{ n.alt }}" loading="lazy">{% else %}<span class="ph">[Photo]</span>{% endif %}</figure>
-          <div>
-            <p class="meta">
-              <span class="type">{% include linked.svg %}{{ t.one }}</span>
-              <span class="date">{% if n.date != "" %}{{ n.date }}{% else %}<span class="ph">[Month {{ y.year }}]</span>{% endif %}</span>
-            </p>
-            <h3>{% if n.sample %}<span class="ph">{{ n.title }}</span>{% else %}{{ n.title }}{% endif %}</h3>
-            <p class="text">{% if n.sample %}<span class="ph">{{ n.text }}</span>{% else %}{{ n.text }}{% endif %}</p>
-          </div>
-        </li>
-        {% continue %}
-        {% endif %}
-        <li id="{{ n.title | slugify }}" data-type="{{ n.type }}" style="--c: var(--{{ t.color }})">
-          <p class="meta">
-            <span class="type">{% include linked.svg %}{{ t.one }}</span>
-            <span class="date">{% if n.date != "" %}{{ n.date }}{% else %}<span class="ph">[Month {{ y.year }}]</span>{% endif %}</span>
-          </p>
-          <h3>{{ n.title }}</h3>
-          {% if n.venue %}<p class="venue">{{ n.venue }}</p>{% endif %}
-          {% if n.text != "" %}<p class="text">{{ n.text }}</p>{% elsif n.type == "paper" %}<p class="text"><span class="ph">[In plain words: what we found and why it matters.]</span></p>{% else %}<p class="text"><span class="ph">[One sentence of detail.]</span></p>{% endif %}
-          {% if n.people or n.link %}
-          <p class="more">
-            {% for who in n.people %}<a class="who" href="{{ '/people/' | relative_url }}#{{ who | slugify }}">{{ who | split: "," | first }}</a>{% endfor %}
-            {% if n.link %}<a class="go" href="{{ n.link }}">{{ n.link_label | default: "Read more" }}<span aria-hidden="true"> &rarr;</span></a>{% endif %}
-          </p>
-          {% endif %}
-        </li>
-        {% endfor %}
+        {% for n in y.items %}{% include news-item.html n=n year=yname types=page.types %}{% endfor %}
       </ol>
     </div>
     {% endfor %}
     </div>
 
+    {% assign fpapers = site.data.news_feed | where: "type", "paper" | where_exp: "n", "n.plain" %}
+    {% assign fp = fpapers | first %}
     {% assign paper = site.data.publications | first %}
     <aside class="news-rail" aria-label="Papers">
       <div class="paper-feature">
         <p class="k">Featured paper</p>
+        {% if fp %}
+        <h2>{{ fp.title }}</h2>
+        <p class="plain">{{ fp.plain }}</p>
+        {% if fp.venue %}<p class="venue">{{ fp.venue }}</p>{% endif %}
+        {% if fp.link %}<a class="btn btn-primary" href="{{ fp.link }}">Read the paper</a>{% endif %}
+        {% else %}
         <h2>{{ paper.title }}</h2>
-        <p class="plain"><span class="ph">[In plain words: one or two sentences on what we found and why it matters.]</span></p>
+        {% if paper.plain %}<p class="plain">{{ paper.plain }}</p>{% else %}<p class="plain"><span class="ph">[In plain words: one or two sentences on what we found and why it matters.]</span></p>{% endif %}
         <p class="venue">{{ paper.authors }}. <em>{{ paper.venue }}</em>, {{ paper.year }}.</p>
         <a class="btn btn-primary" href="{{ paper.url }}">Read the paper</a>
+        {% endif %}
       </div>
       <div class="paper-recent">
         <h2>Recent papers</h2>

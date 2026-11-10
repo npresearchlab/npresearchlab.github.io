@@ -1,0 +1,31 @@
+{% comment %} One News feed item. include.n = the item, include.year = its year, include.types = the type list. {% endcomment %}
+{% assign n = include.n %}
+{% assign t = include.types | where: "key", n.type | first %}
+{% capture when %}{% if n.date and n.date.size == 10 and n.date contains "-" %}{{ n.date | date: "%b %Y" }}{% elsif n.date and n.date != "" %}{{ n.date }}{% else %}<span class="ph">[Month {{ include.year }}]</span>{% endif %}{% endcapture %}
+{% assign nid = n.id | default: n.title | slugify %}
+{% if n.type == "life" %}
+<li id="{{ nid }}" data-type="life" class="life" style="--c: var(--{{ t.color }})">
+  <figure class="life-photo">{% if n.photo %}<img src="{{ n.photo | relative_url }}" alt="" loading="lazy">{% else %}<span class="ph">[Photo]</span>{% endif %}</figure>
+  <div>
+    <p class="meta"><span class="type">{% include linked.svg %}{{ t.one }}</span><span class="date">{{ when }}</span></p>
+    <h3>{% if n.sample %}<span class="ph">{{ n.title }}</span>{% else %}{{ n.title }}{% endif %}</h3>
+    <p class="text">{% if n.sample %}<span class="ph">{{ n.text }}</span>{% else %}{{ n.text }}{% endif %}</p>
+  </div>
+</li>
+{% else %}
+<li id="{{ nid }}" data-type="{{ n.type }}"{% if n.photo %} class="has-photo"{% endif %} style="--c: var(--{{ t.color }})">
+  <div>
+    <p class="meta"><span class="type">{% include linked.svg %}{{ t.one }}</span><span class="date">{{ when }}</span></p>
+    <h3>{{ n.title }}</h3>
+    {% if n.venue %}<p class="venue">{{ n.venue }}</p>{% endif %}
+    {% if n.type == "paper" and n.plain %}<p class="text">{{ n.plain }}</p>{% elsif n.text and n.text != "" %}<p class="text">{{ n.text }}</p>{% elsif n.type == "paper" %}<p class="text"><span class="ph">[In plain words: what we found and why it matters.]</span></p>{% else %}<p class="text"><span class="ph">[One sentence of detail.]</span></p>{% endif %}
+    {% if n.people.size > 0 or n.link %}
+    <p class="more">
+      {% for who in n.people %}<a class="who" href="{{ '/people/' | relative_url }}#{{ who | slugify }}">{{ who | split: "," | first }}</a>{% endfor %}
+      {% if n.link %}<a class="go" href="{{ n.link }}">{{ n.link_label | default: "Read more" }}<span aria-hidden="true"> &rarr;</span></a>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+  {% if n.photo %}<figure class="item-photo"><img src="{{ n.photo | relative_url }}" alt="" loading="lazy"></figure>{% endif %}
+</li>
+{% endif %}
