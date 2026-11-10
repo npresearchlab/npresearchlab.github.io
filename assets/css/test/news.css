@@ -1,15 +1,18 @@
 /* Test: News page */
 .ph { background: #fff4c2; padding: 0 .2em; }
 
-/* Upcoming: a mist strip under the title band */
-.news-upcoming { background: var(--mist); padding: 2.25rem 0 2.5rem; }
-.news-upcoming h2 { font-size: var(--step-2); margin: 0 0 1rem; }
-.news-upcoming ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem 2.5rem; }
-.news-upcoming li { border-top: 5px solid var(--ink); padding-top: .9rem; }
-.news-upcoming p { margin: 0; }
-.news-upcoming .when { font-weight: 700; font-size: 1rem; }
-.news-upcoming .t { font-weight: 700; font-size: var(--step-1); line-height: 1.25; margin: .3rem 0; }
-.news-upcoming .where { color: var(--ink-2); font-size: 1rem; }
+/* Upcoming: a small card that overlaps the bottom of the navy title band */
+.title-band:has(+ .news-upcoming) { padding-bottom: clamp(5rem, 9vw, 7rem); } /* extra room only when there is an upcoming card */
+.news-upcoming { position: relative; z-index: 2; margin-top: -3.5rem; }
+.upcoming-card { width: min(100%, 27rem); background: var(--paper); padding: 1.4rem 1.6rem 1.5rem; border-top: 6px solid var(--red); box-shadow: 0 14px 34px -12px rgba(20, 32, 58, .35); }
+.upcoming-card h2 { font-size: 1.1rem; margin: 0 0 .9rem; color: var(--red-text); }
+.upcoming-card ul { list-style: none; margin: 0; padding: 0; }
+.upcoming-card li + li { margin-top: 1.1rem; padding-top: 1.1rem; box-shadow: 0 -2px 0 var(--mist); }
+.upcoming-card p { margin: 0; }
+.upcoming-card .t { font-weight: 700; font-size: var(--step-1); line-height: 1.25; }
+.upcoming-card .when { font-weight: 700; font-size: 1rem; margin-top: .45rem; }
+.upcoming-card .where { color: var(--ink-2); font-size: 1rem; }
+.news-upcoming + .news-feed { padding-top: 3rem; }
 
 /* Filters: pills, the one round control on the page */
 .news-filters { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 3rem; }
