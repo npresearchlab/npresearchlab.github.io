@@ -14,6 +14,7 @@ Until the first item is approved, the page shows _data/news.yml. {% endcomment %
   {% assign upcoming = feed | where: "upcoming", true | reverse %}
   {% assign past = feed | where_exp: "n", "n.upcoming != true" %}
   {% assign years = past | group_by: "year" %}
+  {% if past.size == 0 %}{% assign years = site.data.news | group_by: "year" %}{% endif %}
 {% else %}
   {% assign upcoming = "" | split: "" %}
   {% assign years = site.data.news | group_by: "year" %}

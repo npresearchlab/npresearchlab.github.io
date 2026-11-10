@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "neuroscience-2026-the-society-for-neuroscience-annual-meetin-2026-11",
+    "type": "event",
+    "date": "2026-11-14",
+    "year": "2026",
+    "title": "Neuroscience 2026, the Society for Neuroscience annual meeting",
+    "text": "The largest yearly gathering of neuroscientists, with talks and posters on the latest brain research.",
+    "people": [],
+    "pin": false,
+    "link": "https://www.sfn.org/meetings/neuroscience-2026",
+    "link_label": "Sign up",
+    "upcoming": true,
+    "when": "Saturday, November 14 · through November 18",
+    "where": "Walter E. Washington Convention Center, Washington, D.C."
+  }
+]
