@@ -17,11 +17,11 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 
 | To change… | Edit this file |
 |---|---|
-| Lab members (add, remove, update bios) | `_data/members.yml` |
+| Lab members (add, remove, update bios, order, photos) | The **NPRL Website Profile Form (Responses)** Google Sheet (Drive: 1 - People Updates), synced to `_data/members.yml`. Don't edit the file by hand |
 | Dr. Borich's profile | The **NPRL website: PI profile (Dr. Borich)** Google Sheet (Drive: 1 - People Updates), synced to `_data/pi_profile.json`. His photo stays in `_data/pi.yml` |
 | Alumni | The **NPRL Lab Member Archive** Google Sheet (synced to `_data/alumni.json` nightly; don't edit the JSON by hand) |
 | Collaborators | `_data/collaborators.yml` |
-| Research projects and recruiting status | `_data/projects.yml` |
+| Research projects and recruiting status | The **NPRL Projects** Google Sheet, synced to `_data/projects.yml`. Don't edit the file by hand |
 | "What we study" themes on the home page | `_data/themes.yml` |
 | Lab news (News page and home page) | The **NPRL News & Events** form and its responses sheet (Drive: 3 - News & Events). Approved rows sync to `_data/news_feed.json`; don't edit the JSON by hand |
 | Selected publications | `_data/publications.yml` |
@@ -32,19 +32,42 @@ If something breaks, open the **Actions** tab to see the error. You can always u
 | Get involved page text | `get-involved.html` |
 | Gallery photos | add images to `assets/img/gallery/` |
 
+## What updates itself
+
+Five Google Sheets feed the website. Each has an Apps Script that sends changes a minute or two after an edit, re-checks nightly, and adds a **Website** menu to the sheet with a "do it now" item. The site itself takes a few more minutes to rebuild. All five use the same GitHub token (see "Renewing the GitHub token" in the README Google Doc); when it's renewed, update `GITHUB_TOKEN` in every script.
+
+| Sheet | Shows up on | Script (copy in `tools/`) |
+|---|---|---|
+| NPRL Website Profile Form (Responses) | People page cards | Website People sync (`sync-people.gs`) |
+| NPRL website: PI profile (Dr. Borich) | Top of the People page | Website PI profile sync (`sync-pi.gs`) |
+| NPRL Lab Member Archive | Alumni on the People page | Website alumni sync (`sync-alumni.gs`) |
+| NPRL Projects | Research page, recruiting studies on Home and Get involved, project links on People cards | Website Projects sync (`sync-projects.gs`) |
+| NPRL News & Events (Responses) | News page and the home page's Lab news | NPRL news form (`create-news-form.gs`, `sync-news.gs`) |
+
+## How photos get to the website
+
+- **Lab member headshots:** people upload a headshot on the profile form. When a row is set to **On website** and its **Website photo** cell is blank, the People sync copies the headshot to `assets/img/people/` (resized by Google to about 900 px) and writes the file name into **Website photo**. To replace a photo, upload the new one (the person edits their form response, or paste a Drive link to the new photo into their Headshot cell), then clear **Website photo**. The page crops every photo to a square, centered a little above the middle, so any shape works. To use a hand-cropped photo instead, upload it to `assets/img/people/` on GitHub and type its file name into **Website photo**.
+- **Dr. Borich's photo:** not in his sheet. Replace `assets/img/people/michael-borich.jpg` on GitHub (Add file → Upload files, same name).
+- **Project photos:** in the Projects sheet's **Photo** column, type the file name of an image already in `assets/img/research/` (e.g. `er.jpg`), or paste a Google Drive link to a photo; the Projects sync copies it to the website and replaces the link with the file name.
+- **News photos:** uploaded on the News & Events form; the news sync copies each one once, when its row is Approved.
+- **Gallery photos:** upload directly to `assets/img/gallery/` on GitHub (see below).
+- **Alumni:** no photos.
+
 ## Common tasks
 
 ### Add a new lab member
-1. Upload their photo: go to `assets/img/people/`, click **Add file → Upload files**, and upload it. Use a square-ish photo about 600–800 px wide, named like `firstname-lastname.jpg`.
-2. Open `_data/members.yml`, copy an existing person's block (from `- name:` to the end of their `bio`), paste it where you want them to appear, and edit it. Optional fields: `pronouns` (shown small after the name), `honors` (one award), `joint` (another lab), and `links` (Google Scholar, Website). `group` must be exactly `Research staff, postdocs, and graduate students` or `Undergraduate students`.
+Send them the profile form. When their response arrives, check it (Oxford commas, no class years, short award line), then set **Status** to **On website** and give them an **Order on website** number (smaller numbers come first; staff and postdocs by seniority, then PhD students, then affiliated members; undergraduates after). Their headshot is copied automatically. People who haven't filled out the form can be added as a row by hand.
+
+### Edit someone's profile
+Edit their row in the responses sheet. If someone submits the form again, the newest row marked **On website** wins, so clear the old row's Status.
 
 ### Move someone to alumni
-Delete their block from `_data/members.yml`. Then, in the NPRL Lab Member Archive sheet, set their Status to **Alum** (on either tab), and fill in "Where they went next" if known. The alumni list on the People page updates every night, or right away from the sheet's **Website > Sync alumni now** menu.
+Clear their Status in the profile responses sheet (so they leave the People page). Then, in the NPRL Lab Member Archive sheet, set their Status to **Alum** (on either tab), and fill in "Where they went next" if known. The alumni list on the People page updates every night, or right away from the sheet's **Website > Sync alumni now** menu.
 
 Groups come from the archive: core members with a student role (PhD, graduate, medical) are Graduate students and the rest are Postdocs and research staff; non-core members are sorted into DPT students, Undergraduate students, or High school students and volunteers by their Level/Major. Emails, mentors, projects, and notes are never sent to the website.
 
 ### Change a study's recruiting status
-In `_data/projects.yml`, set `status:` to `recruiting`, `coming-soon` or `ongoing`. Studies marked `recruiting` appear on the home page automatically.
+In the NPRL Projects sheet, set **Recruiting status** to Recruiting, Recruiting soon, or Not recruiting. Recruiting studies appear on the home page and Get involved automatically. **Show on website** = Yes/No controls whether a project appears at all, **Title on website** is the public title, and **Order on website** sets the order.
 
 ### Add gallery photos
 Upload images to `assets/img/gallery/`. They appear on the Gallery page automatically, sorted by file name. Keep them under about 1 MB each; phone photos can be shrunk at squoosh.app first.
@@ -60,14 +83,3 @@ The `.yml` files are sensitive to indentation, so keep the spacing the same as t
 ## Previewing locally (optional)
 
 If you have Ruby installed: `gem install jekyll -v 3.10.0 jekyll-seo-tag kramdown-parser-gfm webrick`, then `jekyll serve` in this folder and open http://localhost:4000.
-
-## Planned: People page from the profile form
-
-Not built yet. New profile form responses are added to `_data/members.yml` by hand for now.
-
-The plan, for whoever picks this up: an Apps Script in the "NPRL Website Profile (Responses)" sheet (lab account) that, every night, writes everyone with Status = **On website** to the website, the same way `tools/sync-alumni.gs` does for alumni, reusing the same GitHub token. Before switching it on:
-
-- Add an **Order** column to the responses sheet (staff and postdocs by seniority, then PhD students, then affiliated members), since the form doesn't capture order.
-- Copy each person's current website text back into their response row, so edits made on the site (Oxford commas, shortened award lines, "Based in" for affiliated members) aren't overwritten. From then on, edits go in the sheet, not the website.
-- Headshots: the script runs as the lab account, so it can read the uploaded photo from Drive and save it to `assets/img/people/`. Photos are cropped to squares by the page itself.
-- Status **Alumni** hides someone from the People page (then mark them Alum in the Lab Member Archive); **Remove** hides them completely.
