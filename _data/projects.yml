@@ -1,118 +1,93 @@
-# Current research projects, shown on the Research page (and recruiting ones on Home and Get involved).
-# status must be one of: recruiting, coming-soon, ongoing
-#   recruiting  -> shown with a red "Recruiting" badge and listed on the home page
-#   coming-soon -> "Recruiting soon"
-#   ongoing     -> no badge
-# team (optional): names exactly as in members.yml; shows "Who's working on this" and links people to the project.
-# eligibility is a list of plain sentences. Leave it out if the study isn't enrolling.
-
-- title: Neural correlates of whole-body motion perception
-  team:
-    - "Rekha Crawford"
-    - "Isaiah J. Lachica, PhD"
-    - "Joon Han Kim"
-    - "Nathan A. Baune, PhD"
-  status: recruiting
-  photo: /assets/img/research/perturbation.jpg
-  summary: >-
-    When balance is perturbed, the brain must integrate sensory input across multiple joints and limbs to
-    perceive body position and plan the appropriate muscle response. Findings from our lab demonstrate that
-    stroke survivors have altered cortical responses and muscle activation patterns in response to a
-    perturbation, but it is unknown whether these abnormal responses are related to impairments in
-    whole-body motion perception. In neurotypical adults, whole-body motion perception thresholds vary
-    across individuals, and in older adults, higher (i.e., worse) thresholds are associated with worse
-    balance ability. This research seeks to identify the underlying neural correlates of whole-body motion
-    perception and the association to balance ability in neurotypical younger and older adults, and people
-    who have had a stroke. Given increased risk of falls with aging that is further increased post-stroke,
-    developing structural and functional biomarkers of somatosensory perception and balance function is
-    necessary to identify individuals at risk for falls, and to advance development of effective,
-    evidence-based rehabilitation interventions.
-  who: Adults 50–80, with or without a past stroke
-  eligibility:
-    - Adults 50–80 years old who had an ischemic stroke more than 6 months ago, or adults who have not had a stroke
-    - Able to stand for more than 15 minutes
-    - Able to walk 10 meters, with or without an assistive device
-
-- title: Global brain health in stroke
-  team:
-    - "Nathan A. Baune, PhD"
-  status: recruiting
-  photo: /assets/img/research/motion-capture.jpg
-  summary: >-
-    The goal of this study is to uncover new neurobiological influences on how people regain motor and
-    sensory function after a stroke. Specifically, this study will examine the role of global brain health
-    measures, which represent deterioration of systems across the whole brain, in stroke recovery by
-    analyzing both: (a) a large existing database of neuroimaging and behavioral data on stroke patients
-    and (b) new data that will be collected in the first 3 months following stroke, when the majority of
-    stroke recovery is thought to occur. This project is a collaboration with the University of Southern
-    California, Columbia University, and The Florey Institute of Neuroscience and Mental Health in Melbourne,
-    Australia. The project will create important new knowledge on the relationships of global brain health
-    to post-stroke brain injury, brain repair, and sensorimotor recovery, which can be used to identify
-    novel therapeutic targets to improve stroke recovery.
-  who: People who had a stroke in the past 3 weeks
-  eligibility:
-    - Unilateral ischemic stroke within the previous 3 weeks
-
-- title: Neurophysiologic assessment of proprioceptive deficit and altered visuo-proprioceptive processing post-stroke
-  team:
-    - "Nathan A. Baune, PhD"
-  status: coming-soon
-  photo: /assets/img/tools/kinarm.jpg
-  summary: >-
-    We are using measures of ascending nerve fiber transmission/reception and sensorimotor processing in
-    key multisensory regions of the brain to identify markers of proprioceptive deficit and altered
-    visuo-proprioceptive processing post-stroke. The repercussions of (multi)sensory deficit on goal-directed
-    action and central processing post-stroke are poorly understood. This project may provide novel measures
-    to advance future sensorimotor research.
-  who: Stroke survivors more than 6 months after stroke
-  eligibility:
-    - First-time clinical cortical or subcortical stroke
-    - Chronic (more than 6 months) recovery stage
-    - Intact dorsal column–medial lemniscal pathway (SSEP+)
-    - Speaks and understands English
-    - Normal or corrected-to-normal vision
-
-- title: Aging-related changes in the connectivity and plasticity of the human spatial navigation network using concurrent TMS-fMRI
-  team:
-    - "Yasmine Bassil, PhD"
-    - "Akarshana Arunkumar"
-    - "Nathan A. Baune, PhD"
-  status: coming-soon
-  photo: /assets/img/research/er.jpg
-  summary: >-
-    This project studies aging effects on human spatial navigation behavior and their underlying neural
-    correlates in the brain's spatial navigation network. Specifically, this project aims to assess
-    aging-related deficits in complex, multi-goal, naturalistic navigational behavior and their associations
-    to the connectivity and plasticity of the brain's navigation network, specifically of the pathway
-    between the hippocampus and the prefrontal cortex, using concurrent TMS-fMRI.
-  who: Right-handed adults aged 18–35 or 60+
-  eligibility:
-    - No history of musculoskeletal impairment, neurologic disease, major head trauma, epilepsy, or seizures
-    - No major psychiatric disorder, sleep disorder, or chronic fatigue
-    - No major uncorrected visual impairment (if corrected, must be VR-compatible)
-    - Right-handed
-    - Aged 18–35 or 60 and older
-    - At least an 8th grade education
-    - Fluent in English
-
-- title: Validation of early prognostic data for recovery outcome after stroke for future, higher yield trials (VERIFY)
-  status: coming-soon
-  photo: /assets/img/research/tms-balance.jpg
-  summary: >-
-    Arm strength is important for taking care of one's self. Predicting whether arm weakness due to a stroke
-    will or will not improve would allow for more efficient and effective testing of new treatments, and
-    more individualized treatment decisions. This project is supported by the NIH StrokeNet and involves the
-    collaboration of 29 stroke centers across the United States. The VERIFY study will establish the ability
-    of noninvasive transcranial magnetic stimulation and MRI to reliably predict patient outcomes in the
-    important, early period of stroke recovery.
-  who: People with arm weakness after a recent stroke
-  eligibility:
-    - Unilateral stroke due to ischemia or intracerebral hemorrhage
-    - Motor deficits in the acutely affected arm
-
-- title: Probing the effective connectivity of sensorimotor circuits in the spinal cord and their relation to mobility and balance
-  team:
-    - "Rekha Crawford"
-  status: ongoing
-  photo: /assets/img/research/sensorimotor.jpg
-  summary: ""
+# Generated from the NPRL Projects sheet by the "Website Projects sync" script.
+# Edit the sheet, not this file: changes here are overwritten.
+[
+  {
+    "title": "Neural correlates of whole-body motion perception",
+    "team": [
+      "Rekha Crawford",
+      "Isaiah J. Lachica, PhD",
+      "Joon Han Kim",
+      "Nathan A. Baune, PhD"
+    ],
+    "status": "recruiting",
+    "photo": "/assets/img/research/perturbation.jpg",
+    "summary": "When balance is perturbed, the brain must integrate sensory input across multiple joints and limbs to perceive body position and plan the appropriate muscle response. Findings from our lab demonstrate that stroke survivors have altered cortical responses and muscle activation patterns in response to a perturbation, but it is unknown whether these abnormal responses are related to impairments in whole-body motion perception. In neurotypical adults, whole-body motion perception thresholds vary across individuals, and in older adults, higher (i.e., worse) thresholds are associated with worse balance ability. This research seeks to identify the underlying neural correlates of whole-body motion perception and the association to balance ability in neurotypical younger and older adults, and people who have had a stroke. Given increased risk of falls with aging that is further increased post-stroke, developing structural and functional biomarkers of somatosensory perception and balance function is necessary to identify individuals at risk for falls, and to advance development of effective, evidence-based rehabilitation interventions.",
+    "who": "Adults 50–80, with or without a past stroke",
+    "eligibility": [
+      "Adults 50–80 years old who had an ischemic stroke more than 6 months ago, or adults who have not had a stroke",
+      "Able to stand for more than 15 minutes",
+      "Able to walk 10 meters, with or without an assistive device"
+    ]
+  },
+  {
+    "title": "Global brain health in stroke",
+    "team": [
+      "Nathan A. Baune, PhD"
+    ],
+    "status": "recruiting",
+    "photo": "/assets/img/research/motion-capture.jpg",
+    "summary": "The goal of this study is to uncover new neurobiological influences on how people regain motor and sensory function after a stroke. Specifically, this study will examine the role of global brain health measures, which represent deterioration of systems across the whole brain, in stroke recovery by analyzing both: (a) a large existing database of neuroimaging and behavioral data on stroke patients and (b) new data that will be collected in the first 3 months following stroke, when the majority of stroke recovery is thought to occur. This project is a collaboration with the University of Southern California, Columbia University, and The Florey Institute of Neuroscience and Mental Health in Melbourne, Australia. The project will create important new knowledge on the relationships of global brain health to post-stroke brain injury, brain repair, and sensorimotor recovery, which can be used to identify novel therapeutic targets to improve stroke recovery.",
+    "who": "People who had a stroke in the past 3 weeks",
+    "eligibility": [
+      "Unilateral ischemic stroke within the previous 3 weeks"
+    ]
+  },
+  {
+    "title": "Neurophysiologic assessment of proprioceptive deficit and altered visuo-proprioceptive processing post-stroke",
+    "team": [
+      "Nathan A. Baune, PhD"
+    ],
+    "status": "coming-soon",
+    "photo": "/assets/img/tools/kinarm.jpg",
+    "summary": "We are using measures of ascending nerve fiber transmission/reception and sensorimotor processing in key multisensory regions of the brain to identify markers of proprioceptive deficit and altered visuo-proprioceptive processing post-stroke. The repercussions of (multi)sensory deficit on goal-directed action and central processing post-stroke are poorly understood. This project may provide novel measures to advance future sensorimotor research.",
+    "who": "Stroke survivors more than 6 months after stroke",
+    "eligibility": [
+      "First-time clinical cortical or subcortical stroke",
+      "Chronic (more than 6 months) recovery stage",
+      "Intact dorsal column–medial lemniscal pathway (SSEP+)",
+      "Speaks and understands English",
+      "Normal or corrected-to-normal vision"
+    ]
+  },
+  {
+    "title": "Aging-related changes in the connectivity and plasticity of the human spatial navigation network using concurrent TMS-fMRI",
+    "team": [
+      "Yasmine Bassil, PhD",
+      "Akarshana Arunkumar",
+      "Nathan A. Baune, PhD"
+    ],
+    "status": "coming-soon",
+    "photo": "/assets/img/research/er.jpg",
+    "summary": "This project studies aging effects on human spatial navigation behavior and their underlying neural correlates in the brain's spatial navigation network. Specifically, this project aims to assess aging-related deficits in complex, multi-goal, naturalistic navigational behavior and their associations to the connectivity and plasticity of the brain's navigation network, specifically of the pathway between the hippocampus and the prefrontal cortex, using concurrent TMS-fMRI.",
+    "who": "Right-handed adults aged 18–35 or 60+",
+    "eligibility": [
+      "No history of musculoskeletal impairment, neurologic disease, major head trauma, epilepsy, or seizures",
+      "No major psychiatric disorder, sleep disorder, or chronic fatigue",
+      "No major uncorrected visual impairment (if corrected, must be VR-compatible)",
+      "Right-handed",
+      "Aged 18–35 or 60 and older",
+      "At least an 8th grade education",
+      "Fluent in English"
+    ]
+  },
+  {
+    "title": "Validation of early prognostic data for recovery outcome after stroke for future, higher yield trials (VERIFY)",
+    "status": "coming-soon",
+    "photo": "/assets/img/research/tms-balance.jpg",
+    "summary": "Arm strength is important for taking care of one's self. Predicting whether arm weakness due to a stroke will or will not improve would allow for more efficient and effective testing of new treatments, and more individualized treatment decisions. This project is supported by the NIH StrokeNet and involves the collaboration of 29 stroke centers across the United States. The VERIFY study will establish the ability of noninvasive transcranial magnetic stimulation and MRI to reliably predict patient outcomes in the important, early period of stroke recovery.",
+    "who": "People with arm weakness after a recent stroke",
+    "eligibility": [
+      "Unilateral stroke due to ischemia or intracerebral hemorrhage",
+      "Motor deficits in the acutely affected arm"
+    ]
+  },
+  {
+    "title": "Probing the effective connectivity of sensorimotor circuits in the spinal cord and their relation to mobility and balance",
+    "team": [
+      "Rekha Crawford"
+    ],
+    "status": "ongoing",
+    "photo": "/assets/img/research/sensorimotor.jpg",
+    "summary": ""
+  }
+]
