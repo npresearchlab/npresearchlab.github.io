@@ -1,229 +1,230 @@
-# Current lab members, shown on the People page in this order.
-# Core group order: staff and postdocs by seniority (years since PhD), then PhD students, then affiliated members.
-# To add someone: copy one block (from '- name:' down to the end of 'bio'), paste it, and edit it.
-# Put their photo in assets/img/people/ (square-ish, about 600px wide) and set 'photo' to its path.
-# pronouns (optional): shown small after the name, e.g. pronouns: she/her
-# links (optional): label + url, e.g. Google Scholar, Website, or Email (url: mailto:name@emory.edu).
-# bio: for paragraph breaks, write 'bio: |-' and leave a blank line between paragraphs.
-# mentor (optional, mainly for undergraduates): the mentor's name exactly as listed here, e.g. mentor: "Yasmine Bassil, PhD"
-# joint (optional): one line about another lab. Shared members: "Joint with Dr. Lena Ting's Neuromechanics Lab". Affiliated members: "Based in Dr. Lena Ting's Neuromechanics Lab".
-# group must be one of: "Research staff, postdocs, and graduate students" or "Undergraduate students"
-# To move someone to alumni: delete their block here and add a line to alumni.yml.
-
-- name: Nathan A. Baune, PhD
-  pronouns: he/him
-  role: Lead Research Biomedical Engineer
-  group: Research staff, postdocs, and graduate students
-  affiliation: Department of Rehabilitation Medicine, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  honors: AHA, APDA Postdoctoral Fellowships
-  photo: /assets/img/people/nathan-baune.jpg
-  links:
-  - label: Email
-    url: mailto:nbaune@emory.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=BpYiSmQAAAAJ&hl=en
-  - label: Website
-    url: https://nathanabaune.com
-  bio: |-
-    Nathan Baune, PhD, is Lead Research Biomedical Engineer in the Neural Plasticity Research Lab and the Neuromechanics Lab at Emory University. He studies how the brain estimates and controls the state of the body, and builds the instruments and software that make those questions testable in patients. His current work combines EEG, EMG, and robotic perturbations to study movement in Parkinson's disease, including the brain–body dynamics behind freezing. He designed PRE-Sync, a synchronization device now used by labs across institutions, co-invented POISE, a portable balance-perturbation device, and built the open-source tools Epoche and MR.Flow, in use across several Emory labs.
-
-    Nathan came to research through psychology at the University of Oregon. He earned his PhD in Rehabilitation Science at Washington University School of Medicine, using fMRI and virtual reality to study how people control movement when they cannot see their own body, and co-founded a start-up that used smartwatches to track daily activities in stroke survivors. He joined Emory as a postdoctoral fellow in 2021, supported by fellowships from the American Heart Association and the American Parkinson Disease Association.
-
-    Outside the lab, he plays music, cooks, and builds elaborate Halloween costumes.
-- name: Isaiah J. Lachica, PhD
-  role: Postdoctoral Fellow
-  group: Research staff, postdocs, and graduate students
-  affiliation: Wallace H. Coulter Department of Biomedical Engineering, Georgia Institute of Technology and Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  photo: /assets/img/people/isaiah-lachica.jpg
-  links:
-  - label: Email
-    url: mailto:ilachic@emory.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=ZRW9yhcAAAAJ&hl=en
-  bio: >-
-    Isaiah Lachica is a Postdoctoral Fellow at Emory University working with Dr. Lena Ting and
-    Dr. Michael Borich. His research integrates principles from motor control, biomechanics, and
-    neuroscience to determine how dysfunction across multiple levels of the motor system contributes
-    to mobility impairment in movement disorders.
-- name: Oindrila Sinha, PhD
-  pronouns: she/her
-  role: Postdoctoral Fellow
-  group: Research staff, postdocs, and graduate students
-  affiliation: School of Biological Sciences, Georgia Institute of Technology
-  joint: Joint with Dr. Lewis Wheaton's Cognitive Motor Control Lab
-  honors: McCallum Early Career Fellowship
-  photo: /assets/img/people/oindrila-sinha.jpg
-  links:
-  - label: Email
-    url: mailto:osinha8@gatech.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=RunZZMYAAAAJ&hl=en
-  - label: Website
-    url: https://oindrila-sinha.github.io/
-  bio: |-
-    Oindrila Sinha, PhD, is a postdoctoral fellow at the Georgia Institute of Technology and Emory School of Medicine. She studies how perceptual learning becomes motor skill, how this changes across adulthood, and why people respond differently to the same practice. Her current projects combine eye tracking, EEG, motor-behavior measures, and machine learning. One shows that anticipatory gaze reveals who is learning a movement sequence before their performance improves. Another uses embedded sensors to measure how people use upper-limb prostheses in daily life. A third asks how aging changes the way vision prepares the body for balance.
-
-    Oindrila's path to research began in the life sciences at Presidency University, India. There, she built biomedical devices, including a patented EEG-based drowsy-driver detector and a navigation aid for people with visual impairments. That work led her to a PhD in Motor Control at Penn State, with a minor in Statistics.
-
-    Outside the lab, she loves working out, spending time in nature, and cooking for friends and family.
-- name: Yasmine Bassil, PhD
-  pronouns: she/her
-  role: Assistant Research Scientist
-  group: Research staff, postdocs, and graduate students
-  affiliation: Department of Rehabilitation Medicine, Emory University
-  honors: NIH T32, NSF Graduate Research Fellowship
-  photo: /assets/img/people/yasmine-bassil.jpg
-  links:
-  - label: Email
-    url: mailto:ybassil@emory.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=mcp_4HQAAAAJ&hl=en
-  - label: Website
-    url: https://yasminebassil.com
-  bio: |-
-    Yasmine Bassil, PhD, is an Assistant Research Scientist in the Neural Plasticity Research Lab, where she studies how the brain helps us find our way, and how that ability changes with age. She uses brain imaging (fMRI) to map the human spatial navigation network and link changes in it to navigation ability later in life, and pairs imaging with brain stimulation (concurrent TMS-fMRI) to map navigational circuits.
-
-    Yasmine earned her PhD in Neuroscience at Emory University, completing her dissertation in this lab as an NSF Graduate Research Fellow and a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training Program. She earned her bachelor's in Neuroscience at Georgia Tech, where she completed the Research Option and used fMRI to study whole-brain dynamics in ADHD in Dr. Shella Keilholz's MIND Lab.
-
-    In graduate school, she co-chaired the Neuroscience Graduate Program's Diversity, Equity, and Inclusion Committee, served as Co-President of Graduates in Neuroscience, and was Internal Affairs Chair of the international non-profit Arabs in Neuroscience.
-
-    Outside the lab, you might find her at local concerts, thrifting, wandering a museum, or singing karaoke. At home, she tends houseplants, cooks cuisines from around the world, and plays music (piano, learning bass guitar).
-- name: Iran Gutierrez
-  pronouns: she/her
-  role: Neuroscience PhD Candidate
-  group: Research staff, postdocs, and graduate students
-  affiliation: Neuroscience Graduate Program, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  honors: Centennial Scholar, NIH T32
-  photo: /assets/img/people/iran-gutierrez.jpg
-  links:
-  - label: Email
-    url: mailto:imgutie@emory.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=VbXb1UcAAAAJ&hl=en
-  bio: |-
-    Iran Gutierrez is a Neuroscience PhD student at Emory University co-advised by Drs. Lena Ting (Neuromechanics Lab) and Michael Borich (Neural Plasticity Research Lab). She studies cognitive set-shifting, the brain’s ability to flexibly switch between mental rule sets, and how this ability is impaired in people with Parkinson’s disease. She combines electroencephalography (EEG), electromyography (EMG), inertial measurement units (IMUs), and kinematics to understand set-shifting at the level of the brain, the body, and behavior.
-
-    Iran earned her bachelor’s degree in Psychology from Emory as a QuestBridge Scholar. As a research specialist in the Neural Plasticity Research Lab, she led a project on the premotor cortex’s role in implicit sequence-specific learning, using a serial reaction time task (SRTT), transcranial magnetic stimulation (TMS), and EMG. As a PhD student, she has been named a Centennial Scholar and is supported by Emory’s T32 Neuroscience Training Program.
-
-    Iran has served as Co-President and Secretary of Graduates in Neuroscience and as Communications Committee Chair for the Atlanta Brain Bee Competition.
-
-    Outside the lab, Iran loves spending time with friends, reading fantasy books, exercising, visiting farmers markets, and playing with and cuddling her dachshund Butters, who means the world to her.
-- name: Rekha Crawford
-  role: Neuroscience PhD Student
-  group: Research staff, postdocs, and graduate students
-  affiliation: Neuroscience Graduate Program, Emory University
-  joint: Joint with Dr. Lena Ting's Neuromechanics Lab
-  photo: /assets/img/people/rekha-crawford.jpg
-  bio: >-
-    Rekha is a Neuroscience PhD student working on neural correlates of whole-body motion perception
-    throughout the lifespan. Outside of work, Rekha enjoys singing and traveling.
-- name: Catie Mason
-  role: Affiliated Neuroscience PhD Candidate
-  group: Research staff, postdocs, and graduate students
-  affiliation: Neuroscience Graduate Program, Emory University
-  joint: "Based in Dr. Lena Ting's Neuromechanics Lab and Dr. Trisha Kesar's Motion Analysis Laboratory"
-  honors: NIH F31
-  photo: /assets/img/people/catie-mason.jpg
-  bio: >-
-    Catie received her Bachelors of Science in Biology with a concentration in Physiology & Neuroscience
-    from NC State University. She is currently pursuing a PhD in Neuroscience at Emory University, and
-    she's also a member of Dr. Trisha Kesar's MOTIONs Lab and Dr. Lena Ting's Neuromechanics Lab. Catie
-    uses Transcranial Magnetic Stimulation (TMS) during cognitive-motor dual-tasks to study cognitive-motor
-    circuit interactions in the cortex that contribute to standing balance control. She is interested
-    in elucidating how cognitive-motor circuits change across age and cognitive ability and how these
-    changes may contribute to high fall risk. Catie's work is funded by the F31 Ruth L. Kirschstein National
-    Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show
-    tunes, and explore the city!
-- name: Joon Han Kim
-  pronouns: he/him
-  role: Affiliated Research Specialist
-  group: Research staff, postdocs, and graduate students
-  affiliation: Wallace H. Coulter Department of Biomedical Engineering, Georgia Institute of Technology and Emory University
-  joint: "Based in Dr. Lena Ting's Neuromechanics Lab"
-  honors: Petit Lanier Undergraduate Research Scholarship
-  photo: /assets/img/people/joon-han-kim.jpg
-  links:
-  - label: Email
-    url: mailto:joon.kim@emory.edu
-  - label: Google Scholar
-    url: https://scholar.google.com/citations?user=CpI_AuUAAAAJ&hl=en
-  bio: >-
-    Joon's research focuses on understanding how brain disorders increase fall risk and impair balance
-    by examining changes in the brain and body movement. He aims to translate these findings into
-    strategies and assistive devices that better detect fall risk and prevent falls. His current
-    projects investigate the mechanisms underlying balance impairment in Parkinson's disease and explore
-    robotic exoskeletons as potential tools to reduce fall risk.
-- name: Akarshana Arunkumar
-  role: Undergraduate Student
-  group: Undergraduate students
-  affiliation: >-
-    Neuroscience Major, Health & Medical Sciences Minor, Georgia Institute of Technology
-  mentor: "Yasmine Bassil, PhD"
-  photo: /assets/img/people/akarshana-arunkumar.jpg
-  bio: >-
-    Akarshana is an undergraduate student at Georgia Tech with a major in Neuroscience and
-    minor in Health and Medical Sciences. She is currently working with Yasmine Bassil to study
-    the biological and behavioral correlates of aging effects on human spatial navigation. Outside of
-    the lab, Akarshana loves to be outside, read, or hang with friends/family.
-- name: Kanishka Sindhwani
-  role: Undergraduate Student
-  group: Undergraduate students
-  affiliation: Neuroscience Major, Georgia Institute of Technology
-  mentor: "Nathan A. Baune, PhD"
-  photo: /assets/img/people/kanishka-sindhwani.jpg
-  bio: >-
-    Kanishka is an undergraduate student at Georgia Tech. She is currently working with Dr.
-    Jasmine Mirdamadi, Dr. Nathan Baune and Iran Gutierrez to determine the functional contributions of
-    motor cortical regions to motor skill learning. In her free time, Kanishka loves to run, travel, and
-    play the piano.
-- name: Claire Dokko
-  role: Undergraduate Student
-  group: Undergraduate students
-  affiliation: Neuroscience & Behavioral Biology (NBB) and Quantitative Theory & Methods (QTM), Emory University
-  photo: /assets/img/people/placeholder.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
-- name: Katelyn Kwak
-  role: Undergraduate Student
-  group: Undergraduate students
-  affiliation: Neuroscience, Georgia Institute of Technology
-  photo: /assets/img/people/placeholder.jpg
-  bio: "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
-- name: Kaili Tseng
-  role: Undergraduate Researcher
-  group: Undergraduate students
-  affiliation: Neuroscience and Behavioral Biology Major, Ethics Minor, Emory University
-  mentor: Joon Han Kim
-  photo: /assets/img/people/kaili-tseng.jpg
-  bio: Kaili is an undergraduate student at Emory University, studying Neuroscience and Behavioral Biology. She is a pre-med hoping to be a surgeon in the future. Outside of academics, Kaili loves going on drives, thrifting, and putting together new food combos at the dining hall. She loves neurophysiology and looks forward to doing research on it!
-- name: Grace Kim
-  pronouns: she/her
-  role: Undergraduate Student
-  group: Undergraduate students
-  affiliation: Biomedical Engineering Major, Georgia Institute of Technology
-  mentor: "Iran Gutierrez"
-  photo: /assets/img/people/grace-kim.jpg
-  bio: >-
-    Grace is an undergraduate dual-degree student at Georgia Tech studying Biomedical
-    Engineering. She is currently working with Iran Gutierrez on the RESeT project, which uses robotic
-    reaching tasks and EEG to study how beta-wave activity in the supplementary motor area relates to
-    cognitive flexibility in Parkinson's disease. Outside of the lab, Grace loves playing tennis and just
-    got into cooking and baking!
-- name: Yash Varakala
-  pronouns: he/him
-  role: Undergraduate Research Assistant
-  group: Undergraduate students
-  affiliation: Neuroscience Major, Public Health & Economics and Health & Medical Sciences Minors, Georgia Institute of Technology
-  mentor: "Joon Han Kim"
-  photo: /assets/img/people/yash-varakala.jpg
-  links:
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/yash-varakala
-  bio: >-
-    Yash is an undergraduate student at Georgia Tech majoring in Neuroscience, with minors in Public
-    Health & Economics, and Health and Medical Sciences. He is currently working with Tina Lerro and
-    Joon Han Kim on data collection and analysis for research on Parkinson's disease, and he also helps
-    with participant recruitment. Outside of the lab, Yash enjoys playing chess and guitar and going
-    hiking.
+# Generated from the profile form responses sheet by the "Website People sync" script.
+# Edit the sheet, not this file: changes here are overwritten.
+[
+  {
+    "name": "Nathan A. Baune, PhD",
+    "pronouns": "he/him",
+    "role": "Lead Research Biomedical Engineer",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Department of Rehabilitation Medicine, Emory University",
+    "joint": "Joint with Dr. Lena Ting's Neuromechanics Lab",
+    "honors": "AHA, APDA Postdoctoral Fellowships",
+    "photo": "/assets/img/people/nathan-baune.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:nbaune@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=BpYiSmQAAAAJ&hl=en"
+      },
+      {
+        "label": "Website",
+        "url": "https://nathanabaune.com"
+      }
+    ],
+    "bio": "Nathan Baune, PhD, is Lead Research Biomedical Engineer in the Neural Plasticity Research Lab and the Neuromechanics Lab at Emory University. He studies how the brain estimates and controls the state of the body, and builds the instruments and software that make those questions testable in patients. His current work combines EEG, EMG, and robotic perturbations to study movement in Parkinson's disease, including the brain–body dynamics behind freezing. He designed PRE-Sync, a synchronization device now used by labs across institutions, co-invented POISE, a portable balance-perturbation device, and built the open-source tools Epoche and MR.Flow, in use across several Emory labs.\n\nNathan came to research through psychology at the University of Oregon. He earned his PhD in Rehabilitation Science at Washington University School of Medicine, using fMRI and virtual reality to study how people control movement when they cannot see their own body, and co-founded a start-up that used smartwatches to track daily activities in stroke survivors. He joined Emory as a postdoctoral fellow in 2021, supported by fellowships from the American Heart Association and the American Parkinson Disease Association.\n\nOutside the lab, he plays music, cooks, and builds elaborate Halloween costumes."
+  },
+  {
+    "name": "Isaiah J. Lachica, PhD",
+    "role": "Postdoctoral Fellow",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Wallace H. Coulter Department of Biomedical Engineering, Georgia Institute of Technology and Emory University",
+    "joint": "Joint with Dr. Lena Ting's Neuromechanics Lab",
+    "photo": "/assets/img/people/isaiah-lachica.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:ilachic@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=ZRW9yhcAAAAJ&hl=en"
+      }
+    ],
+    "bio": "Isaiah Lachica is a Postdoctoral Fellow at Emory University working with Dr. Lena Ting and Dr. Michael Borich. His research integrates principles from motor control, biomechanics, and neuroscience to determine how dysfunction across multiple levels of the motor system contributes to mobility impairment in movement disorders."
+  },
+  {
+    "name": "Oindrila Sinha, PhD",
+    "pronouns": "she/her",
+    "role": "Postdoctoral Fellow",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "School of Biological Sciences, Georgia Institute of Technology",
+    "joint": "Joint with Dr. Lewis Wheaton's Cognitive Motor Control Lab",
+    "honors": "McCallum Early Career Fellowship",
+    "photo": "/assets/img/people/oindrila-sinha.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:osinha8@gatech.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=RunZZMYAAAAJ&hl=en"
+      },
+      {
+        "label": "Website",
+        "url": "https://oindrila-sinha.github.io/index.html"
+      }
+    ],
+    "bio": "Oindrila Sinha, PhD, is a postdoctoral fellow at the Georgia Institute of Technology and Emory School of Medicine. She studies how perceptual learning becomes motor skill, how this changes across adulthood, and why people respond differently to the same practice. Her current projects combine eye tracking, EEG, motor-behavior measures, and machine learning. One shows that anticipatory gaze reveals who is learning a movement sequence before their performance improves. Another uses embedded sensors to measure how people use upper-limb prostheses in daily life. A third asks how aging changes the way vision prepares the body for balance.\n\nOindrila's path to research began in the life sciences at Presidency University, India. There, she built biomedical devices, including a patented EEG-based drowsy-driver detector and a navigation aid for people with visual impairments. That work led her to a PhD in Motor Control at Penn State, with a minor in Statistics.\n\nOutside the lab, she loves working out, spending time in nature, and cooking for friends and family."
+  },
+  {
+    "name": "Yasmine Bassil, PhD",
+    "pronouns": "she/her",
+    "role": "Assistant Research Scientist",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Department of Rehabilitation Medicine, Emory University",
+    "honors": "NIH T32, NSF Graduate Research Fellowship",
+    "photo": "/assets/img/people/yasmine-bassil.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:ybassil@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=mcp_4HQAAAAJ&hl=en&inst=15365353816232672843"
+      },
+      {
+        "label": "Website",
+        "url": "https://yasminebassil.com"
+      }
+    ],
+    "bio": "Yasmine Bassil, PhD, is an Assistant Research Scientist in the Neural Plasticity Research Lab, where she studies how the brain helps us find our way, and how that ability changes with age. She uses brain imaging (fMRI) to map the human spatial navigation network and link changes in it to navigation ability later in life, and pairs imaging with brain stimulation (concurrent TMS-fMRI) to map navigational circuits.\n\nYasmine earned her PhD in Neuroscience at Emory University, completing her dissertation in this lab as an NSF Graduate Research Fellow and a Scholar in the Georgia Tech/Emory T32 Computational Neural Engineering Training Program. She earned her bachelor’s in Neuroscience at Georgia Tech, where she completed the Research Option and used fMRI to study whole-brain dynamics in ADHD in Dr. Shella Keilholz’s MIND Lab.\n\nIn graduate school, she co-chaired the Neuroscience Graduate Program’s Diversity, Equity, and Inclusion Committee, served as Co-President of Graduates in Neuroscience, and was Internal Affairs Chair of the international non-profit Arabs in Neuroscience.\n\nOutside the lab, you might find her at local concerts, thrifting, wandering a museum, or singing karaoke. At home, she tends houseplants, cooks cuisines from around the world, and plays music (piano, learning bass guitar)."
+  },
+  {
+    "name": "Iran Gutierrez",
+    "pronouns": "she/her",
+    "role": "Neuroscience PhD Candidate",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Neuroscience Graduate Program, Emory University",
+    "joint": "Joint with Dr. Lena Ting's Neuromechanics Lab",
+    "honors": "Centennial Scholar, NIH T32",
+    "photo": "/assets/img/people/iran-gutierrez.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:imgutie@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=VbXb1UcAAAAJ&hl=en"
+      }
+    ],
+    "bio": "Iran Gutierrez is a Neuroscience PhD student at Emory University co-advised by Drs. Lena Ting (Neuromechanics Lab) and Michael Borich (Neural Plasticity Research Lab). She studies cognitive set-shifting, the brain’s ability to flexibly switch between mental rule sets, and how this ability is impaired in people with Parkinson’s disease. She combines electroencephalography (EEG), electromyography (EMG), inertial measurement units (IMUs), and kinematics to understand set-shifting at the level of the brain, the body, and behavior.\n\nIran earned her bachelor’s degree in Psychology from Emory as a QuestBridge Scholar. As a research specialist in the Neural Plasticity Research Lab, she led a project on the premotor cortex’s role in implicit sequence-specific learning, using a serial reaction time task (SRTT), transcranial magnetic stimulation (TMS), and EMG. As a PhD student, she has been named a Centennial Scholar and is supported by Emory’s T32 Neuroscience Training Program.\n\nIran has served as Co-President and Secretary of Graduates in Neuroscience and as Communications Committee Chair for the Atlanta Brain Bee Competition.\n\nOutside the lab, Iran loves spending time with friends, reading fantasy books, exercising, visiting farmers markets, and playing with and cuddling her dachshund Butters, who means the world to her."
+  },
+  {
+    "name": "Rekha Crawford",
+    "role": "Neuroscience PhD Student",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Neuroscience Graduate Program, Emory University",
+    "joint": "Joint with Dr. Lena Ting's Neuromechanics Lab",
+    "photo": "/assets/img/people/rekha-crawford.jpg",
+    "bio": "Rekha is a Neuroscience PhD student working on neural correlates of whole-body motion perception throughout the lifespan. Outside of work, Rekha enjoys singing and traveling."
+  },
+  {
+    "name": "Catie Mason",
+    "role": "Affiliated Neuroscience PhD Candidate",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Neuroscience Graduate Program, Emory University",
+    "joint": "Based in Dr. Lena Ting's Neuromechanics Lab and Dr. Trisha Kesar's Motion Analysis Laboratory",
+    "honors": "NIH F31",
+    "photo": "/assets/img/people/catie-mason.jpg",
+    "bio": "Catie received her Bachelors of Science in Biology with a concentration in Physiology & Neuroscience from NC State University. She is currently pursuing a PhD in Neuroscience at Emory University, and she's also a member of Dr. Trisha Kesar's MOTIONs Lab and Dr. Lena Ting's Neuromechanics Lab. Catie uses Transcranial Magnetic Stimulation (TMS) during cognitive-motor dual-tasks to study cognitive-motor circuit interactions in the cortex that contribute to standing balance control. She is interested in elucidating how cognitive-motor circuits change across age and cognitive ability and how these changes may contribute to high fall risk. Catie's work is funded by the F31 Ruth L. Kirschstein National Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show tunes, and explore the city!"
+  },
+  {
+    "name": "Joon Han Kim",
+    "pronouns": "he/him",
+    "role": "Affiliated Research Specialist",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Wallace H. Coulter Department of Biomedical Engineering, Georgia Institute of Technology and Emory University",
+    "joint": "Based in Dr. Lena Ting's Neuromechanics Lab",
+    "honors": "Petit Lanier Undergraduate Research Scholarship",
+    "photo": "/assets/img/people/joon-han-kim.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:joon.kim@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=CpI_AuUAAAAJ&hl=en"
+      }
+    ],
+    "bio": "Joon's research focuses on understanding how brain disorders increase fall risk and impair balance by examining changes in the brain and body movement. He aims to translate these findings into strategies and assistive devices that better detect fall risk and prevent falls. His current projects investigate the mechanisms underlying balance impairment in Parkinson's disease and explore robotic exoskeletons as potential tools to reduce fall risk."
+  },
+  {
+    "name": "Akarshana Arunkumar",
+    "pronouns": "she/her",
+    "role": "Undergraduate Student",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience Major, Health and Medical Sciences Minor, Georgia Institute of Technology",
+    "mentor": "Yasmine Bassil, PhD",
+    "photo": "/assets/img/people/akarshana-arunkumar.jpg",
+    "bio": "Akarshana is an undergraduate student at Georgia Tech with a major in Neuroscience and minor in Health and Medical Sciences. She is currently working with Yasmine Bassil to study the biological and behavioral correlates of aging effects on human spatial navigation. Outside of the lab, Akarshana loves to be outside, run, or hang with friends and family."
+  },
+  {
+    "name": "Kanishka Sindhwani",
+    "role": "Undergraduate Student",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience Major, Georgia Institute of Technology",
+    "mentor": "Nathan A. Baune, PhD",
+    "photo": "/assets/img/people/kanishka-sindhwani.jpg",
+    "bio": "Kanishka is an undergraduate student at Georgia Tech. She is currently working with Dr. Jasmine Mirdamadi, Dr. Nathan Baune and Iran Gutierrez to determine the functional contributions of motor cortical regions to motor skill learning. In her free time, Kanishka loves to run, travel, and play the piano."
+  },
+  {
+    "name": "Claire Dokko",
+    "pronouns": "she/her",
+    "role": "Undergraduate Student",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience and Behavioral Biology, Interdisciplinary Studies, Emory University",
+    "mentor": "Michael R. Borich, DPT, PhD",
+    "photo": "/assets/img/people/claire-dokko.jpg",
+    "bio": "Claire Dokko is an undergraduate from Los Angeles, California, who hopes to pursue a career in research. She studies Neuroscience and Religion, two disciplines that allow her to explore questions about how people move through the world on molecular, behavioral, and philosophical levels. Outside of academics, Claire loves reading, frolicking through Lullwater, and is always looking for her next adventure!"
+  },
+  {
+    "name": "Katelyn Kwak",
+    "role": "Undergraduate Student",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience, Georgia Institute of Technology",
+    "photo": "/assets/img/people/placeholder.jpg",
+    "bio": "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
+  },
+  {
+    "name": "Kaili Tseng",
+    "role": "Undergraduate Researcher",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience and Behavioral Biology Major, Ethics Minor, Emory University",
+    "mentor": "Joon Han Kim",
+    "photo": "/assets/img/people/kaili-tseng.jpg",
+    "bio": "Kaili is an undergraduate student at Emory University, studying Neuroscience and Behavioral Biology. She is a pre-med hoping to be a surgeon in the future. Outside of academics, Kaili loves going on drives, thrifting, and putting together new food combos at the dining hall. She loves neurophysiology and looks forward to doing research on it!"
+  },
+  {
+    "name": "Grace Kim",
+    "pronouns": "she/her",
+    "role": "Undergraduate Researcher",
+    "group": "Undergraduate students",
+    "affiliation": "Biomedical Engineering Major, Georgia Institute of Technology",
+    "mentor": "Iran Gutierrez",
+    "photo": "/assets/img/people/grace-kim.jpg",
+    "bio": "Grace is an undergraduate dual-degree student at Georgia Tech studying Biomedical Engineering. She is currently working with Iran Gutierrez on the RESeT project, which uses robotic reaching tasks and EEG to study how beta-wave activity in the supplementary motor area relates to cognitive flexibility in Parkinson's disease. Outside of the lab, Grace loves playing tennis and just got into cooking and baking!"
+  },
+  {
+    "name": "Yash Varakala",
+    "pronouns": "he/him",
+    "role": "Undergraduate Researcher",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience Major, Public Health & Economics and Health & Medical Sciences Minors, Georgia Institute of Technology",
+    "mentor": "Joon Han Kim",
+    "photo": "/assets/img/people/yash-varakala.jpg",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/yash-varakala"
+      }
+    ],
+    "bio": "Yash is an undergraduate student at Georgia Tech majoring in Neuroscience, with minors in Public Health & Economics, and Health and Medical Sciences. He is currently working with Tina Lerro and Joon Han Kim on data collection and analysis for research on Parkinson's disease, and he also helps with participant recruitment. Outside of the lab, Yash enjoys playing chess and guitar and going hiking."
+  }
+]
