@@ -146,6 +146,27 @@
     "bio": "Joon's research focuses on understanding how brain disorders increase fall risk and impair balance by examining changes in the brain and body movement. He aims to translate these findings into strategies and assistive devices that better detect fall risk and prevent falls. His current projects investigate the mechanisms underlying balance impairment in Parkinson's disease and explore robotic exoskeletons as potential tools to reduce fall risk."
   },
   {
+    "name": "Catie Mason, PhD",
+    "pronouns": "she/her",
+    "role": "Neuroscience PhD Candidate",
+    "group": "Research staff, postdocs, and graduate students",
+    "affiliation": "Neuroscience Graduate Program, Emory University",
+    "joint": "Based in Dr. Lena Ting's Neuromechanics Lab and Dr. Trisha Kesar's Motion Analysis Lab",
+    "honors": "NIH F31 Awardee",
+    "photo": "/assets/img/people/catie-mason.jpg",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:cfmason@emory.edu"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=rVmQd1UAAAAJ&hl=en"
+      }
+    ],
+    "bio": "Catie received her Bachelors of Science in Biology with a concentration in Physiology & Neuroscience from NC State University. She recently earned her PhD in Neuroscience at Emory University under the mentorship of Dr. Trisha Kesar, Dr. Lena Ting, and Dr. Michael Borich. Catie uses Transcranial Magnetic Stimulation (TMS) during cognitive-motor dual-tasks to study cognitive-motor circuit interactions in the cortex that contribute to standing balance control. She is interested in understanding how cognitive-motor circuits change across age and cognitive ability, and how these changes may contribute to high fall risk. Catie’s work is funded by the F31 Ruth L. Kirschstein National Research Service Award (NRSA). In her free time, Catie loves to play video games, sing Broadway show tunes, and explore the city!"
+  },
+  {
     "name": "Akarshana Arunkumar",
     "pronouns": "she/her",
     "role": "Undergraduate Student",
