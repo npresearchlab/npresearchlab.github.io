@@ -196,14 +196,6 @@
     "bio": "Claire Dokko is an undergraduate from Los Angeles, California, who hopes to pursue a career in research. She studies Neuroscience and Religion, two disciplines that allow her to explore questions about how people move through the world on molecular, behavioral, and philosophical levels. Outside of academics, Claire loves reading, frolicking through Lullwater, and is always looking for her next adventure!"
   },
   {
-    "name": "Katelyn Kwak",
-    "role": "Undergraduate Student",
-    "group": "Undergraduate students",
-    "affiliation": "Neuroscience, Georgia Institute of Technology",
-    "photo": "/assets/img/people/placeholder.jpg",
-    "bio": "[PLACEHOLDER BIO — replace with a 2–4 sentence bio.]"
-  },
-  {
     "name": "Kaili Tseng",
     "role": "Undergraduate Student",
     "group": "Undergraduate students",
@@ -237,5 +229,14 @@
       }
     ],
     "bio": "Yash is an undergraduate student at Georgia Tech majoring in Neuroscience, with minors in Public Health & Economics, and Health and Medical Sciences. He is currently working with Tina Lerro and Joon Han Kim on data collection and analysis for research on Parkinson's disease, and he also helps with participant recruitment. Outside of the lab, Yash enjoys playing chess and guitar and going hiking."
+  },
+  {
+    "name": "Katelyn Kwak",
+    "role": "Undergraduate Student",
+    "group": "Undergraduate students",
+    "affiliation": "Neuroscience Major, Health and Medical Sciences Minor, Georgia Institute of Technology",
+    "mentor": "Michael R. Borich, DPT, PhD",
+    "photo": "/assets/img/people/katelyn-kwak.jpg",
+    "bio": "Katelyn is a Neuroscience major at Georgia Tech connecting structural brain data, Y-maze spatial navigation, and 3D-printed brains in the lab. Outside research, she leads Georgia Tech's Global Medical Missions Alliance chapter and enjoys reading and spending time with family and friends."
   }
 ]
