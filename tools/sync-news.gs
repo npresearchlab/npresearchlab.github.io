@@ -1,22 +1,22 @@
 /**
  * Sends approved rows from "NPRL News & Events (Responses)" to the website.
  *
- * Add this file to the "NPRL news form" Apps Script project (the one that created the form):
- *   1. In the project, click + next to Files > Script, name it "sync-news", paste this whole file in, Save.
- *   2. Project Settings (gear) > Script properties > Add property:
- *        GITHUB_TOKEN = the same token value as the alumni sync ("NPRL archive sync").
- *      SHEET_ID is already there from createNewsForm.
- *   3. Choose "setupNewsSync" at the top and click Run. Allow access when Google asks.
+ * Lives inside the responses sheet (Extensions > Apps Script), project "Website news sync". Set up once,
+ * signed in as nprl.emory@gmail.com:
+ *   1. Open NPRL News & Events (Responses), then Extensions > Apps Script. Name the project "Website news sync".
+ *   2. Delete what's there, paste this whole file in, and click Save.
+ *   3. Project Settings (gear) > Script properties > Add property:
+ *        GITHUB_TOKEN = the same token value as the other website syncs.
+ *   4. Choose "setupNewsSync" and click Run. Allow access when Google asks.
  *
  * From then on:
- *   - Changing a row's Status (or Pin) in the sheet posts the change within a minute or two.
+ *   - Changing a row's Status (or Pin) posts the change within a minute or two.
  *   - It also runs every night, so upcoming events move into the feed once their date passes.
- *   - Run "syncNewsNow" any time to post right away.
+ *   - The sheet has a "Website > Update News page now" menu.
  *
  * Only rows with Status = Approved and a Date are posted. Lab-only events are never posted.
  * Photos are copied to the website once (resized by Google to about 1000px wide).
- * When the GitHub token expires (Nov 2027), renew it as described in the README Google Doc and
- * update GITHUB_TOKEN here as well as in the alumni sync.
+ * The separate "NPRL news form" script (create-news-form.gs) keeps the form's member checkboxes current.
  */
 var NEWS_REPO = 'npresearchlab/npresearchlab.github.io';
 var NEWS_BRANCH = 'main';
@@ -29,10 +29,15 @@ var NEWS_TYPES = {
   'outreach': 'outreach', 'upcoming event': 'event', 'event': 'event', 'lab life': 'life'
 };
 
+function onOpen() {
+  SpreadsheetApp.getUi().createMenu('Website').addItem('Update News page now', 'syncNewsNow').addToUi();
+}
+
 function setupNewsSync() {
   var props = PropertiesService.getScriptProperties();
   if (!props.getProperty('GITHUB_TOKEN')) throw new Error('Add GITHUB_TOKEN in Project Settings > Script properties first.');
-  var ss = SpreadsheetApp.openById(props.getProperty('SHEET_ID'));
+  var ss = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(props.getProperty('SHEET_ID'));
+  props.setProperty('SHEET_ID', ss.getId());
   ScriptApp.getProjectTriggers().forEach(function (t) {
     var f = t.getHandlerFunction();
     if (f === 'syncNewsNow' || f === 'onNewsSheetEdit') ScriptApp.deleteTrigger(t);
@@ -65,6 +70,7 @@ function syncNewsNow() {
     var msg = res === 'same' ? 'News is already up to date. Nothing changed.' :
       'Sent ' + items.length + ' news item(s) to the website. Live in a few minutes.';
     Logger.log(msg);
+    try { SpreadsheetApp.getActiveSpreadsheet().toast(msg, 'Website'); } catch (e) {}
     return msg;
   } finally {
     lock.releaseLock();
@@ -75,7 +81,8 @@ function syncNewsNow() {
 
 function buildNews_() {
   var props = PropertiesService.getScriptProperties();
-  var sheet = SpreadsheetApp.openById(props.getProperty('SHEET_ID')).getSheets()
+  var ss = props.getProperty('SHEET_ID') ? SpreadsheetApp.openById(props.getProperty('SHEET_ID')) : SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheets()
     .filter(function (s) { return s.getFormUrl(); })[0];
   var values = sheet.getDataRange().getValues();
   var head = values.shift().map(function (h) { return String(h).toLowerCase(); });

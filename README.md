@@ -42,7 +42,7 @@ Five Google Sheets feed the website. Each has an Apps Script that sends changes 
 | NPRL website: PI profile (Dr. Borich) | Top of the People page | Website PI profile sync (`sync-pi.gs`) |
 | NPRL Lab Member Archive | Alumni on the People page | Website alumni sync (`sync-alumni.gs`) |
 | NPRL Projects | Research page, recruiting studies on Home and Get involved, project links on People cards | Website Projects sync (`sync-projects.gs`) |
-| NPRL News & Events (Responses) | News page and the home page's Lab news | NPRL news form (`create-news-form.gs`, `sync-news.gs`) |
+| NPRL News & Events (Responses) | News page and the home page's Lab news | Website news sync (`sync-news.gs`); the separate NPRL news form script (`create-news-form.gs`) keeps the form's member checkboxes current |
 
 ## How photos get to the website
 
@@ -74,7 +74,7 @@ Upload images to `assets/img/gallery/`. They appear on the Gallery page automati
 
 ### Post lab news
 
-Lab members fill out the **NPRL News & Events** form (the link is shared inside the lab only, never on the website). New responses land in **NPRL News & Events (Responses)** as **Pending**. To publish one, set its Status to **Approved**; it appears on the News page within a few minutes (the "NPRL news form" Apps Script sends it). **Hidden** takes it down. Tick **Pin to home page** to keep it in the home page's Lab news. Only rows with a Date are posted, lab-only events never are, and Lab life items stay on the News page. The script also runs nightly so upcoming events move into the feed after their date. Its code is in `tools/create-news-form.gs` and `tools/sync-news.gs`; it uses the same GitHub token as the alumni sync.
+Lab members fill out the **NPRL News & Events** form (the link is shared inside the lab only, never on the website). New responses land in **NPRL News & Events (Responses)** as **Pending**. To publish one, set its Status to **Approved**; it appears on the News page within a few minutes (the sheet's "Website news sync" script sends it; **Website > Update News page now** sends it right away). **Hidden** takes it down. Tick **Pin to home page** to keep it in the home page's Lab news. Only rows with a Date are posted, lab-only events never are, and Lab life items stay on the News page. The script also runs nightly so upcoming events move into the feed after their date. Its code is in `tools/create-news-form.gs` and `tools/sync-news.gs`; it uses the same GitHub token as the alumni sync.
 
 ## A note on YAML files
 
