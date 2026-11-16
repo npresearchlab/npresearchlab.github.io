@@ -108,8 +108,8 @@ Pinned items first, then the newest. Lab life and upcoming events stay on the Ne
           {% assign shown = 0 %}
           {% for group in (1..2) %}{% if group == 1 %}{% assign list = pinned %}{% else %}{% assign list = rest %}{% endif %}
           {% for n in list %}{% if shown < 3 %}{% assign shown = shown | plus: 1 %}
-        <li>
-          <time datetime="{{ n.date }}">{{ n.date | date: "%b %Y" }}</time>
+        <li{% if n.date == "" %} class="no-date"{% endif %}>
+          {% if n.date != "" %}<time datetime="{{ n.date }}">{{ n.date | date: "%b %Y" }}</time>{% endif %}
           <div>
             <h3>{{ n.title }}</h3>
             {% if n.text and n.text != "" %}<p>{{ n.text }}</p>{% elsif n.plain %}<p>{{ n.plain }}</p>{% endif %}

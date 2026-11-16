@@ -23,3 +23,7 @@
   label: Lab life
   one: Lab life
   color: gray-2
+- key: event
+  label: Events
+  one: Event
+  color: ink

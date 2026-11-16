@@ -14,7 +14,8 @@
  *   - It also runs every night, so upcoming events move into the feed once their date passes.
  *   - The sheet has a "Website > Update News page now" menu.
  *
- * Only rows with Status = Approved and a Date are posted. Lab-only events are never posted.
+ * Only rows with Status = Approved are posted. A row without a Date shows without one, at the top of its year;
+ * an event needs a Date. Lab-only events are never posted.
  * Photos are copied to the website once (resized by Google to about 1000px wide).
  * The separate "NPRL news form" script (create-news-form.gs) keeps the form's member checkboxes current.
  */
@@ -87,11 +88,11 @@ function buildNews_() {
   var values = sheet.getDataRange().getValues();
   var head = values.shift().map(function (h) { return String(h).toLowerCase(); });
   function col(start) {
-    for (var i = 0; i < head.length; i++) if (head[i].indexOf(start) === 0 && head[i] !== 'timestamp') return i;
+    for (var i = 0; i < head.length; i++) if (head[i].indexOf(start) === 0 && (start === 'timestamp' || head[i] !== 'timestamp')) return i;
     return -1;
   }
   var C = {
-    status: col('status'), pin: col('pin'), headline: col('headline'), date: col('date'),
+    status: col('status'), pin: col('pin'), headline: col('headline'), date: col('date'), timestamp: col('timestamp'),
     text: col('one or two sentences'), people: col('lab members'), link: col('link'),
     type: col('what kind'), giver: col('who gave'), journal: col('journal'), plain: col('in plain words'),
     authors: col('authors'), meeting: col('conference'), city: col('city'), kind: col('talk or poster?'),
@@ -110,19 +111,22 @@ function buildNews_() {
   values.forEach(function (row) {
     if (s(row, 'status').toLowerCase() !== 'approved') return;
     var d = v(row, 'date');
-    if (!d) return;
-    var date = d instanceof Date ? Utilities.formatDate(d, NEWS_TZ, 'yyyy-MM-dd') : String(d).slice(0, 10);
+    var date = !d ? '' : (d instanceof Date ? Utilities.formatDate(d, NEWS_TZ, 'yyyy-MM-dd') : String(d).slice(0, 10));
     var typeText = s(row, 'type').toLowerCase();
     var type = 'milestone';
     Object.keys(NEWS_TYPES).forEach(function (k) { if (typeText.indexOf(k) === 0) type = NEWS_TYPES[k]; });
     if (type === 'event' && s(row, 'audience').toLowerCase().indexOf('lab only') === 0) return;
+    if (type === 'event' && !date) return; // an event needs its date
 
     var title = s(row, 'headline');
+    // No date: shown without one, filed under the year it was submitted (or this year), at the top of that year.
+    var ts = v(row, 'timestamp');
+    var year = date ? date.slice(0, 4) : Utilities.formatDate(ts instanceof Date ? ts : new Date(), NEWS_TZ, 'yyyy');
     var item = {
-      id: slug_(title) + '-' + date.slice(0, 7),
+      id: slug_(title) + (date ? '-' + date.slice(0, 7) : ''),
       type: type,
       date: date,
-      year: date.slice(0, 4),
+      year: year,
       title: title,
       text: s(row, 'text'),
       people: peopleIn_(s(row, 'people'), members),
@@ -156,7 +160,8 @@ function buildNews_() {
     }
     items.push(item);
   });
-  items.sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+  function key(x) { return x.year + '-' + (x.date ? x.date.slice(5) : '99-99'); }
+  items.sort(function (a, b) { return key(a) < key(b) ? 1 : key(a) > key(b) ? -1 : 0; });
   return items;
 }
 
